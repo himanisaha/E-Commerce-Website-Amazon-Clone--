@@ -1,43 +1,70 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const Hero = styled.section`
-  background: linear-gradient(120deg, #232f3e, #37475a);
-  color: #fff;
-  padding: 40px 20px;
-`;
+import CategoryNav from '../components/sections/CategoryNav.jsx';
+import HeroSlider from '../components/sections/HeroSlider.jsx';
 
 function HomePage() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get('https://fakestoreapi.com/products?limit=8')
-      .then(res => setProducts(res.data))
-      .catch(err => console.error('Failed to load products', err));
+      .get('https://fakestoreapi.com/products')
+      .then((res) => {
+        setProducts(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Failed to load products', err);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return (
+      <>
+        <CategoryNav />
+        <HeroSlider />
+        <div className="container-fluid px-4 my-4">
+          <p className="mb-0">Loading products...</p>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
-      <Hero>
-       <div className="container-fluid my-4">
-          <h1 className="h3 fw-bold">Welcome to Amazon Clone</h1>
-          <p className="mb-0">Browse popular products and add them to your cart.</p>
-        </div>
-      </Hero>
+      {/* Category nav directly under navbar */}
+      <CategoryNav />
 
-     <div className="container-fluid my-4">
-        <div className="row g-3">
-          {products.map(p => (
-            <div className="col-6 col-md-3" key={p.id}>
+      {/* Hero slider carousel */}
+      <HeroSlider />
+
+      <div className="container-fluid my-4 px-4">
+        <h1 className="h3 fw-bold">Welcome to Amazon Clone</h1>
+        <p className="mb-0">Browse popular products and add them to your cart.</p>
+
+        <div className="row g-3 mt-3">
+          {products.map((p) => (
+            <div className="col-6 col-md-3 col-xl-2" key={p.id}>
               <div className="card h-100">
-                <img src={p.image} className="card-img-top p-3" style={{ height: 180, objectFit: 'contain' }} />
+                <img
+                  src={p.image}
+                  className="card-img-top p-3"
+                  style={{ height: 180, objectFit: 'contain' }}
+                  alt={p.title}
+                />
                 <div className="card-body d-flex flex-column">
-                  <h6 className="card-title flex-grow-1">{p.title}</h6>
+                  <h6 className="card-title flex-grow-1 small">{p.title}</h6>
                   <p className="fw-bold mb-2">${p.price}</p>
-                  <Link to={`/product/${p.id}`} className="btn btn-sm btn-warning w-100">
+                  <span className="badge bg-light text-dark mb-2 text-capitalize">
+                    {p.category}
+                  </span>
+                  <Link
+                    to={`/product/${p.id}`}
+                    className="btn btn-sm btn-warning w-100"
+                  >
                     View details
                   </Link>
                 </div>

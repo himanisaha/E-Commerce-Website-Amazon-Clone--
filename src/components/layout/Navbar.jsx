@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const categories = [
+    'Electronics',
+    'Jewelery',
+    "Men's Clothing",
+    "Women's Clothing",
+  ];
+
   return (
     <header className="bg-dark text-white">
       <nav className="navbar navbar-expand-lg navbar-dark container-fluid px-3">
@@ -22,7 +31,9 @@ function Navbar() {
           <select className="form-select w-auto rounded-0 rounded-start small">
             <option>All</option>
             <option>Electronics</option>
-            <option>Fashion</option>
+            <option>Jewelery</option>
+            <option>Men's Clothing</option>
+            <option>Women's Clothing</option>
           </select>
           <input
             type="search"
@@ -59,27 +70,55 @@ function Navbar() {
         </ul>
       </nav>
 
-      {/* Secondary nav bar */}
+      {/* Secondary nav bar with categories */}
       <div className="bg-secondary bg-opacity-75 small">
-        <div className="container-fluid px-3 d-flex gap-3 py-1 text-white">
+        <div className="container-fluid px-3 d-flex gap-2 py-2 text-white">
           <button className="btn btn-sm btn-link text-white text-decoration-none p-0">
             <i className="bi bi-list me-1" />
             All
           </button>
+
+          {/* Category dropdowns */}
+          {categories.map((category) => (
+            <div key={category} className="position-relative">
+              <button
+                className="btn btn-sm btn-link text-white text-decoration-none p-0"
+                onMouseEnter={() => setOpenDropdown(category)}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                {category}
+              </button>
+
+              {/* Dropdown menu */}
+              {openDropdown === category && (
+                <div
+                  className="position-absolute bg-white text-dark rounded mt-2 shadow"
+                  style={{ minWidth: 150, zIndex: 1000 }}
+                  onMouseEnter={() => setOpenDropdown(category)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <Link
+                    to={`/?category=${category}`}
+                    className="dropdown-item d-block px-3 py-2 text-decoration-none text-dark"
+                  >
+                    View All
+                  </Link>
+                  <a href="#" className="dropdown-item d-block px-3 py-2">
+                    Best Sellers
+                  </a>
+                  <a href="#" className="dropdown-item d-block px-3 py-2">
+                    New Arrivals
+                  </a>
+                  <a href="#" className="dropdown-item d-block px-3 py-2">
+                    Deals
+                  </a>
+                </div>
+              )}
+            </div>
+          ))}
+
           <button className="btn btn-sm btn-link text-white text-decoration-none p-0">
-            Fresh
-          </button>
-          <button className="btn btn-sm btn-link text-white text-decoration-none p-0">
-            Best Sellers
-          </button>
-          <button className="btn btn-sm btn-link text-white text-decoration-none p-0">
-            Mobiles
-          </button>
-          <button className="btn btn-sm btn-link text-white text-decoration-none p-0">
-            Fashion
-          </button>
-          <button className="btn btn-sm btn-link text-white text-decoration-none p-0">
-            Electronics
+            Today's Deals
           </button>
         </div>
       </div>
@@ -88,3 +127,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
