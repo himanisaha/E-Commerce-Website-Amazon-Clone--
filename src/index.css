@@ -53,6 +53,17 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+/* Generic hover box for navbar and category items */
+.nav-hover-box {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-hover-box:hover {
+  border: 2px solid rgba(255, 255, 255, 0.6);  /* white border on hover */
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
 
 @media (prefers-color-scheme: light) {

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import CategoryNav from '../components/sections/CategoryNav.jsx';
-import HeroSlider from '../components/sections/HeroSlider.jsx';
+import Navbar from '../components/layout/Navbar';
+import CategoryNav from '../components/sections/CategoryNav';
+import HeroSlider from '../components/sections/HeroSlider';
+
 
 function HomePage() {
   const [products, setProducts] = useState([]);
@@ -24,6 +26,7 @@ function HomePage() {
   if (loading) {
     return (
       <>
+        <Navbar />
         <CategoryNav />
         <HeroSlider />
         <div className="container-fluid px-4 my-4">
@@ -35,7 +38,7 @@ function HomePage() {
 
   return (
     <>
-      {/* Category nav directly under navbar */}
+      {/* {/* Category nav directly under navbar } */}
       <CategoryNav />
 
       {/* Hero slider carousel */}
@@ -63,8 +66,7 @@ function HomePage() {
                   </span>
                   <Link
                     to={`/product/${p.id}`}
-                    className="btn btn-sm btn-warning w-100"
-                  >
+                    className="btn btn-sm btn-warning w-100">
                     View details
                   </Link>
                 </div>

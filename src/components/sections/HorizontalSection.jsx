@@ -45,4 +45,5 @@ function HorizontalSection({ title, products }) {
   );
 }
 
+
 export default HorizontalSection;
