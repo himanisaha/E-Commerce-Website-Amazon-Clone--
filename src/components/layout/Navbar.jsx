@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext'; // adjust path if needed
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -5,7 +7,12 @@ function Navbar() {
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [showAccountDropdown, setShowAccountDropdown] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const { cartItems } = useContext(CartContext);
 
+  const totalItems = cartItems.reduce(
+    (sum, item) => sum + item.qty,
+    0
+  );
   const languages = [
     { code: 'EN', name: 'English - EN', flag: '🇮🇳' },
     { code: 'HI', name: 'हिंदी - HI', flag: '🇮🇳' },
@@ -351,16 +358,17 @@ function Navbar() {
               <span
                 className="position-absolute"
                 style={{
-                  top: "-7px",            // vertical alignment
-                  left: "34%",             // center horizontally
-                  transform: "translateX(-50%)", // EXACT centering
+                  top: "-7px",
+                  left: "34%",
+                  transform: "translateX(-50%)",
                   color: "#f08804",
                   fontSize: "18px",
                   fontWeight: "700",
                 }}
               >
-                0
+                 {totalItems}
               </span>
+
 
               {/* Cart Icon */}
               <img
