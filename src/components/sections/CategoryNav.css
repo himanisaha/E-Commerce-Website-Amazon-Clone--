@@ -1,0 +1,59 @@
+.category-nav {
+  background-color: #232f3e;
+  /* dark amazon grey */
+  border-bottom: 1px solid #222;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-nav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.category-nav::-webkit-scrollbar-track {
+  background: #232f3e;
+}
+
+.category-nav::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 2px;
+}
+
+.category-nav__link {
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.category-nav__link:hover {
+  border-bottom-color: #ff9900;
+  color: #fff;
+}
+
+.side-item {
+  padding: 6px 0;
+  font-size: 15px;
+  cursor: pointer;
+  color: #111;
+}
+
+.side-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Keep image and .in perfectly aligned */
+.navbar-brand img {
+  display: block;
+}
+
+/* Fine‑tune vertical position of .in */
+.logo-in {
+  font-size: 15px;
+  /* similar visual height to logo text */
+  line-height: 1;
+  /* remove extra vertical space */
+  position: relative;
+  top: -2px;
+  /* move up; adjust 1–3px until it matches */
+}
