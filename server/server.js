@@ -27,6 +27,10 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.error(err));
 
+  app.get("/test", (req, res) => {
+  res.json({ message: "Backend is working" });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
