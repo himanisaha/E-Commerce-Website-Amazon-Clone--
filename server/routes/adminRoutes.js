@@ -1,19 +1,34 @@
 const express = require("express");
-const Product = require("../models/Product");
-const auth = require("../middleware/authMiddleware");
+const User = require("../models/User");
+const jwt = require("jsonwebtoken");
 
 const router = express.Router();
 
-// Add product (Admin)
-router.post("/product", auth, async (req, res) => {
-  const product = await Product.create(req.body);
-  res.json(product);
-});
+// ✅ ADMIN LOGIN
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
 
-// Delete product
-router.delete("/product/:id", auth, async (req, res) => {
-  await Product.findByIdAndDelete(req.params.id);
-  res.json({ message: "Deleted" });
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user || !user.isAdmin) {
+      return res.status(401).json({ message: "Not an admin" });
+    }
+
+    if (user.password !== password) {
+      return res.status(401).json({ message: "Invalid password" });
+    }
+
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT_SECRET || "secret",
+      { expiresIn: "1d" }
+    );
+
+    res.json({ token, user });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 module.exports = router;

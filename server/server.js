@@ -10,6 +10,7 @@ const userRoutes = require("./routes/userRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const bannerRoutes = require("./routes/bannerRoutes");
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.use(express.json());
 // 🔹 Static folders
 app.use("/products", express.static(path.join(__dirname, "public/products")));
 app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
+app.use("/banners", express.static(path.join(__dirname, "public/banners")));
+
 
 // 🔹 API routes (THIS IS WHERE YOUR CODE GOES ✅)
 app.use("/api/products", productRoutes);
@@ -27,6 +30,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/banners", bannerRoutes);
 
 // 🔹 Test route
 app.get("/test", (req, res) => {
