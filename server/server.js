@@ -30,6 +30,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/admin/products", require("./routes/adminProducts")); 
 app.use("/api/banners", bannerRoutes);
 
 // 🔹 Test route

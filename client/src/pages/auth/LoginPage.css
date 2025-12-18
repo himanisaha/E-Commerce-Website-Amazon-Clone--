@@ -1,0 +1,53 @@
+.amazon-auth-page {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.amazon-auth-header {
+  border-bottom: none;
+}
+
+.amazon-auth-logo {
+  height: 30px;
+}
+
+.amazon-auth-main {
+  margin-top: 24px;
+}
+
+.amazon-auth-card {
+  max-width: 350px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.amazon-auth-submit {
+  background-color: #f0c14b;
+  border-color: #a88734 #9c7e31 #846a29;
+}
+
+.amazon-auth-submit:hover {
+  background-color: #f7ca00;
+}
+
+.amazon-auth-terms {
+  color: #111;
+}
+
+.amazon-auth-help-link {
+  display: block;
+  margin-top: 8px;
+}
+
+.amazon-auth-create-btn {
+  max-width: 350px;
+}
+
+.amazon-auth-footer {
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+}
+.amazon-auth-logo {
+  margin-top: 40px;    /* pushes logo down inside header */
+}
+

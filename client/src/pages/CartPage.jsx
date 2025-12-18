@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 function CartPage() {
-  const {
-    cartItems,
-    increaseQty,
-    decreaseQty,
-    removeFromCart,
-  } = useContext(CartContext);
+  const { cartItems, increaseQty, decreaseQty, removeFromCart } =
+    useContext(CartContext);
+  const navigate = useNavigate();
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.qty,
@@ -37,11 +35,14 @@ function CartPage() {
               <div className="row align-items-center">
                 <div className="col-md-3 text-center">
                   <img
-                    src={item.image.startsWith("http") ? item.image : `http://localhost:8000${item.image}`}
+                    src={
+                      item.image.startsWith("http")
+                        ? item.image
+                        : `http://localhost:8000${item.image}`
+                    }
                     alt={item.title}
                     style={{ height: 120, objectFit: "contain" }}
                   />
-
                 </div>
 
                 <div className="col-md-6">
@@ -63,7 +64,6 @@ function CartPage() {
                     <button
                       className="btn btn-outline-secondary btn-sm"
                       onClick={() => increaseQty(item._id)}
-
                     >
                       +
                     </button>
@@ -78,7 +78,7 @@ function CartPage() {
                 </div>
 
                 <div className="col-md-3 text-end fw-bold">
-                  ₹{(item.price * 85 * item.qty).toFixed(0)}
+                  ₹{(item.price * item.qty).toFixed(0)}
                 </div>
               </div>
             </div>
@@ -92,12 +92,19 @@ function CartPage() {
               Subtotal ({cartItems.reduce((s, i) => s + i.qty, 0)} items):
             </h6>
             <h5 className="fw-bold text-danger">
-              ₹{(subtotal * 85).toFixed(0)}
+              ₹{subtotal .toFixed(0)}
             </h5>
-
-            <button className="btn btn-warning w-100 mt-3">
+            <button
+              type="button"
+              className="btn btn-warning w-100 mt-3"
+              onClick={() => {
+                console.log("Proceed clicked from CartPage");
+                navigate("/payment");
+              }}
+            >
               Proceed to Buy
             </button>
+
           </div>
         </div>
       </div>

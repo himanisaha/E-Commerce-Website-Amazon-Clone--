@@ -6,7 +6,7 @@ const AdminLayout = () => {
     <div className="d-flex">
       <AdminSidebar />
       <div className="flex-grow-1 p-4 bg-light min-vh-100">
-        <Outlet />
+        <Outlet /> {/* 👈 REQUIRED */}
       </div>
     </div>
   );

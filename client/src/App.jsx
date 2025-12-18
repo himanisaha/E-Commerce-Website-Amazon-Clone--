@@ -1,84 +1,90 @@
-import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import HomePage from './pages/HomePage.jsx';
-import ProductPage from './pages/ProductPage.jsx';
-import CartPage from './pages/CartPage.jsx';
-import Navbar from './components/layout/Navbar.jsx';
-import Footer from './components/layout/Footer.jsx';
-import { CartProvider } from "./context/CartContext";
+import React, { useContext } from "react";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+
+import HomePage from "./pages/HomePage.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
+import CartPage from "./pages/CartPage.jsx";
+import Navbar from "./components/layout/Navbar.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
+import Footer from "./components/layout/Footer.jsx";
+
+import LoginPage from "./pages/auth/LoginPage.jsx";
+import RegisterPage from "./pages/auth/RegisterPage.jsx";
+
+import { AuthContext } from "./context/AuthContext";
+import PaymentPage from "./admin/pages/checkout/PaymentPage.jsx";
 
 // ADMIN
-import AdminRoutes from "./admin/AdminRoutes"; // ✅ import only AdminRoutes
+import AdminRoutes from "./admin/AdminRoutes.jsx";
+
+function PrivateRoute({ children }) {
+  const { token, loading } = useContext(AuthContext);
+  if (loading) return null;
+  return token ? children : <Navigate to="/login" replace />;
+}
 
 function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
 
   return (
-    <CartProvider>
-      <div className="d-flex flex-column min-vh-100">
-        {/* USER NAVBAR */}
-        {!isAdminRoute && <Navbar />}
+    <div className="d-flex flex-column min-vh-100">
+      {/* User navbar hidden on admin routes */}
+      {!isAdminRoute && <Navbar />}
 
-        <main className="flex-fill">
-          <Routes>
-            {/* USER ROUTES */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/product/:id" element={<ProductPage />} />
-            <Route path="/cart" element={<CartPage />} />
+      <main className="flex-fill">
+        <Routes>
+          {/* USER ROUTES (now protected) */}
 
-            {/* ADMIN ROUTES */}
-            <Route path="/admin/*" element={<AdminRoutes />} />
-          </Routes>
-        </main>
+          <Route
+            path="/search/:keyword"
+            element={
+              <PrivateRoute>
+                <SearchPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/product/:id"
+            element={
+              <PrivateRoute>
+                <ProductPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute>
+                <CartPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/payment" element={<PaymentPage />} />
 
-        {/* USER FOOTER */}
-        {!isAdminRoute && <Footer />}
-      </div>
-    </CartProvider>
+
+          {/* Public auth route */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+
+
+          {/* ADMIN ROUTES */}
+          <Route path="/admin/*" element={<AdminRoutes />} />
+        </Routes>
+      </main>
+
+      {/* User footer hidden on admin routes */}
+      {!isAdminRoute && <Footer />}
+    </div>
   );
 }
 
 export default App;
-
-
-// import React from 'react';
-// import { Routes, Route } from 'react-router-dom';
-// import HomePage from './pages/HomePage.jsx';
-// import ProductPage from './pages/ProductPage.jsx';
-// import CartPage from './pages/CartPage.jsx';
-// import Navbar from './components/layout/Navbar.jsx';
-// import Footer from './components/layout/Footer.jsx';
-// import { CartProvider } from "./context/CartContext";
-
-// NEW PAGES
-// import KeepShoppingPage from './pages/KeepShoppingPage.jsx';
-// import ContinueDealsPage from './pages/ContinueDealsPage.jsx';
-// import RevampHomePage from './pages/RevampHomePage.jsx';
-// import ExploreMorePage from './pages/ExploreMorePage.jsx';
-
-// function App() {
-//   return (
-//     <CartProvider>
-//       <div className="d-flex flex-column min-vh-100">
-//         <Navbar />
-//         <main className="flex-fill">
-//           <Routes>
-//             <Route path="/" element={<HomePage />} />
-//             <Route path="/product/:id" element={<ProductPage />} />
-//             <Route path="/cart" element={<CartPage />} />
-            
-//             {/* 🔥 NEW SECTION ROUTES */}
-//             <Route path="/keep-shopping" element={<KeepShoppingPage />} />
-//             <Route path="/continue-deals" element={<ContinueDealsPage />} />
-//             <Route path="/revamp-home" element={<RevampHomePage />} />
-//             <Route path="/explore-more" element={<ExploreMorePage />} />
-//           </Routes>
-//         </main>
-//         <Footer />
-//       </div>
-//     </CartProvider>
-//   );
-// }
-
-// export default App;

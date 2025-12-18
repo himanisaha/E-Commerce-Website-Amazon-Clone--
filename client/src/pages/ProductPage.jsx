@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import RatingStars from "../components/common/RatingStars";
 import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
 
 function ProductPage() {
   const { id } = useParams();
@@ -13,6 +14,41 @@ function ProductPage() {
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
   const [showWishlist, setShowWishlist] = useState(false);
 
+  const { token } = useContext(AuthContext);
+
+  const handleOrderNow = async () => {
+    try {
+      if (!token) {
+        alert("Please login to place an order");
+        return;
+      }
+
+      await axios.post(
+        "http://localhost:8000/api/orders",
+        {
+          items: [
+            {
+              product: product._id,
+              name: product.name,
+              price: product.price,
+              qty: 1,
+            },
+          ],
+          totalPrice: product.price,
+          paymentMethod: "COD",
+
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      alert("Order placed successfully");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to place order");
+    }
+  };
 
 
   useEffect(() => {
@@ -51,7 +87,7 @@ function ProductPage() {
             <p className="text-secondary">{product.category}</p>
 
             <div className="mb-3">
-              <h4>₹{(product.price * 85).toFixed(0)}</h4>
+              <h4>₹{product.price .toFixed(0)}</h4>
               <p className="mb-0">
                 M.R.P: <span className="text-decoration-line-through">₹{(product.price * 100).toFixed(0)}</span>
                 <span className="text-success"> (25% off)</span>
@@ -87,14 +123,14 @@ function ProductPage() {
                   </div>
                   <hr />
                   <h5>About this item</h5>
-                  <ul>
+                  {Array.isArray(product.highlights) && product.highlights.length > 0 && (
                     <ul>
                       {product.highlights.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
                     </ul>
+                  )}
 
-                  </ul>
 
                   {!showAdditionalInfo && (
                     <div
@@ -141,7 +177,7 @@ function ProductPage() {
 
           {/* BUY BOX RIGHT */}
           <div className="col-md-3 border p-3 rounded">
-            <h4 className="fw-bold">₹{(product.price * 85).toFixed(0)}</h4>
+            <h4 className="fw-bold">₹{product.price .toFixed(0)}</h4>
 
             <div className="mb-2">
               <span className="badge bg-secondary mb-1">Fulfilled</span>
@@ -172,10 +208,7 @@ function ProductPage() {
 
             <button
               className="btn btn-orange w-100 mb-3"
-              onClick={() => {
-                addToCart(product);
-                navigate("/cart");
-              }}
+              onClick={handleOrderNow}
             >
               Buy Now
             </button>
@@ -224,21 +257,24 @@ function ProductPage() {
         <div className="mt-5">
 
           {/* PRODUCT SPECIFICATIONS */}
+          {/* PRODUCT SPECIFICATIONS */}
           <section className="mb-5">
             <h3>Product Specifications</h3>
 
-            <div className="row row-cols-1 row-cols-md-2 g-3">
-              {Object.entries(product.specifications).map(([key, value], index) => (
-                <div className="col" key={index}>
-                  <strong>{key}</strong>
-                  <p>{value}</p>
-                </div>
-              ))}
-            </div>
-
+            {product.specifications && Object.keys(product.specifications).length > 0 && (
+              <div className="row row-cols-1 row-cols-md-2 g-3">
+                {Object.entries(product.specifications).map(([key, value], index) => (
+                  <div className="col" key={index}>
+                    <strong>{key}</strong>
+                    <p>{value}</p>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <button className="btn btn-link p-0 mt-2">See all product details</button>
           </section>
+
 
           {/* CUSTOMERS SAY */}
           <section className="mb-5">
@@ -253,7 +289,6 @@ function ProductPage() {
             </div>
           </section>
 
-          {/* REVIEW HIGHLIGHTS */}
           {/* REVIEW HIGHLIGHTS */}
           <section className="mb-5">
             <h3>Highlights from customer reviews</h3>
