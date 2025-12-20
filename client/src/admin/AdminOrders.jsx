@@ -1,3 +1,4 @@
+// client/src/admin/AdminOrders.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -5,10 +6,29 @@ function AdminOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const token = localStorage.getItem("adminToken");
+
+  const updateStatus = async (orderId, newStatus) => {
+    try {
+      await axios.put(
+        `http://localhost:8000/api/orders/${orderId}/status`,
+        { status: newStatus },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      const { data } = await axios.get("http://localhost:8000/api/orders", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setOrders(data);
+    } catch (err) {
+      console.error("Failed to update status", err);
+      alert("Failed to update status");
+    }
+  };
+
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const token = localStorage.getItem("adminToken");
         console.log("AdminOrders token =", token);
 
         const { data } = await axios.get(
@@ -28,7 +48,7 @@ function AdminOrders() {
     };
 
     fetchOrders();
-  }, []);
+  }, [token]);
 
   if (loading) return <div>Loading orders...</div>;
 
@@ -55,7 +75,19 @@ function AdminOrders() {
                 <td>{order._id}</td>
                 <td>{order.userId?.name || "Unknown"}</td>
                 <td>₹{order.totalPrice}</td>
-                <td>{order.status}</td>
+                <td>
+                  <select
+                    value={order.status}
+                    onChange={(e) =>
+                      updateStatus(order._id, e.target.value)
+                    }
+                  >
+                    <option value="Pending">Pending</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Delivered">Delivered</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                </td>
                 <td>{new Date(order.createdAt).toLocaleString()}</td>
               </tr>
             ))}

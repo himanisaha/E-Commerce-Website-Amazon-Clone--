@@ -16,7 +16,7 @@ export function AuthProvider({ children }) {
             setToken(storedToken);
             setUser(JSON.parse(storedUser));
         }
-          setLoading(false);
+        setLoading(false);
     }, []);
     const login = async (email, password) => {
         const res = await axios.post("http://localhost:8000/api/users/login", {
@@ -29,6 +29,8 @@ export function AuthProvider({ children }) {
         setUser(user);
         localStorage.setItem("userToken", token);
         localStorage.setItem("userData", JSON.stringify(user));
+        setLoading(false);
+
     };
 
     const logout = () => {
@@ -37,10 +39,10 @@ export function AuthProvider({ children }) {
         localStorage.removeItem("userToken");
         localStorage.removeItem("userData");
     };
-
     return (
-        <AuthContext.Provider value={{ user, token, loading, login, logout }}>
+        <AuthContext.Provider value={{ user, setUser, token, loading, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
+
 }

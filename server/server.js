@@ -33,18 +33,18 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/admin/products", require("./routes/adminProducts")); 
 app.use("/api/banners", bannerRoutes);
 
-// 🔹 Test route
+// Test route
 app.get("/test", (req, res) => {
   res.json({ message: "Backend is working" });
 });
 
-// 🔹 DB connection
+//  DB connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.error(err));
 
-// 🔹 Server start
+// Server start
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

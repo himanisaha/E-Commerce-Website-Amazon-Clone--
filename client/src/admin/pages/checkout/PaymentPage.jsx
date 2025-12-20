@@ -27,13 +27,17 @@ function PaymentPage() {
     try {
       const token = localStorage.getItem("userToken");
       if (!token) return navigate("/login");
+      console.log("cart item sample:", cartItems[0]);
 
       await axios.post(
         "http://localhost:8000/api/orders",
         {
           items: cartItems.map((item) => ({
             productId: item._id,
+            name: item.name,
+            price: item.price,
             qty: item.qty,
+            image: item.image,      // ⬅️ add this
           })),
           totalPrice: subtotal,
           paymentMethod: method,
@@ -134,7 +138,7 @@ function PaymentPage() {
               <p className="mb-1" style={{ fontSize: "14px" }}>
                 Items ({itemsCount}):{" "}
                 <span style={{ fontWeight: 600 }}>
-                  ₹{subtotal .toFixed(0)}
+                  ₹{subtotal.toFixed(0)}
                 </span>
               </p>
               <hr className="my-2" />
@@ -142,7 +146,7 @@ function PaymentPage() {
                 className="mb-0"
                 style={{ color: "#b12704", fontWeight: 700, fontSize: "18px" }}
               >
-                Order total: ₹{subtotal .toFixed(0)}
+                Order total: ₹{subtotal.toFixed(0)}
               </p>
             </div>
           </div>

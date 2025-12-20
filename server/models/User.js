@@ -7,6 +7,9 @@ const userSchema = new mongoose.Schema(
     email: { type: String, unique: true },
     password: String,
     isAdmin: { type: Boolean, default: false },
+
+    // ✅ new: wishlist (array of Product ObjectIds)
+    wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
   },
   { timestamps: true }
 );

@@ -1,46 +1,72 @@
-import React from "react";
+// ProductCard.jsx
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import RatingStars from "../common/RatingStars.jsx";
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
+import "./ProductCard.css";
 
-function ProductCard({ product }) {
+function ProductCard({ product, inWishlist = false, onWishlistChange }) {
+  const { token } = useContext(AuthContext);
+
+  const handleWishlistClick = async (e) => {
+    e.preventDefault(); // don't navigate to product page when heart clicked
+    try {
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/users/wishlist/${product._id}`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      // let parent know so it can update UI (home or wishlist page)
+      if (onWishlistChange) {
+        onWishlistChange(product);
+      }
+    } catch (err) {
+      console.error("Failed to toggle wishlist", err);
+    }
+  };
+
   return (
     <div className="col">
       <div className="card h-100 shadow-sm border-0">
-
-        {/* IMAGE + TITLE */}
-        <Link
-          to={`/product/${product._id}`}
-          className="text-decoration-none text-dark">
-          <div className="position-relative text-center p-3">
+        {/* IMAGE + TITLE + HEART */}
+        <div className="position-relative text-center p-3">
+          <Link
+            to={`/product/${product._id}`}
+            className="text-decoration-none text-dark"
+          >
             <img
               src={`http://localhost:8000${product.image}`}
               alt={product.name}
               className="img-fluid"
               style={{ height: "180px", objectFit: "contain" }}
             />
+            <h6 className="product-title mt-2">{product.name}</h6>
+          </Link>
 
-            <h6 className="product-title mt-2">
-              {product.name}
-            </h6>
+          {/* DISCOUNT BADGE */}
+          <span className="badge bg-danger position-absolute top-0 start-0 m-2">
+            Save 25%
+          </span>
 
-            {/* DISCOUNT BADGE */}
-            <span className="badge bg-danger position-absolute top-0 start-0 m-2">
-              Save 25%
+          {/* WISHLIST HEART (filled on wishlist page) */}
+          <button onClick={handleWishlistClick} className="wishlist-btn">
+            <span className="wishlist-heart">
+              {inWishlist ? "♥" : "♡"}
             </span>
-          </div>
-        </Link>
+          </button>
+        </div>
 
         {/* BODY */}
         <div className="card-body pt-2 d-flex flex-column">
-
-          {/* RATING */}
           <div className="d-flex align-items-center mb-2">
             <RatingStars rating={product.rating || 0} />
-            <small className="text-muted ms-1">({product.rating || 0})</small>
+            <small className="text-muted ms-1">
+              ({product.rating || 0})
+            </small>
           </div>
 
-
-          {/* PRICE */}
           <div className="mb-2">
             <span className="fw-bold text-danger me-2">
               ₹{product.price}
@@ -50,8 +76,6 @@ function ProductCard({ product }) {
             </small>
           </div>
 
-          {/* BUTTON */}
-
           <div className="mt-auto">
             <Link to={`/product/${product._id}`}>
               <button className="btn btn-outline-primary btn-sm w-100">
@@ -60,11 +84,9 @@ function ProductCard({ product }) {
             </Link>
           </div>
         </div>
-
       </div>
     </div>
   );
 }
 
 export default ProductCard;
-

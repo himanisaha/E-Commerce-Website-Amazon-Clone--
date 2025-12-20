@@ -12,46 +12,67 @@ function SearchPage() {
         const fetchProducts = async () => {
             try {
                 const res = await axios.get("http://localhost:8000/api/products");
-                console.log("products response", res.data[0]);   // log after declaration
+                console.log("products response", res.data[0]);
                 setProducts(res.data || []);
             } catch (err) {
                 console.error("Error loading products", err);
             } finally {
                 setLoading(false);
             }
-
         };
 
         fetchProducts();
     }, []);
 
+    // 2. Filter products by keyword
+    const rawQ = (keyword || "").toLowerCase().trim();
 
-    //Filter products by keyword (title or category)
-    const q = (keyword || "").toLowerCase().trim();
-    const words = q.split(" ").filter(Boolean); // e.g. ["men's", "hoodie"]
+    const normalize = (s) =>
+        (s || "")
+            .toLowerCase()
+            .replace(/'/g, "")
+            .replace(/womens/g, "women")
+            .replace(/mens/g, "men");
+
+    const q = normalize(rawQ);
+    const words = q.split(" ").filter(Boolean);
+    const mainWord = words[words.length - 1] || "";
+
+    const isMenSearch = /\bmen\b/.test(q);
+    const isWomenSearch = /\bwomen\b/.test(q);
 
     const filtered = products.filter((p) => {
-        const title = (p.title || p.name || "").toLowerCase();
-        const category = (p.category || "").toLowerCase();
-        const gender = (p.gender || "").toLowerCase(); // must be "men", "women", etc.
+        const title = normalize(p.title || p.name || "");
+        const category = normalize(p.category || "");
+        const gender = normalize(p.gender || "");
+        const desc = normalize(p.description || "");
 
-        // 1) basic word matching
-        const haystack = `${title} ${category} ${gender}`;
-        const matchesWords = words.every((w) => haystack.includes(w));
+        const text = `${title} ${category} ${desc} ${gender}`;
+        const titleCategory = `${title} ${category}`;
 
-        // 2) extra gender rule: if query mentions "men", require gender === "men"
-        if (q.includes("men")) {
-            return matchesWords && gender === "men";
+        let matches;
+        if (words.length > 1) {
+            // every word in full text AND at least one in title/category
+            const allInText = words.every((w) => text.includes(w));
+            const oneInTitleCategory = words.some((w) => titleCategory.includes(w));
+            matches = allInText && oneInTitleCategory;
+        } else {
+            matches = mainWord ? text.includes(mainWord) : true;
         }
 
-        if (q.includes("women")) {
-            return matchesWords && gender === "women";
+        // If query contains "baking", require category to contain "baking"
+        if (q.includes("baking") && !category.includes("baking")) {
+            matches = false;
         }
 
-        return matchesWords;
+        if (isMenSearch) return matches && gender === "men";
+        if (isWomenSearch) return matches && gender === "women";
+        return matches;
     });
 
 
+
+    console.log("SEARCH PAGE ACTIVE", { keyword, count: filtered.length });
 
     if (loading) {
         return (
@@ -81,7 +102,7 @@ function SearchPage() {
 
                 <div className="row">
                     {filtered.map((product) => (
-                        <div key={product._id} className="col-md-3 mb-4">
+                        <div key={product._id} className="col-6 col-sm-4 col-md-3 mb-4">
                             <div className="card h-100 shadow-sm">
                                 <Link
                                     to={`/product/${product._id}`}
@@ -94,13 +115,13 @@ function SearchPage() {
                                                     ? product.image
                                                     : `http://localhost:8000${product.image}`
                                             }
-                                            alt={product.title}
+                                            alt={product.title || product.name}
                                             style={{ height: 160, objectFit: "contain" }}
                                         />
                                     </div>
                                     <div className="card-body">
                                         <h6 className="card-title" style={{ minHeight: 40 }}>
-                                            {product.title}
+                                            {product.title || product.name}
                                         </h6>
                                         <p className="mb-1" style={{ color: "#b12704" }}>
                                             ₹{product.price}

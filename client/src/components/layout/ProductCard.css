@@ -18,3 +18,25 @@
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+.wishlist-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 32px ;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ff5252;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.wishlist-heart {
+  font-size: 16px;
+  color: #d20000;
+  line-height: 1;
+}

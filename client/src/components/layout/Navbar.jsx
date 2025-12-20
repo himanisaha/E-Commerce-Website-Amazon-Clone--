@@ -28,7 +28,7 @@ function Navbar() {
     navigate(`/search/${encodeURIComponent(q)}`);
     setKeyword(""); // clear box
   };
-  
+
   const languages = [
     { code: "EN", name: "English - EN", flag: "🇮🇳" },
     { code: "HI", name: "हिंदी - HI", flag: "🇮🇳" },
@@ -219,220 +219,272 @@ function Navbar() {
           </li>
 
           {/* Account & Lists – different for logged in / logged out */}
-          <li className="nav-item d-none d-md-block position-relative nav-hover-box">
-            {token ? (
-              // Logged in: show name, dropdown only
-              <button
-                className="btn btn-link text-white text-decoration-none p-0 text-start"
-                style={{ cursor: "pointer" }}
-                onMouseEnter={() => setShowAccountDropdown(true)}
-                onMouseLeave={() => setShowAccountDropdown(false)}
-              >
-                <span style={{ fontSize: "14px" }}>
-                  Hello, {user?.name || "User"}
-                </span>
-                <br />
-                <span className="fw-semibold" style={{ fontSize: "13px" }}>
-                  Account &amp; Lists
-                </span>
-              </button>
-            ) : (
-              // Not logged in: link to /login
-              <Link
-                to="/login"
-                className="btn btn-link text-white text-decoration-none p-0 text-start"
-                style={{ cursor: "pointer" }}
-              >
-                <span style={{ fontSize: "14px" }}>Hello, sign in</span>
-                <br />
-                <span className="fw-semibold" style={{ fontSize: "13px" }}>
-                  Account &amp; Lists
-                </span>
-              </Link>
-            )}
+      {/* Account & Lists – different for logged in / logged out */}
+<li className="nav-item d-none d-md-block position-relative nav-hover-box">
+  {/* wrapper that controls hover */}
+  <div
+    onMouseEnter={() => setShowAccountDropdown(true)}
+    onMouseLeave={() => setShowAccountDropdown(false)}
+    style={{ position: "relative" }}
+  >
+    {token ? (
+      <button
+        className="btn btn-link text-white text-decoration-none p-0 text-start"
+        style={{ cursor: "pointer" }}
+      >
+        <span style={{ fontSize: "14px" }}>
+          Hello, {user?.name || "User"}
+        </span>
+        <br />
+        <span className="fw-semibold" style={{ fontSize: "13px" }}>
+          Account &amp; Lists
+        </span>
+      </button>
+    ) : (
+      <Link
+        to="/login"
+        className="btn btn-link text-white text-decoration-none p-0 text-start"
+        style={{ cursor: "pointer" }}
+      >
+        <span style={{ fontSize: "14px" }}>Hello, sign in</span>
+        <br />
+        <span className="fw-semibold" style={{ fontSize: "13px" }}>
+          Account &amp; Lists
+        </span>
+      </Link>
+    )}
 
-            {token && showAccountDropdown && (
-              <div
-                onMouseEnter={() => setShowAccountDropdown(true)}
-                onMouseLeave={() => setShowAccountDropdown(false)}
-                className="dropdown-menu show"
+    {token && showAccountDropdown && (
+      <div
+        className="dropdown-menu show"
+        style={{
+          position: "absolute",
+          top: "100%",
+          right: 0,
+          backgroundColor: "white",
+          color: "#131921",
+          minWidth: "450px",
+          borderRadius: "8px",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+          zIndex: 1000,
+          marginTop: "5px",
+          border: "1px solid #e0e0e0",
+          padding: "16px",
+          display: "block",
+        }}
+      >
+        {/* Profile Section */}
+        <div
+          style={{
+            paddingBottom: "16px",
+            borderBottom: "1px solid #e0e0e0",
+            marginBottom: "16px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ fontSize: "13px", color: "#131921" }}>
+              <strong>Who is shopping? Select a profile.</strong>
+            </span>
+            <button
+              style={{
+                backgroundColor: "white",
+                border: "1px solid #131921",
+                color: "#131921",
+                padding: "6px 12px",
+                borderRadius: "4px",
+                cursor: "pointer",
+                fontSize: "12px",
+                fontWeight: "bold",
+              }}
+            >
+              Manage Profiles
+            </button>
+          </div>
+        </div>
+
+        {/* Two Column Layout */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "20px",
+          }}
+        >
+          {/* Left Column - Your Lists */}
+          <div>
+            <div
+              style={{
+                fontSize: "13px",
+                fontWeight: "bold",
+                marginBottom: "12px",
+                color: "#131921",
+              }}
+            >
+              Your Lists
+            </div>
+            {[
+              "Shopping List",
+              "Create a Wish List",
+              "Wish from Any Website",
+              "Baby Wishlist",
+              "Discover Your Style",
+              "Explore Showroom",
+            ].map((item, idx) => (
+              <button
+                key={idx}
+                className="dropdown-item"
                 style={{
-                  position: "absolute",
-                  top: "100%",
-                  right: 0,
+                  width: "100%",
+                  padding: "8px 0",
+                  border: "none",
                   backgroundColor: "white",
-                  color: "#131921",
-                  minWidth: "450px",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                  zIndex: 1000,
-                  marginTop: "5px",
-                  border: "1px solid #e0e0e0",   // <-- fixed: one string
-                  padding: "16px",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  color: "#0066cc",
                   display: "block",
                 }}
-
               >
-                {/* Profile Section */}
-                <div
-                  style={{
-                    paddingBottom: "16px",
-                    borderBottom: "1px solid #e0e0e0",
-                    marginBottom: "16px",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span
-                      style={{ fontSize: "13px", color: "#131921" }}
-                    >
-                      <strong>
-                        Who is shopping? Select a profile.
-                      </strong>
-                    </span>
-                    <button
-                      style={{
-                        backgroundColor: "white",
-                        border: "1px solid #131921",
-                        color: "#131921",
-                        padding: "6px 12px",
-                        borderRadius: "4px",
-                        cursor: "pointer",
-                        fontSize: "12px",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      Manage Profiles
-                    </button>
-                  </div>
-                </div>
+                {item}
+              </button>
+            ))}
+          </div>
 
-                {/* Two Column Layout */}
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "20px",
-                  }}
-                >
-                  {/* Left Column - Your Lists */}
-                  <div>
-                    <div
-                      style={{
-                        fontSize: "13px",
-                        fontWeight: "bold",
-                        marginBottom: "12px",
-                        color: "#131921",
-                      }}
-                    >
-                      Your Lists
-                    </div>
-                    {[
-                      "Shopping List",
-                      "Create a Wish List",
-                      "Wish from Any Website",
-                      "Baby Wishlist",
-                      "Discover Your Style",
-                      "Explore Showroom",
-                    ].map((item, idx) => (
-                      <button
-                        key={idx}
-                        className="dropdown-item"
-                        style={{
-                          width: "100%",
-                          padding: "8px 0",
-                          border: "none",
-                          backgroundColor: "white",
-                          cursor: "pointer",
-                          textAlign: "left",
-                          fontSize: "12px",
-                          color: "#0066cc",
-                          display: "block",
-                        }}
-                      >
-                        {item}
-                      </button>
-                    ))}
-                  </div>
+          {/* Right Column - Your Account */}
+          <div>
+            <div
+              style={{
+                fontSize: "13px",
+                fontWeight: "bold",
+                marginBottom: "12px",
+                color: "#131921",
+              }}
+            >
+              Your Account
+            </div>
 
-                  {/* Right Column - Your Account */}
-                  <div>
-                    <div
-                      style={{
-                        fontSize: "13px",
-                        fontWeight: "bold",
-                        marginBottom: "12px",
-                        color: "#131921",
-                      }}
-                    >
-                      Your Account
-                    </div>
-                    {[
-                      "Your Account",
-                      "Your Orders",
-                      "Your Wish List",
-                      "Your Recommendations",
-                      "Returns",
-                      "Your Prime Membership",
-                      "Memberships & Subscriptions",
-                      "Your Seller Account",
-                    ].map((item, idx) => (
-                      <button
-                        key={idx}
-                        className="dropdown-item"
-                        style={{
-                          width: "100%",
-                          padding: "8px 0",
-                          border: "none",
-                          backgroundColor: "white",
-                          cursor: "pointer",
-                          textAlign: "left",
-                          fontSize: "12px",
-                          color: "#0066cc",
-                          display: "block",
-                        }}
-                      >
-                        {item}
-                      </button>
-                    ))}
+            <Link
+              to="/account/profile"
+              className="dropdown-item"
+              style={{
+                width: "100%",
+                padding: "8px 0",
+                border: "none",
+                backgroundColor: "white",
+                cursor: "pointer",
+                textAlign: "left",
+                fontSize: "12px",
+                color: "#0066cc",
+                display: "block",
+              }}
+            >
+              Your Account
+            </Link>
 
-                    {/* Sign out button */}
-                    <button
-                      className="dropdown-item"
-                      style={{
-                        width: "100%",
-                        padding: "8px 0",
-                        border: "none",
-                        backgroundColor: "white",
-                        cursor: "pointer",
-                        textAlign: "left",
-                        fontSize: "12px",
-                        color: "#0066cc",
-                        display: "block",
-                        marginTop: "8px",
-                      }}
-                      onClick={logout}
-                    >
-                      Sign Out
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </li>
+            <Link
+              to="/account/orders"
+              className="dropdown-item"
+              style={{
+                width: "100%",
+                padding: "8px 0",
+                border: "none",
+                backgroundColor: "white",
+                cursor: "pointer",
+                textAlign: "left",
+                fontSize: "12px",
+                color: "#0066cc",
+                display: "block",
+              }}
+            >
+              Your Orders
+            </Link>
+
+            <Link
+              to="/account/wishlist"
+              className="dropdown-item"
+              style={{
+                width: "100%",
+                padding: "8px 0",
+                border: "none",
+                backgroundColor: "white",
+                cursor: "pointer",
+                textAlign: "left",
+                fontSize: "12px",
+                color: "#0066cc",
+                display: "block",
+              }}
+            >
+              Your Wish List
+            </Link>
+
+            {[
+              "Your Recommendations",
+              "Returns",
+              "Your Prime Membership",
+              "Memberships & Subscriptions",
+              "Your Seller Account",
+            ].map((item, idx) => (
+              <button
+                key={idx}
+                className="dropdown-item"
+                style={{
+                  width: "100%",
+                  padding: "8px 0",
+                  border: "none",
+                  backgroundColor: "white",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  color: "#0066cc",
+                  display: "block",
+                }}
+              >
+                {item}
+              </button>
+            ))}
+
+            {/* Sign out at bottom like Amazon */}
+            <button
+              className="dropdown-item"
+              style={{
+                width: "100%",
+                padding: "8px 0",
+                border: "none",
+                backgroundColor: "white",
+                cursor: "pointer",
+                textAlign: "left",
+                fontSize: "12px",
+                color: "#0066cc",
+                display: "block",
+                marginTop: "8px",
+              }}
+              onClick={logout}
+            >
+              Sign Out
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</li>
+
 
           {/* Returns & Orders */}
           <li className="nav-item d-none d-md-block nav-hover-box">
-            <span style={{ fontSize: "14px" }}>Returns</span>
-            <br />
-            <span className="fw-semibold" style={{ fontSize: "13px" }}>
-              &amp; Orders
-            </span>
+            <Link to="/orders" className="text-decoration-none text-white">
+              <span style={{ fontSize: "14px" }}>Returns</span>
+              <br />
+              <span className="fw-semibold" style={{ fontSize: "13px" }}>
+                &amp; Orders
+              </span>
+            </Link>
           </li>
 
           {/* Cart */}

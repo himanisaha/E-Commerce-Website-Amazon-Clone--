@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 // Sub-schema for reviews
 const reviewSchema = new mongoose.Schema({
+  name: String,
   title: String,
   rating: Number,
   comment: String,
