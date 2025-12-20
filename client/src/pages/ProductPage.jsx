@@ -118,8 +118,8 @@ function ProductPage() {
 
   return (
     <div className="bg-white min-vh-100 pt-4">
-      <div className="container ">
-        {/* TOP SECTION */}
+      <div className="container">
+        {/* ================= TOP SECTION ================= */}
         <div className="row gx-4">
           {/* LEFT IMAGE SECTION */}
           <div className="col-md-4">
@@ -135,9 +135,12 @@ function ProductPage() {
           {/* MIDDLE SECTION */}
           <div className="col-md-5">
             <h3>{product.name}</h3>
+
             <div className="d-flex align-items-center mb-2">
-              <span className="text-warning me-2">★★★★☆</span>
-              <span className="text-muted">(128 ratings)</span>
+              <RatingStars rating={product.rating || 0} />
+              <span className="ms-2 text-muted">
+                ({product.numReviews || 0} ratings)
+              </span>
             </div>
 
             <p className="text-secondary">{product.category}</p>
@@ -147,7 +150,7 @@ function ProductPage() {
               <p className="mb-0">
                 M.R.P:{" "}
                 <span className="text-decoration-line-through">
-                  ₹{(product.price * 100).toFixed(0)}
+                  ₹{(product.price * 1.25).toFixed(0)}
                 </span>
                 <span className="text-success"> (25% off)</span>
               </p>
@@ -254,7 +257,9 @@ function ProductPage() {
                 <i className="bi bi-geo-alt"></i> Deliver to Himani - Baruipur
                 700144
               </p>
-              <p className="mb-1 text-danger fw-bold">Only 1 left in stock.</p>
+              <p className="mb-1 text-danger fw-bold">
+                Only 1 left in stock.
+              </p>
               <p className="mb-1">
                 Ships from <strong>Amazon</strong>
               </p>
@@ -272,7 +277,6 @@ function ProductPage() {
             <button
               className="btn btn-warning w-100 mb-2"
               onClick={() => {
-                console.log("ADDING PRODUCT:", product);
                 addToCart(product);
               }}
             >
@@ -334,13 +338,19 @@ function ProductPage() {
                     onClick={handleWishlistToggle}
                     disabled={wishLoading}
                   >
-                    <span className="me-2">{inWishlist ? "♥" : "♡"}</span>
+                    <span className="me-2">
+                      {inWishlist ? "♥" : "♡"}
+                    </span>
                     <div>
                       <div className="fw-semibold">
-                        {inWishlist ? "Shopping List (remove)" : "Shopping List"}
+                        {inWishlist
+                          ? "Shopping List (remove)"
+                          : "Shopping List"}
                       </div>
                       <small className="text-muted">
-                        {inWishlist ? "Tap to remove from wishlist" : "Private"}
+                        {inWishlist
+                          ? "Tap to remove from wishlist"
+                          : "Private"}
                       </small>
                     </div>
                   </button>
@@ -361,13 +371,284 @@ function ProductPage() {
                 </li>
               </ul>
             </div>
-
-
           </div>
         </div>
 
-        {/* BELOW SECTIONS (specs, reviews etc.) – keep your existing code here */}
-        {/* ... */}
+        {/* ================= BELOW SECTIONS ================= */}
+        <div className="mt-5">
+          {/* PRODUCT SPECIFICATIONS */}
+          <section className="mb-4">
+            <h3>Product Specifications</h3>
+
+            <div className="row row-cols-2 row-cols-md-4 g-3 mt-2">
+              <div className="col">
+                <div className="border rounded p-2 h-100">
+                  <strong>Material</strong>
+                  <p className="mb-0">Premium Leather</p>
+                </div>
+              </div>
+              <div className="col">
+                <div className="border rounded p-2 h-100">
+                  <strong>Capacity</strong>
+                  <p className="mb-0">25 Litres</p>
+                </div>
+              </div>
+              <div className="col">
+                <div className="border rounded p-2 h-100">
+                  <strong>Warranty</strong>
+                  <p className="mb-0">1 Year</p>
+                </div>
+              </div>
+              <div className="col">
+                <div className="border rounded p-2 h-100">
+                  <strong>Recommended Usage</strong>
+                  <p className="mb-0">Office, Travel, College</p>
+                </div>
+              </div>
+            </div>
+
+            <button className="btn btn-link p-0 mt-2">
+              See all product details
+            </button>
+          </section>
+
+          {/* CUSTOMERS SAY */}
+          <section className="mb-4">
+            <h3>Customers say</h3>
+
+            <div className="d-flex align-items-center border rounded p-3 mt-2">
+              <div
+                style={{
+                  fontSize: "32px",
+                  fontWeight: "bold",
+                  marginRight: "16px",
+                }}
+              >
+                4.2 ★
+              </div>
+              <div className="text-muted small">
+                <p className="mb-1">89% said it is comfortable</p>
+                <p className="mb-1">82% said quality is excellent</p>
+                <p className="mb-0">78% said worth the price</p>
+              </div>
+            </div>
+          </section>
+
+          {/* REVIEW HIGHLIGHTS */}
+          <section className="mb-4">
+            <h3>Highlights from customer reviews</h3>
+
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mt-2">
+              <div className="col">
+                <div className="border rounded p-3 h-100">
+                  <strong>Comfort</strong>
+                  <p className="mb-0">
+                    “Very comfortable straps even when fully loaded.”
+                  </p>
+                </div>
+              </div>
+              <div className="col">
+                <div className="border rounded p-3 h-100">
+                  <strong>Quality</strong>
+                  <p className="mb-0">“Material is premium & waterproof.”</p>
+                </div>
+              </div>
+              <div className="col">
+                <div className="border rounded p-3 h-100">
+                  <strong>Value</strong>
+                  <p className="mb-0">“Totally worth the money.”</p>
+                </div>
+              </div>
+              <div className="col">
+                <div className="border rounded p-3 h-100">
+                  <strong>Space</strong>
+                  <p className="mb-0">
+                    “Fits everything including my laptop.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* CUSTOMER REVIEWS */}
+          <section className="mb-4">
+            <h3>Customer reviews</h3>
+
+            <div className="row mt-2">
+              <div className="col-md-4 mb-3">
+                <div className="mb-2">
+                  <div style={{ fontSize: "28px" }}>★★★★☆</div>
+                  <p className="mb-0">
+                    {product.rating?.toFixed(1) || 4.2} out of 5
+                  </p>
+                </div>
+
+                <div>
+                  {[5, 4, 3, 2, 1].map((star) => (
+                    <div
+                      className="d-flex align-items-center mb-1"
+                      key={star}
+                    >
+                      <span style={{ width: 60 }}>{star} star</span>
+                      <div
+                        className="flex-grow-1 bg-light"
+                        style={{ height: 8, borderRadius: 4 }}
+                      >
+                        <div
+                          style={{
+                            width: `${star * 17}%`,
+                            height: "100%",
+                            borderRadius: 4,
+                            backgroundColor: "#ffa41c",
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="col-md-8 mb-3">
+                <div className="mb-2">
+                  <button className="btn btn-sm btn-outline-secondary me-1">
+                    Top reviews
+                  </button>
+                  <button className="btn btn-sm btn-outline-secondary me-1">
+                    Positive
+                  </button>
+                  <button className="btn btn-sm btn-outline-secondary me-1">
+                    Critical
+                  </button>
+                  <button className="btn btn-sm btn-outline-secondary me-1">
+                    Recent
+                  </button>
+                  <button className="btn btn-sm btn-outline-secondary me-1">
+                    Comfort
+                  </button>
+                  <button className="btn btn-sm btn-outline-secondary me-1">
+                    Quality
+                  </button>
+                  <button className="btn btn-sm btn-outline-secondary">
+                    Value
+                  </button>
+                </div>
+
+                <div>
+                  {/* If your backend returns reviews on product, map them here */}
+                  {Array.isArray(product.reviews) &&
+                  product.reviews.length > 0 ? (
+                    product.reviews.map((rev) => (
+                      <div className="mb-3 border-bottom pb-2" key={rev._id}>
+                        <h5 className="mb-1">{rev.title}</h5>
+                        <div className="text-warning small mb-1">
+                          {"★".repeat(rev.rating)}
+                          {"☆".repeat(5 - rev.rating)}
+                        </div>
+                        <p className="mb-1">{rev.comment}</p>
+                        <span className="text-muted small">
+                          by {rev.name} on{" "}
+                          {new Date(rev.createdAt).toLocaleDateString()}
+                        </span>
+                      </div>
+                    ))
+                  ) : (
+                    <>
+                      <div className="mb-3 border-bottom pb-2">
+                        <h5>Great quality!</h5>
+                        <div className="text-warning small mb-1">
+                          ★★★★★
+                        </div>
+                        <p className="mb-1">
+                          “Loved it. Premium material and very comfortable.”
+                        </p>
+                        <span className="text-muted small">
+                          Reviewed in India on 2 Jan 2025
+                        </span>
+                      </div>
+
+                      <div className="mb-3 border-bottom pb-2">
+                        <h5>Good but slightly overpriced</h5>
+                        <div className="text-warning small mb-1">
+                          ★★★★☆
+                        </div>
+                        <p className="mb-1">
+                          “Everything is good but price could be lower.”
+                        </p>
+                        <span className="text-muted small">
+                          Reviewed in India on 10 Jan 2025
+                        </span>
+                      </div>
+
+                      <div className="mb-3">
+                        <h5>Not spacious enough</h5>
+                        <div className="text-warning small mb-1">
+                          ★★★☆☆
+                        </div>
+                        <p className="mb-1">
+                          “Couldn’t fit my 16-inch laptop properly.”
+                        </p>
+                        <span className="text-muted small">
+                          Reviewed in India on 5 Dec 2024
+                        </span>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* WRITE REVIEW */}
+          <section className="mb-4">
+            <h3>Write a review</h3>
+
+            <form className="mt-2" onSubmit={submitReview}>
+              <div className="mb-2">
+                <label className="form-label">Rating</label>
+                <select
+                  className="form-select form-select-sm"
+                  value={rating}
+                  onChange={(e) => setRating(Number(e.target.value))}
+                >
+                  {[5, 4, 3, 2, 1].map((r) => (
+                    <option key={r} value={r}>
+                      {r}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="mb-2">
+                <label className="form-label">Title</label>
+                <input
+                  className="form-control form-control-sm"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Summary of your review"
+                />
+              </div>
+
+              <div className="mb-2">
+                <label className="form-label">Comment</label>
+                <textarea
+                  className="form-control"
+                  rows="3"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                  placeholder="Share your thoughts about this product..."
+                ></textarea>
+              </div>
+
+              {reviewMsg && (
+                <div className="small text-success mb-2">{reviewMsg}</div>
+              )}
+
+              <button className="btn btn-primary btn-sm">
+                Submit
+              </button>
+            </form>
+          </section>
+        </div>
       </div>
     </div>
   );

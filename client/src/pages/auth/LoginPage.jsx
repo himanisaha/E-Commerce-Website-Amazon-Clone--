@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext"; // adjust path if different
 import "./LoginPage.css"; // custom overrides
 
@@ -73,6 +73,12 @@ function LoginPage() {
                 Continue
               </button>
 
+              {/*Forgot password link */}
+              <div className="mt-2">
+                <Link to="/forgot-password" className="amazon-auth-help-link small">
+                  Forgot your password?
+                </Link>
+              </div>
               <p className="amazon-auth-terms mt-3 small">
                 By continuing, you agree to Amazon&apos;s Conditions of Use and
                 Privacy Notice.

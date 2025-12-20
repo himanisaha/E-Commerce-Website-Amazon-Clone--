@@ -1,42 +1,57 @@
+// client/src/admin/Dashboard.jsx (or AdminDashboard.jsx)
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Dashboard = () => {
+function AdminDashboard() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+
+  const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const adminToken = localStorage.getItem("adminToken");
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/admin/stats");
-        setStats(res.data);
+        const { data } = await axios.get(
+          `${baseURL}/api/admin/stats/summary`,
+          { headers: { Authorization: `Bearer ${adminToken}` } }
+        );
+        setStats(data);
       } catch (err) {
-        setError("Failed to load dashboard stats");
+        console.error("Failed to load stats", err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchStats();
-  }, []);
+    if (adminToken) fetchStats();
+  }, [adminToken, baseURL]);
 
-  if (loading) return <h2>Loading dashboard...</h2>;
-  if (error) return <h2 style={{ color: "red" }}>{error}</h2>;
-
-  const { totalUsers, totalOrders, totalProducts, totalRevenue } = stats;
+  if (loading || !stats) return <div>Loading dashboard...</div>;
 
   return (
-    <>
-      <h2>Dashboard</h2>
-      <div style={{ display: "flex", gap: "20px" }}>
-        <div>Total Users: {totalUsers}</div>
-        <div>Total Orders: {totalOrders}</div>
-        <div>Total Products: {totalProducts}</div>
-        <div>Total Revenue: ₹{totalRevenue}</div>
+    <div>
+      <h1>Dashboard</h1>
+      <div className="d-flex flex-wrap gap-3 mt-3">
+        <div className="card p-3">
+          <h6>Total Users</h6>
+          <strong>{stats.usersCount}</strong>
+        </div>
+        <div className="card p-3">
+          <h6>Total Orders</h6>
+          <strong>{stats.ordersCount}</strong>
+        </div>
+        <div className="card p-3">
+          <h6>Total Products</h6>
+          <strong>{stats.productsCount}</strong>
+        </div>
+        <div className="card p-3">
+          <h6>Total Revenue</h6>
+          <strong>₹{stats.totalRevenue}</strong>
+        </div>
       </div>
-    </>
+    </div>
   );
-};
+}
 
-export default Dashboard;
+export default AdminDashboard;

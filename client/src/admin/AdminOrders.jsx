@@ -6,39 +6,45 @@ function AdminOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const token = localStorage.getItem("adminToken");
+  const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const adminToken = localStorage.getItem("adminToken");
 
-  const updateStatus = async (orderId, newStatus) => {
+  // get latest status from orderStatus timeline
+  const getCurrentStatus = (order) => {
+    if (!order.orderStatus || order.orderStatus.length === 0) {
+      return "Placed";
+    }
+    return order.orderStatus[order.orderStatus.length - 1].type || "Placed";
+  };
+
+  // ✅ your handler here
+  const handleStatusChange = async (orderId, status, note = "") => {
     try {
       await axios.put(
-        `http://localhost:8000/api/orders/${orderId}/status`,
-        { status: newStatus },
-        { headers: { Authorization: `Bearer ${token}` } }
+        `${baseURL}/api/admin/orders/${orderId}/status`,
+        { status, note },
+        { headers: { Authorization: `Bearer ${adminToken}` } }
       );
 
-      const { data } = await axios.get("http://localhost:8000/api/orders", {
-        headers: { Authorization: `Bearer ${token}` },
+      // reload orders after update
+      const { data } = await axios.get(`${baseURL}/api/orders`, {
+        headers: { Authorization: `Bearer ${adminToken}` },
       });
       setOrders(data);
     } catch (err) {
       console.error("Failed to update status", err);
-      alert("Failed to update status");
+      alert(
+        err.response?.data?.message || "Failed to update status"
+      );
     }
   };
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        console.log("AdminOrders token =", token);
-
-        const { data } = await axios.get(
-          "http://localhost:8000/api/orders",
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
-
-        console.log("AdminOrders data =", data);
+        const { data } = await axios.get(`${baseURL}/api/orders`, {
+          headers: { Authorization: `Bearer ${adminToken}` },
+        });
         setOrders(data);
       } catch (err) {
         console.error("Failed to load orders", err);
@@ -47,8 +53,8 @@ function AdminOrders() {
       }
     };
 
-    fetchOrders();
-  }, [token]);
+    if (adminToken) fetchOrders();
+  }, [adminToken, baseURL]);
 
   if (loading) return <div>Loading orders...</div>;
 
@@ -70,27 +76,34 @@ function AdminOrders() {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
-              <tr key={order._id}>
-                <td>{order._id}</td>
-                <td>{order.userId?.name || "Unknown"}</td>
-                <td>₹{order.totalPrice}</td>
-                <td>
-                  <select
-                    value={order.status}
-                    onChange={(e) =>
-                      updateStatus(order._id, e.target.value)
-                    }
-                  >
-                    <option value="Pending">Pending</option>
-                    <option value="Shipped">Shipped</option>
-                    <option value="Delivered">Delivered</option>
-                    <option value="Cancelled">Cancelled</option>
-                  </select>
-                </td>
-                <td>{new Date(order.createdAt).toLocaleString()}</td>
-              </tr>
-            ))}
+            {orders.map((order) => {
+              const currentStatus = getCurrentStatus(order);
+              return (
+                <tr key={order._id}>
+                  <td>{order._id}</td>
+                  <td>{order.userId?.name || "Unknown"}</td>
+                  <td>₹{order.totalPrice}</td>
+                  <td>
+                    <select
+                      value={currentStatus}
+                      onChange={(e) =>
+                        handleStatusChange(order._id, e.target.value)
+                      }
+                    >
+                      <option value="Placed">Placed</option>
+                      <option value="Packed">Packed</option>
+                      <option value="Shipped">Shipped</option>
+                      <option value="Out for delivery">
+                        Out for delivery
+                      </option>
+                      <option value="Delivered">Delivered</option>
+                      <option value="Cancelled">Cancelled</option>
+                    </select>
+                  </td>
+                  <td>{new Date(order.createdAt).toLocaleString()}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       )}

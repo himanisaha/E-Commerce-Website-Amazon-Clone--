@@ -1,79 +1,140 @@
 // client/src/pages/OrdersPage.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("userToken");
+    const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
     axios
-      .get("http://localhost:8000/api/orders/my-orders", {
+      .get(`${baseURL}/api/orders/my-orders`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setOrders(res.data || []))
       .catch(console.error);
   }, []);
 
+  const getCurrentStatus = (order) => {
+    if (!order.orderStatus || order.orderStatus.length === 0) {
+      return order.status || "Placed";
+    }
+    return order.orderStatus[order.orderStatus.length - 1].type;
+  };
+
   return (
     <div className="container my-4">
-      <h4>Your Orders</h4>
-      {orders.length === 0 && <p>No orders yet.</p>}
+      {/* page heading similar to Amazon */}
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h3 className="mb-0">Your Orders</h3>
+        <div className="text-muted small">({orders.length} orders)</div>
+      </div>
 
-      {orders.map((order) => (
-        <div key={order._id} className="border rounded p-3 mb-3">
-          <div className="d-flex justify-content-between">
-            <div>
-              <div className="fw-semibold">Order ID: {order._id}</div>
-              <div>
-                Placed on: {new Date(order.createdAt).toLocaleString()}
-              </div>
-              <div>Status: {order.status}</div>
-            </div>
-            <div className="text-end">
-              <div className="fw-semibold">Total: ₹{order.totalAmount}</div>
-              <div>Payment: {order.paymentMethod}</div>
-            </div>
-          </div>
+      {orders.length === 0 && <p>No orders placed yet.</p>}
 
-          <hr />
+      {orders.map((order) => {
+        const currentStatus = getCurrentStatus(order);
+        const addr = order.shippingAddress || {};
+        const firstItem = Array.isArray(order.items) ? order.items[0] : null;
 
-          {Array.isArray(order.items) &&
-            order.items.map((item) => {
-              console.log("order item:", item);   // add this
+        // image url like before
+        let thumbUrl = "";
+        if (firstItem && firstItem.image) {
+          const imgPath = firstItem.image;
+          const baseURL =
+            import.meta.env.VITE_API_URL || "http://localhost:8000";
+          thumbUrl = `${baseURL}${imgPath.startsWith("/") ? imgPath : `/products/${imgPath}`
+            }`;
+        }
 
-              const imgPath = item.image || "";
-              const fullUrl = imgPath
-                ? `http://localhost:8000${imgPath.startsWith("/") ? imgPath : `/products/${imgPath}`
-                }`
-                : "";
-
-              return (
-                <div
-                  key={item._id || item.productId}
-                  className="d-flex align-items-center mb-2"
-                >
-                  {fullUrl && (
-                    <img
-                      src={fullUrl}
-                      alt={item.name}
-                      style={{ width: 60, height: 60, objectFit: "cover" }}
-                      className="me-3"
-                    />
-                  )}
-                  <div className="flex-grow-1">
-                    <div>{item.name}</div>
-                    <div className="text-muted">
-                      Qty: {item.quantity} &nbsp;|&nbsp; Price: ₹{item.price}
-                    </div>
+        return (
+          <div
+            key={order._id}
+            className="border rounded-3 mb-3"
+            style={{ backgroundColor: "#fff" }}
+          >
+            {/* top bar: date + total + status */}
+            <div
+              className="px-3 py-2 border-bottom"
+              style={{ backgroundColor: "#f0f2f2" }}
+            >
+              <div className="d-flex flex-wrap small">
+                <div className="me-4">
+                  <span className="text-muted">ORDER PLACED</span>
+                  <div>{new Date(order.createdAt).toLocaleDateString()}</div>
+                </div>
+                <div className="me-4">
+                  <span className="text-muted">TOTAL</span>
+                  <div>₹{order.totalPrice}</div>
+                </div>
+                <div className="me-4">
+                  <span className="text-muted">SHIP TO</span>
+                  <div>{addr.fullName || "-"}</div>
+                </div>
+                <div className="ms-auto">
+                  <span className="text-muted">ORDER ID</span>
+                  <div className="text-truncate" style={{ maxWidth: 220 }}>
+                    {order._id}
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
+
+            {/* bottom section: item row + actions */}
+            <div className="p-3">
+              <div className="d-flex">
+                {/* thumbnail */}
+                {thumbUrl && (
+                  <div className="me-3">
+                    <img
+                      src={thumbUrl}
+                      alt={firstItem?.name}
+                      style={{
+                        width: 80,
+                        height: 80,
+                        objectFit: "cover",
+                        borderRadius: 4,
+                      }}
+                    />
+                  </div>
+                )}
+
+                {/* main info */}
+                <div className="flex-grow-1">
+                  <div className="mb-1 fw-semibold">{currentStatus}</div>
+                  <div className="mb-1">
+                    {firstItem?.name}
+                    {order.items.length > 1 &&
+                      ` (+${order.items.length - 1} more items)`}
+                  </div>
+                  <div className="small text-muted">
+                    Deliver to:{" "}
+                    {addr.addressLine1
+                      ? `${addr.addressLine1}, ${addr.city || ""} ${addr.postalCode || ""
+                      }`
+                      : "-"}
+                  </div>
+
+                  {/* action links like Amazon */}
+                  <div className="mt-2 d-flex flex-wrap small">
+                    <Link to={`/orders/${order._id}`} className="me-3">
+                      View order details
+                    </Link>
+                    <Link to={`/orders/${order._id}#track`} className="me-3">
+                      Track package
+                    </Link>
+                  </div>
 
 
-        </div>
-      ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

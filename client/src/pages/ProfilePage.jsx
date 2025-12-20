@@ -1,7 +1,6 @@
 // client/src/pages/ProfilePage.jsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 function ProfilePage() {
@@ -9,10 +8,17 @@ function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const { user, setUser } = useContext(AuthContext);
 
+  // ✅ password change state
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [pwdMsg, setPwdMsg] = useState("");
+
   useEffect(() => {
     const token = localStorage.getItem("userToken");
+    const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
     axios
-      .get("http://localhost:8000/api/users/me", {
+      .get(`${baseURL}/api/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -28,15 +34,39 @@ function ProfilePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("userToken");
-    await axios.put(
-      "http://localhost:8000/api/users/me",
-      form,
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+    const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+    await axios.put(`${baseURL}/api/users/me`, form, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
     const updatedUser = { ...user, name: form.name, email: form.email };
     localStorage.setItem("userData", JSON.stringify(updatedUser));
     setUser(updatedUser);
     alert("Profile updated");
+  };
+
+  // ✅ change password handler (updated)
+  const handleChangePassword = async (e) => {
+    e.preventDefault();
+    try {
+      const baseURL =
+        import.meta.env.VITE_API_URL || "http://localhost:8000";
+      const token = localStorage.getItem("userToken");
+
+      await axios.put(
+        `${baseURL}/api/users/change-password`,
+        { currentPassword, newPassword },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setPwdMsg("Password updated");
+      setCurrentPassword("");
+      setNewPassword("");
+    } catch (err) {
+      setPwdMsg(
+        err.response?.data?.message || "Failed to update password"
+      );
+    }
   };
 
   if (loading) return null;
@@ -44,7 +74,9 @@ function ProfilePage() {
   return (
     <div className="container my-4">
       <h4>Your Account</h4>
-      <div className="border rounded p-3" style={{ maxWidth: "500px" }}>
+
+      <div className="border rounded p-3 mb-4" style={{ maxWidth: "500px" }}>
+        <h5>Profile details</h5>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="form-label">Name</label>
@@ -69,6 +101,42 @@ function ProfilePage() {
             Save changes
           </button>
         </form>
+      </div>
+
+      {/* ✅ Change password section (updated layout) */}
+      <div className="border rounded p-3" style={{ maxWidth: "500px" }}>
+        <section className="mt-1">
+          <h5>Change password</h5>
+          <form onSubmit={handleChangePassword} style={{ maxWidth: 400 }}>
+            <div className="mb-2">
+              <label className="form-label">Current password</label>
+              <input
+                type="password"
+                className="form-control"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">New password</label>
+              <input
+                type="password"
+                className="form-control"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="btn btn-warning btn-sm mt-1"
+            >
+              Save changes
+            </button>
+            {pwdMsg && <div className="small mt-2">{pwdMsg}</div>}
+          </form>
+        </section>
       </div>
     </div>
   );

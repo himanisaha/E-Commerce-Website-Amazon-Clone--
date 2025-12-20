@@ -1,14 +1,39 @@
 const express = require("express");
 const Product = require("../models/Product");
-const { auth } = require("../middleware/authMiddleware"); // ✅ add this
+const { auth } = require("../middleware/authMiddleware");
 const router = express.Router();
 
-// GET all products
+// GET all products with filters + sorting
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.find();
+    const { category, minPrice, maxPrice, minRating, sort } = req.query;
+
+    const filter = {};
+
+    if (category && category !== "all") {
+      filter.category = category;
+    }
+
+    if (minPrice || maxPrice) {
+      filter.price = {};
+      if (minPrice) filter.price.$gte = Number(minPrice);
+      if (maxPrice) filter.price.$lte = Number(maxPrice);
+    }
+
+    if (minRating) {
+      filter.rating = { $gte: Number(minRating) };
+    }
+
+    // sorting
+    let sortOption = { createdAt: -1 }; // default: newest
+    if (sort === "price-asc") sortOption = { price: 1 };
+    if (sort === "price-desc") sortOption = { price: -1 };
+    if (sort === "rating-desc") sortOption = { rating: -1 };
+
+    const products = await Product.find(filter).sort(sortOption);
     res.json(products);
   } catch (error) {
+    console.error("Products GET error:", error);
     res.status(500).json({ message: error.message });
   }
 });
@@ -17,7 +42,8 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    if (!product) return res.status(404).json({ message: "Product not found" });
+    if (!product)
+      return res.status(404).json({ message: "Product not found" });
     res.json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -35,7 +61,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// ✅ NEW: add review to a product
+// add review to a product
 router.post("/:id/reviews", auth, async (req, res) => {
   const productId = req.params.id;
   const { rating, comment, title } = req.body;
@@ -47,8 +73,8 @@ router.post("/:id/reviews", auth, async (req, res) => {
     }
 
     const review = {
-      user: req.user.id,          // requires authMiddleware to set req.user
-      name: req.user.name,        // or req.user.email if you store that
+      user: req.user.id,
+      name: req.user.name,
       title,
       rating: Number(rating),
       comment,

@@ -1,8 +1,8 @@
+// server/routes/adminRoutes.js
 const express = require("express");
 const User = require("../models/User");
-const Order = require("../models/Order");      // ✅ add
-const Product = require("../models/Product");
 const jwt = require("jsonwebtoken");
+const { adminAuth } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
@@ -17,6 +17,7 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Not an admin" });
     }
 
+    // NOTE: for real projects use bcrypt; here you are comparing plain text
     if (user.password !== password) {
       return res.status(401).json({ message: "Invalid password" });
     }
@@ -29,26 +30,19 @@ router.post("/login", async (req, res) => {
 
     res.json({ token, user });
   } catch (error) {
+    console.error("Admin login error:", error);
     res.status(500).json({ message: "Server error" });
   }
 });
-// NEW: ADMIN STATS
-router.get("/stats", async (req, res) => {
+
+// ADMIN: GET ALL USERS (no passwords)
+router.get("/users", adminAuth, async (req, res) => {
   try {
-    const totalUsers = await User.countDocuments();
-    const totalOrders = await Order.countDocuments();
-    const totalProducts = await Product.countDocuments();
-
-    const deliveredOrders = await Order.find({ status: "Delivered" });
-    const totalRevenue = deliveredOrders.reduce(
-      (sum, order) => sum + (order.totalPrice || 0),
-      0
-    );
-
-    res.json({ totalUsers, totalOrders, totalProducts, totalRevenue });
-  } catch (error) {
-    console.error("Admin stats error:", error);
-    res.status(500).json({ message: "Failed to load admin stats" });
+    const users = await User.find().select("-password");
+    res.json(users);
+  } catch (err) {
+    console.error("Admin users error:", err);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
