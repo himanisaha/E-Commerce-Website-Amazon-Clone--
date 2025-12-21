@@ -9,6 +9,7 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,10 +34,11 @@ export default function RegisterPage() {
       <header className="amazon-auth-header py-3">
         <div className="container d-flex justify-content-center">
           <img
-            src="public/images/logos/amazon-logo.png"   // your logo path
+            src={`${API_BASE_URL}/logos/amazon-logo.png`}
             alt="Amazon"
             className="amazon-auth-logo"
           />
+
         </div>
       </header>
 

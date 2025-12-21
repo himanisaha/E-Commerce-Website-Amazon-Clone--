@@ -6,7 +6,7 @@ function CategoryNav() {
 
   const openMenu = () => setShowMenu(true);
   const closeMenu = () => setShowMenu(false);
-
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
   return (
     <>
       {/* TOP CATEGORY NAV */}
@@ -21,9 +21,9 @@ function CategoryNav() {
           onClick={openMenu}
         >
           <img
-            src="/images/icons/hamburger-menu.png"
+            src={`${API_BASE_URL}/icons/hamburger-menu.png`}
             alt="menu"
-            style={{ width: "18px", marginRight: "6px",marginLeft:" 7px" }}
+            style={{ width: "18px", marginRight: "6px", marginLeft: "7px" }}
           />
           <span style={{ fontSize: "16px", fontWeight: "600" }}>All</span>
         </div>

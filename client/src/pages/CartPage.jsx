@@ -6,7 +6,7 @@ function CartPage() {
   const { cartItems, increaseQty, decreaseQty, removeFromCart } =
     useContext(CartContext);
   const navigate = useNavigate();
-
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.qty,
     0
@@ -38,11 +38,12 @@ function CartPage() {
                     src={
                       item.image.startsWith("http")
                         ? item.image
-                        : `http://localhost:8000${item.image}`
+                        : `${API_BASE_URL}${item.image}`
                     }
                     alt={item.title}
                     style={{ height: 120, objectFit: "contain" }}
                   />
+
                 </div>
 
                 <div className="col-md-6">
@@ -92,7 +93,7 @@ function CartPage() {
               Subtotal ({cartItems.reduce((s, i) => s + i.qty, 0)} items):
             </h6>
             <h5 className="fw-bold text-danger">
-              ₹{subtotal .toFixed(0)}
+              ₹{subtotal.toFixed(0)}
             </h5>
             <button
               type="button"

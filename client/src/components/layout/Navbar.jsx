@@ -12,6 +12,7 @@ function Navbar() {
   const { token, user, logout } = useContext(AuthContext);   // NEW
   const [keyword, setKeyword] = useState("");
   const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
   const navigate = useNavigate();
 
@@ -49,7 +50,7 @@ function Navbar() {
           className="navbar-brand d-flex align-items-center me-3 nav-hover-box"
         >
           <img
-            src="/images/logos/amazon-logo-white.png"
+            src={`${API_BASE_URL}/logos/amazon-logo-white.png`}
             alt="Amazon logo"
             style={{
               width: "95px",
@@ -57,6 +58,7 @@ function Navbar() {
               objectFit: "contain",
             }}
           />
+
           <span className="ms-1 small text-light logo-in">.in</span>
         </Link>
 
@@ -505,17 +507,12 @@ function Navbar() {
               >
                 {totalItems}
               </span>
-
               <img
-                src="/images/icons/cart-icon.png"
+                src={`${API_BASE_URL}/icons/cart-icon.png`}
                 alt="Cart"
-                style={{
-                  width: "40px",
-                  height: "28px",
-                  objectFit: "contain",
-                  marginRight: "4px",
-                }}
+                style={{ width: "40px", height: "28px", objectFit: "contain", marginRight: "4px" }}
               />
+
 
               <span
                 className="fw-semibold"

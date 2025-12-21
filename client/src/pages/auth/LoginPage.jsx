@@ -8,6 +8,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +16,6 @@ function LoginPage() {
       await login(email, password);
       navigate("/");
     } catch (err) {
-      // optional: show backend message if present
       alert(err.response?.data?.message || "Login failed");
     }
   };
@@ -26,10 +26,11 @@ function LoginPage() {
       <header className="amazon-auth-header py-1">
         <div className="container d-flex justify-content-center">
           <img
-            src="public/images/logos/amazon-logo.png" // put your logo file in public/images or src and update path
+            src={`${API_BASE_URL}/logos/amazon-logo.png`}
             alt="Amazon"
             className="amazon-auth-logo"
           />
+
         </div>
       </header>
 

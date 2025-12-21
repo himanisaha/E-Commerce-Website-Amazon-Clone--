@@ -8,6 +8,8 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null); // ✅ Add error state
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
     useEffect(() => {
         const storedToken = localStorage.getItem("userToken");
@@ -18,31 +20,42 @@ export function AuthProvider({ children }) {
         }
         setLoading(false);
     }, []);
+
     const login = async (email, password) => {
-        const res = await axios.post("http://localhost:8000/api/users/login", {
-            email,
-            password,
-        });
-        const { token, user } = res.data;
+        setLoading(true);
+        setError(null); // ✅ Clear previous errors
+        try {
+            const res = await axios.post(`${API_BASE_URL}/api/users/login`, {
+                email,
+                password,
+            });
+            const { token, user } = res.data;
 
-        setToken(token);
-        setUser(user);
-        localStorage.setItem("userToken", token);
-        localStorage.setItem("userData", JSON.stringify(user));
-        setLoading(false);
-
+            setToken(token);
+            setUser(user);
+            localStorage.setItem("userToken", token);
+            localStorage.setItem("userData", JSON.stringify(user));
+            setLoading(false);
+        } catch (err) {
+            // ✅ Catch and handle errors properly
+            const errorMessage = err.response?.data?.message || "Login failed";
+            setError(errorMessage);
+            setLoading(false);
+            throw err; // Re-throw so LoginPage can show alert
+        }
     };
 
     const logout = () => {
         setToken(null);
         setUser(null);
+        setError(null); // ✅ Clear error on logout
         localStorage.removeItem("userToken");
         localStorage.removeItem("userData");
     };
+
     return (
-        <AuthContext.Provider value={{ user, setUser, token, loading, login, logout }}>
+        <AuthContext.Provider value={{ user, setUser, token, loading, error, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
-
 }
