@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
 
-// 🔹 Route imports
+//  Route imports
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
 const cartRoutes = require("./routes/cartRoutes");
@@ -18,11 +18,24 @@ const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
 
-// 🔹 Middlewares
-app.use(cors());
+// Middlewares
+// Middlewares
+const allowedOrigins = [
+  "https://ecommerce-website-amazon-clone.netlify.app",
+  "http://localhost:5173",
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
-// 🔹 Static folders
+
+//  Static folders
 app.use("/products", express.static(path.join(__dirname, "public/products")));
 app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
 app.use("/banners", express.static(path.join(__dirname, "public/banners")));
