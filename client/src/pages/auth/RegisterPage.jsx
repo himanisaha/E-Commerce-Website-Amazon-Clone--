@@ -15,14 +15,15 @@ export default function RegisterPage() {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post(`${BASE_URL}/api/users/register`, {
+      console.log('POST URL:', `${BASE_URL}/api/users/register`);
+      const res = await axios.post(`${BASE_URL}/api/users/register`, {
         name,
         email,
         password,
       });
-      navigate("/login");
+      console.log('register response:', res.data);
     } catch (err) {
-      alert(err.response?.data?.message || "Registration failed");
+      console.error('register error:', err.response?.data || err.message);
     } finally {
       setLoading(false);
     }

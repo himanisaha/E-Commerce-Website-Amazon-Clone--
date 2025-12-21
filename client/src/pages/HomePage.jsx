@@ -26,13 +26,21 @@ function HomePage() {
         if (minRating > 0) params.append("minRating", minRating);
         if (sort !== "featured") params.append("sort", sort); // ✅ send sort
 
-        const { data } = await axios.get(
+        const res = await axios.get(
           `${BASE_URL}/api/products?${params.toString()}`
         );
 
-        setProducts(data);
+        console.log("products API res:", res.data);
+
+        // ✅ ensure products is always an array
+        if (Array.isArray(res.data)) {
+          setProducts(res.data);
+        } else {
+          setProducts([]);
+        }
       } catch (error) {
         console.error("Error fetching products:", error);
+        setProducts([]); // ✅ keep it an array on error
       }
     };
 
@@ -47,15 +55,24 @@ function HomePage() {
         const res = await axios.get(`${BASE_URL}/api/users/wishlist`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        // res.data is array of product docs; map to ids
-        setWishlistIds(res.data.map((p) => p._id));
+
+        console.log("wishlist API res:", res.data);
+
+        // ✅ normalize to array before map
+        const list = Array.isArray(res.data)
+          ? res.data
+          : res.data.wishlist || res.data.data || [];
+
+        setWishlistIds(list.map((p) => p._id));
       } catch (err) {
         console.error("Failed to load wishlist on home", err);
+        setWishlistIds([]); // keep it safe on error
       }
     };
 
     fetchWishlist();
   }, [token]);
+
 
   const handleWishlistChange = (product) => {
     // toggle id locally after ProductCard successfully called PUT
@@ -234,14 +251,15 @@ function HomePage() {
 
             {/* Products grid */}
             <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
-              {products.map((product) => (
-                <ProductCard
-                  key={product._id}
-                  product={product}
-                  inWishlist={wishlistIds.includes(product._id)}
-                  onWishlistChange={handleWishlistChange}
-                />
-              ))}
+              {Array.isArray(products) &&
+                products.map((product) => (
+                  <ProductCard
+                    key={product._id}
+                    product={product}
+                    inWishlist={wishlistIds.includes(product._id)}
+                    onWishlistChange={handleWishlistChange}
+                  />
+                ))}
             </div>
           </div>
         </div>
