@@ -56,7 +56,7 @@ export default function Products() {
     };
 
     const token = localStorage.getItem("adminToken");
-
+    
     axios
       .post(`${BASE_URL}/api/admin/products/add`, newProduct, {
         headers: {
