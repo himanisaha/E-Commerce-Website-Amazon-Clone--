@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./CategoryNav.css";
+import { BASE_URL } from "../../api/baseUrl";
 
 function CategoryNav() {
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => setShowMenu(true);
   const closeMenu = () => setShowMenu(false);
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+  
   return (
     <>
       {/* TOP CATEGORY NAV */}
@@ -21,7 +22,7 @@ function CategoryNav() {
           onClick={openMenu}
         >
           <img
-            src={`${API_BASE_URL}/icons/hamburger-menu.png`}
+            src={`${BASE_URL}/icons/hamburger-menu.png`}
             alt="menu"
             style={{ width: "18px", marginRight: "6px", marginLeft: "7px" }}
           />

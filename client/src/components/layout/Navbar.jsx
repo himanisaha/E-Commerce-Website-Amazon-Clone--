@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { AuthContext } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-
+import { BASE_URL } from "../../api/baseUrl";
 function Navbar() {
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [showAccountDropdown, setShowAccountDropdown] = useState(false);
@@ -12,7 +12,7 @@ function Navbar() {
   const { token, user, logout } = useContext(AuthContext);   // NEW
   const [keyword, setKeyword] = useState("");
   const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+  
 
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ function Navbar() {
           className="navbar-brand d-flex align-items-center me-3 nav-hover-box"
         >
           <img
-            src={`${API_BASE_URL}/logos/amazon-logo-white.png`}
+            src={`${BASE_URL}/logos/amazon-logo-white.png`}
             alt="Amazon logo"
             style={{
               width: "95px",
@@ -508,7 +508,7 @@ function Navbar() {
                 {totalItems}
               </span>
               <img
-                src={`${API_BASE_URL}/icons/cart-icon.png`}
+                src={`${BASE_URL}/icons/cart-icon.png`}
                 alt="Cart"
                 style={{ width: "40px", height: "28px", objectFit: "contain", marginRight: "4px" }}
               />

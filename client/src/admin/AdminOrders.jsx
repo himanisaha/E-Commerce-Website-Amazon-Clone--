@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../api/baseUrl";
 
 function AdminOrders() {
   const [orders, setOrders] = useState([]);
@@ -10,7 +8,7 @@ function AdminOrders() {
 
   const adminToken = localStorage.getItem("adminToken");
 
-  // get latest status from orderStatus timeline
+  // Get latest status from orderStatus timeline
   const getCurrentStatus = (order) => {
     if (!order.orderStatus || order.orderStatus.length === 0) {
       return "Placed";
@@ -18,17 +16,17 @@ function AdminOrders() {
     return order.orderStatus[order.orderStatus.length - 1].type || "Placed";
   };
 
-  // ✅ your handler here
   const handleStatusChange = async (orderId, status, note = "") => {
     try {
+      // Update status
       await axios.put(
-        `${baseURL}/api/admin/orders/${orderId}/status`,
+        `${BASE_URL}/api/admin/orders/${orderId}/status`,
         { status, note },
         { headers: { Authorization: `Bearer ${adminToken}` } }
       );
 
-      // reload orders after update
-      const { data } = await axios.get(`${baseURL}/api/orders`, {
+      // Reload orders after update
+      const { data } = await axios.get(`${BASE_URL}/api/orders`, {
         headers: { Authorization: `Bearer ${adminToken}` },
       });
       setOrders(data);
@@ -41,7 +39,7 @@ function AdminOrders() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const { data } = await axios.get(`${baseURL}/api/orders`, {
+        const { data } = await axios.get(`${BASE_URL}/api/orders`, {
           headers: { Authorization: `Bearer ${adminToken}` },
         });
         setOrders(data);

@@ -4,8 +4,7 @@ import { CartContext } from "../context/CartContext";
 import RatingStars from "../components/common/RatingStars";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../api/baseUrl";
 
 function ProductPage() {
   const { id } = useParams();
@@ -35,7 +34,7 @@ function ProductPage() {
     try {
       setWishLoading(true);
       await axios.put(
-        `${API_BASE_URL}/api/users/wishlist/${product._id}`,
+        `${BASE_URL}/api/users/wishlist/${product._id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -55,7 +54,7 @@ function ProductPage() {
       }
 
       await axios.post(
-        `${API_BASE_URL}/api/orders`,
+        `${BASE_URL}/api/orders`,
         {
           items: [
             {
@@ -82,7 +81,7 @@ function ProductPage() {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/api/products/${id}`)
+      .get(`${BASE_URL}/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -98,14 +97,14 @@ function ProductPage() {
 
     try {
       await axios.post(
-        `${API_BASE_URL}/api/products/${product._id}/reviews`,
+        `${BASE_URL}/api/products/${product._id}/reviews`,
         { rating, title, comment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setReviewMsg("Review submitted");
 
       const { data } = await axios.get(
-        `${API_BASE_URL}/api/products/${product._id}`
+        `${BASE_URL}/api/products/${product._id}`
       );
       setProduct(data);
       setRating(5);
@@ -127,7 +126,7 @@ function ProductPage() {
           <div className="col-md-4">
             <div className="bg-light p-3 rounded text-center">
               <img
-                src={`${API_BASE_URL}${product.image}`}
+                src={`${BASE_URL}${product.image}`}
                 alt={product.name}
                 className="img-fluid"
               />

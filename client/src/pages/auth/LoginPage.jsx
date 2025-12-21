@@ -2,13 +2,14 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext"; // adjust path if different
 import "./LoginPage.css"; // custom overrides
+import { BASE_URL } from "../../api/baseUrl";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +27,7 @@ function LoginPage() {
       <header className="amazon-auth-header py-1">
         <div className="container d-flex justify-content-center">
           <img
-            src={`${API_BASE_URL}/logos/amazon-logo.png`}
+            src={`${BASE_URL}/logos/amazon-logo.png`}
             alt="Amazon"
             className="amazon-auth-logo"
           />

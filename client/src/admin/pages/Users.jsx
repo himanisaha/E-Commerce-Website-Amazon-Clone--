@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { BASE_URL } from "../../api/baseUrl";
 function AdminUsers() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const baseURL =
-    import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
   const adminToken = localStorage.getItem("adminToken");
 
   useEffect(() => {

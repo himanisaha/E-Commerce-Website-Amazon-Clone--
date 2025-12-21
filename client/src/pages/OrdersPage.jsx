@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../api/baseUrl";
 
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -12,7 +11,7 @@ function OrdersPage() {
     const token = localStorage.getItem("userToken");
 
     axios
-      .get(`${API_BASE_URL}/api/orders/my-orders`, {
+      .get(`${BASE_URL}/api/orders/my-orders`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setOrders(res.data || []))
@@ -45,7 +44,7 @@ function OrdersPage() {
         let thumbUrl = "";
         if (firstItem && firstItem.image) {
           const imgPath = firstItem.image;
-          thumbUrl = `${API_BASE_URL}${imgPath.startsWith("/") ? imgPath : `/products/${imgPath}`}`;
+          thumbUrl = `${BASE_URL}${imgPath.startsWith("/") ? imgPath : `/products/${imgPath}`}`;
         }
 
         return (

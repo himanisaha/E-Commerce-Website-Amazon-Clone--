@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { BASE_URL } from "../api/baseUrl";
 function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");

@@ -4,9 +4,7 @@ import CategoryNav from "../components/sections/CategoryNav";
 import HeroSlider from "../components/sections/HeroSlider";
 import ProductCard from "../components/layout/ProductCard";
 import { AuthContext } from "../context/AuthContext";
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../api/baseUrl"; // ✅ new import
 
 function HomePage() {
   const { token } = useContext(AuthContext);
@@ -29,7 +27,7 @@ function HomePage() {
         if (sort !== "featured") params.append("sort", sort); // ✅ send sort
 
         const { data } = await axios.get(
-          `${API_BASE_URL}/api/products?${params.toString()}`
+          `${BASE_URL}/api/products?${params.toString()}`
         );
 
         setProducts(data);
@@ -46,12 +44,9 @@ function HomePage() {
     const fetchWishlist = async () => {
       if (!token) return;
       try {
-        const res = await axios.get(
-          `${API_BASE_URL}/api/users/wishlist`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+        const res = await axios.get(`${BASE_URL}/api/users/wishlist`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         // res.data is array of product docs; map to ids
         setWishlistIds(res.data.map((p) => p._id));
       } catch (err) {

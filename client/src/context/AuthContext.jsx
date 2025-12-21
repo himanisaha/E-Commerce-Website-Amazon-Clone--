@@ -1,6 +1,7 @@
 // client/src/context/AuthContext.jsx
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../api/baseUrl";
 
 export const AuthContext = createContext();
 
@@ -9,8 +10,7 @@ export function AuthProvider({ children }) {
     const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null); // ✅ Add error state
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
-
+    
     useEffect(() => {
         const storedToken = localStorage.getItem("userToken");
         const storedUser = localStorage.getItem("userData");
@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
         setLoading(true);
         setError(null); // ✅ Clear previous errors
         try {
-            const res = await axios.post(`${API_BASE_URL}/api/users/login`, {
+            const res = await axios.post(`${BASE_URL}/api/users/login`, {
                 email,
                 password,
             });

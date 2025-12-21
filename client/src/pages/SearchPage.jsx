@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../api/baseUrl";
 
 function SearchPage() {
     const { keyword } = useParams();
@@ -13,7 +12,7 @@ function SearchPage() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get(`${API_BASE_URL}/api/products`);
+                const res = await axios.get(`${BASE_URL}/api/products`);
                 console.log("products response", res.data[0]);
                 setProducts(res.data || []);
             } catch (err) {
@@ -113,7 +112,7 @@ function SearchPage() {
                                             src={
                                                 product.image?.startsWith("http")
                                                     ? product.image
-                                                    : `${API_BASE_URL}${product.image}`
+                                                    : `${BASE_URL}${product.image}`
                                             }
                                             alt={product.title || product.name}
                                             style={{ height: 160, objectFit: "contain" }}

@@ -2,8 +2,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import { BASE_URL } from "../api/baseUrl"; 
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
 function ProfilePage() {
   const [form, setForm] = useState({ name: "", email: "" });
@@ -19,7 +19,7 @@ function ProfilePage() {
     const token = localStorage.getItem("userToken");
 
     axios
-      .get(`${API_BASE_URL}/api/users/me`, {
+      .get(`${BASE_URL}/api/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -36,7 +36,7 @@ function ProfilePage() {
     e.preventDefault();
     const token = localStorage.getItem("userToken");
 
-    await axios.put(`${API_BASE_URL}/api/users/me`, form, {
+    await axios.put(`${BASE_URL}/api/users/me`, form, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -53,7 +53,7 @@ function ProfilePage() {
       const token = localStorage.getItem("userToken");
 
       await axios.put(
-        `${API_BASE_URL}/api/users/change-password`,
+        `${BASE_URL}/api/users/change-password`,
         { currentPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
       );

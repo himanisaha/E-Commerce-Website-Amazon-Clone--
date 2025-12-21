@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../api/baseUrl"; 
 
 function CartPage() {
   const { cartItems, increaseQty, decreaseQty, removeFromCart } =
     useContext(CartContext);
   const navigate = useNavigate();
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.qty,
     0
@@ -38,7 +39,7 @@ function CartPage() {
                     src={
                       item.image.startsWith("http")
                         ? item.image
-                        : `${API_BASE_URL}${item.image}`
+                        : `${BASE_URL}${item.image}`
                     }
                     alt={item.title}
                     style={{ height: 120, objectFit: "contain" }}

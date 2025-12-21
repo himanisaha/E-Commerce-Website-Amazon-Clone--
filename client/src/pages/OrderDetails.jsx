@@ -3,8 +3,8 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useParams, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { BASE_URL } from "../api/baseUrl"; 
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
 function OrderDetails() {
   const { id } = useParams();               // /orders/:id
@@ -19,7 +19,7 @@ function OrderDetails() {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/orders/${id}`, {
+        const res = await axios.get(`${BASE_URL}/api/orders/${id}`, {
          headers: { Authorization: `Bearer ${token}` },
         });
         setOrder(res.data);

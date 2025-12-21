@@ -19,6 +19,8 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 import ResetPasswordPage from "./pages/ResetPasswordPage.jsx";
 import AdminRoutes from "./admin/AdminRoutes.jsx";
 import OrderSuccess from "./pages/OrderSuccess.jsx";
+import { BASE_URL } from "./api/baseUrl.js";
+
 
 function PrivateRoute({ children }) {
   const { token, loading } = useContext(AuthContext);

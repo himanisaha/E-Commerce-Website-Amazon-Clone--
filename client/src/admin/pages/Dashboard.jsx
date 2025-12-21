@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-const baseURL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../../api/baseUrl";
 
 function AdminDashboard() {
   const [stats, setStats] = useState(null);

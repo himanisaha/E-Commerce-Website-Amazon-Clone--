@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.css"; // can reuse LoginPage.css if you like
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../../api/baseUrl";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -16,7 +15,7 @@ export default function RegisterPage() {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post(`${API_BASE_URL}/api/users/register`, {
+      await axios.post(`${BASE_URL}/api/users/register`, {
         name,
         email,
         password,
@@ -35,7 +34,7 @@ export default function RegisterPage() {
       <header className="amazon-auth-header py-3">
         <div className="container d-flex justify-content-center">
           <img
-            src={`${API_BASE_URL}/logos/amazon-logo.png`}
+            src={`${BASE_URL}/logos/amazon-logo.png`}
             alt="Amazon"
             className="amazon-auth-logo"
           />

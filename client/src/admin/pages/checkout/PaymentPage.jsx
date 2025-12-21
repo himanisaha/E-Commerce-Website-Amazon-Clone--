@@ -2,9 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { CartContext } from "../../../context/CartContext";
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../../../api/baseUrl";
 
 function PaymentPage() {
   const { cartItems } = useContext(CartContext);
@@ -44,7 +42,7 @@ function PaymentPage() {
     if (method === "cod") {
       try {
         await axios.post(
-          `${API_BASE_URL}/api/orders`,
+          `${BASE_URL}/api/orders`,
           {
             items: cartItems.map((item) => ({
               productId: item._id,
@@ -81,7 +79,7 @@ function PaymentPage() {
     try {
       // 1. Create Razorpay order on backend
       const orderResponse = await axios.post(
-        `${API_BASE_URL}/api/payments/create-order`,
+        `${BASE_URL}/api/payments/create-order`,
         { amount: subtotal },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -116,7 +114,7 @@ function PaymentPage() {
         handler: async (response) => {
           // 4. Verify payment + create order in DB
           const verifyResponse = await axios.post(
-            `${API_BASE_URL}/api/payments/verify-payment`,
+            `${BASE_URL}/api/payments/verify-payment`,
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,

@@ -1,13 +1,12 @@
 import React from "react";
+import { BASE_URL } from "../../api/baseUrl";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
 function RatingStars({ rating = 0, size = 80 }) {
   // Convert 0–5 → nearest multiple of 10 (0–50)
   const roundedRating = Math.round(rating * 2) * 5;
 
-  const imagePath = `${API_BASE_URL}/ratings/rating-${roundedRating}.png`;
+  const imagePath = `${BASE_URL}/ratings/rating-${roundedRating}.png`;
 
   return (
     <img
@@ -19,7 +18,7 @@ function RatingStars({ rating = 0, size = 80 }) {
         objectFit: "contain",
       }}
       onError={(e) => {
-        e.target.src = `${API_BASE_URL}/ratings/rating-0.png`;
+        e.target.src = `${BASE_URL}/ratings/rating-0.png`;
       }}
     />
   );

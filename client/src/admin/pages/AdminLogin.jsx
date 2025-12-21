@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../../api/baseUrl"; 
 
 function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -12,7 +11,7 @@ function AdminLogin() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${API_BASE_URL}/api/admin/login`, {
+      const res = await axios.post(`${BASE_URL}/api/admin/login`, {
         email,
         password,
       });

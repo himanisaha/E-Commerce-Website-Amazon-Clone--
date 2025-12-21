@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+import { BASE_URL } from "../../api/baseUrl";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -22,7 +20,7 @@ export default function Products() {
     const token = localStorage.getItem("adminToken");
 
     axios
-      .get(`${API_BASE_URL}/api/admin/products/all`, {
+      .get(`${BASE_URL}/api/admin/products/all`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setProducts(res.data))
@@ -60,7 +58,7 @@ export default function Products() {
     const token = localStorage.getItem("adminToken");
 
     axios
-      .post(`${API_BASE_URL}/api/admin/products/add`, newProduct, {
+      .post(`${BASE_URL}/api/admin/products/add`, newProduct, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -86,7 +84,7 @@ export default function Products() {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     axios
-      .delete(`${API_BASE_URL}/api/admin/products/${id}`, {
+      .delete(`${BASE_URL}/api/admin/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => fetchProducts())
@@ -121,7 +119,7 @@ export default function Products() {
 
     axios
       .put(
-        `${API_BASE_URL}/api/admin/products/${editingProduct._id}`,
+        `${BASE_URL}/api/admin/products/${editingProduct._id}`,
         updatedProduct,
         {
           headers: {
@@ -264,7 +262,7 @@ export default function Products() {
                     src={
                       product.image?.startsWith("http")
                         ? product.image
-                        : `${API_BASE_URL}${product.image}`
+                        : `${BASE_URL}${product.image}`
                     }
                     alt={product.name}
                     className="img-thumbnail"
