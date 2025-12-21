@@ -5,6 +5,8 @@ import RatingStars from "../components/common/RatingStars";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -33,7 +35,7 @@ function ProductPage() {
     try {
       setWishLoading(true);
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/users/wishlist/${product._id}`,
+        `${API_BASE_URL}/api/users/wishlist/${product._id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -53,7 +55,7 @@ function ProductPage() {
       }
 
       await axios.post(
-        "http://localhost:8000/api/orders",
+        `${API_BASE_URL}/api/orders`,
         {
           items: [
             {
@@ -80,7 +82,7 @@ function ProductPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/products/${id}`)
+      .get(`${API_BASE_URL}/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -96,14 +98,14 @@ function ProductPage() {
 
     try {
       await axios.post(
-        `http://localhost:8000/api/products/${product._id}/reviews`,
+        `${API_BASE_URL}/api/products/${product._id}/reviews`,
         { rating, title, comment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setReviewMsg("Review submitted");
 
       const { data } = await axios.get(
-        `http://localhost:8000/api/products/${product._id}`
+        `${API_BASE_URL}/api/products/${product._id}`
       );
       setProduct(data);
       setRating(5);
@@ -125,7 +127,7 @@ function ProductPage() {
           <div className="col-md-4">
             <div className="bg-light p-3 rounded text-center">
               <img
-                src={`http://localhost:8000${product.image}`}
+                src={`${API_BASE_URL}${product.image}`}
                 alt={product.name}
                 className="img-fluid"
               />
@@ -443,27 +445,27 @@ function ProductPage() {
                 <div className="border rounded p-3 h-100">
                   <strong>Comfort</strong>
                   <p className="mb-0">
-                    “Very comfortable straps even when fully loaded.”
+                    "Very comfortable straps even when fully loaded."
                   </p>
                 </div>
               </div>
               <div className="col">
                 <div className="border rounded p-3 h-100">
                   <strong>Quality</strong>
-                  <p className="mb-0">“Material is premium & waterproof.”</p>
+                  <p className="mb-0">"Material is premium & waterproof."</p>
                 </div>
               </div>
               <div className="col">
                 <div className="border rounded p-3 h-100">
                   <strong>Value</strong>
-                  <p className="mb-0">“Totally worth the money.”</p>
+                  <p className="mb-0">"Totally worth the money."</p>
                 </div>
               </div>
               <div className="col">
                 <div className="border rounded p-3 h-100">
                   <strong>Space</strong>
                   <p className="mb-0">
-                    “Fits everything including my laptop.”
+                    "Fits everything including my laptop."
                   </p>
                 </div>
               </div>
@@ -559,7 +561,7 @@ function ProductPage() {
                           ★★★★★
                         </div>
                         <p className="mb-1">
-                          “Loved it. Premium material and very comfortable.”
+                          "Loved it. Premium material and very comfortable."
                         </p>
                         <span className="text-muted small">
                           Reviewed in India on 2 Jan 2025
@@ -572,7 +574,7 @@ function ProductPage() {
                           ★★★★☆
                         </div>
                         <p className="mb-1">
-                          “Everything is good but price could be lower.”
+                          "Everything is good but price could be lower."
                         </p>
                         <span className="text-muted small">
                           Reviewed in India on 10 Jan 2025
@@ -585,7 +587,7 @@ function ProductPage() {
                           ★★★☆☆
                         </div>
                         <p className="mb-1">
-                          “Couldn’t fit my 16-inch laptop properly.”
+                          "Couldn't fit my 16-inch laptop properly."
                         </p>
                         <span className="text-muted small">
                           Reviewed in India on 5 Dec 2024

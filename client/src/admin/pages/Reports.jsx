@@ -4,7 +4,8 @@ import axios from "axios";
 function AdminReports() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const baseURL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
   const adminToken = localStorage.getItem("adminToken");
 
   useEffect(() => {
@@ -22,7 +23,7 @@ function AdminReports() {
       }
     };
     if (adminToken) fetchData();
-  }, [adminToken, baseURL]);
+  }, [adminToken]);
 
   if (loading) return <div>Loading reports...</div>;
 
@@ -58,7 +59,7 @@ function AdminReports() {
 
       <h5 className="mt-4">Top products (future)</h5>
       <p className="text-muted">
-        Placeholder for charts and detailed sales analytics.  
+        Placeholder for charts and detailed sales analytics.
         Current version focuses on recent orders and summary metrics.
       </p>
     </div>
@@ -66,4 +67,3 @@ function AdminReports() {
 }
 
 export default AdminReports;
-

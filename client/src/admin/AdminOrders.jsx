@@ -1,12 +1,13 @@
-// client/src/admin/AdminOrders.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
+const baseURL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
 function AdminOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
   const adminToken = localStorage.getItem("adminToken");
 
   // get latest status from orderStatus timeline
@@ -33,9 +34,7 @@ function AdminOrders() {
       setOrders(data);
     } catch (err) {
       console.error("Failed to update status", err);
-      alert(
-        err.response?.data?.message || "Failed to update status"
-      );
+      alert(err.response?.data?.message || "Failed to update status");
     }
   };
 
@@ -54,7 +53,7 @@ function AdminOrders() {
     };
 
     if (adminToken) fetchOrders();
-  }, [adminToken, baseURL]);
+  }, [adminToken]);
 
   if (loading) return <div>Loading orders...</div>;
 
@@ -93,9 +92,7 @@ function AdminOrders() {
                       <option value="Placed">Placed</option>
                       <option value="Packed">Packed</option>
                       <option value="Shipped">Shipped</option>
-                      <option value="Out for delivery">
-                        Out for delivery
-                      </option>
+                      <option value="Out for delivery">Out for delivery</option>
                       <option value="Delivered">Delivered</option>
                       <option value="Cancelled">Cancelled</option>
                     </select>

@@ -1,12 +1,12 @@
-// client/src/admin/Dashboard.jsx (or AdminDashboard.jsx)
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
+const baseURL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
 function AdminDashboard() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
   const adminToken = localStorage.getItem("adminToken");
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function AdminDashboard() {
     };
 
     if (adminToken) fetchStats();
-  }, [adminToken, baseURL]);
+  }, [adminToken]);
 
   if (loading || !stats) return <div>Loading dashboard...</div>;
 

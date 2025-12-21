@@ -4,7 +4,8 @@ import axios from "axios";
 function AdminUsers() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const baseURL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
   const adminToken = localStorage.getItem("adminToken");
 
   useEffect(() => {
@@ -21,7 +22,7 @@ function AdminUsers() {
       }
     };
     if (adminToken) fetchUsers();
-  }, [adminToken, baseURL]);
+  }, [adminToken]);
 
   if (loading) return <div>Loading users...</div>;
 

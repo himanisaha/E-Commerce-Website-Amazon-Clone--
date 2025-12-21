@@ -3,19 +3,20 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.css"; // can reuse LoginPage.css if you like
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 export default function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post("http://localhost:8000/api/users/register", {
+      await axios.post(`${API_BASE_URL}/api/users/register`, {
         name,
         email,
         password,
@@ -38,7 +39,6 @@ export default function RegisterPage() {
             alt="Amazon"
             className="amazon-auth-logo"
           />
-
         </div>
       </header>
 

@@ -3,6 +3,8 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 function ProfilePage() {
   const [form, setForm] = useState({ name: "", email: "" });
   const [loading, setLoading] = useState(true);
@@ -15,10 +17,9 @@ function ProfilePage() {
 
   useEffect(() => {
     const token = localStorage.getItem("userToken");
-    const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
     axios
-      .get(`${baseURL}/api/users/me`, {
+      .get(`${API_BASE_URL}/api/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -34,9 +35,8 @@ function ProfilePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("userToken");
-    const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
-    await axios.put(`${baseURL}/api/users/me`, form, {
+    await axios.put(`${API_BASE_URL}/api/users/me`, form, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -50,12 +50,10 @@ function ProfilePage() {
   const handleChangePassword = async (e) => {
     e.preventDefault();
     try {
-      const baseURL =
-        import.meta.env.VITE_API_URL || "http://localhost:8000";
       const token = localStorage.getItem("userToken");
 
       await axios.put(
-        `${baseURL}/api/users/change-password`,
+        `${API_BASE_URL}/api/users/change-password`,
         { currentPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
       );

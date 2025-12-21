@@ -5,6 +5,9 @@ import HeroSlider from "../components/sections/HeroSlider";
 import ProductCard from "../components/layout/ProductCard";
 import { AuthContext } from "../context/AuthContext";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 function HomePage() {
   const { token } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
@@ -25,11 +28,8 @@ function HomePage() {
         if (minRating > 0) params.append("minRating", minRating);
         if (sort !== "featured") params.append("sort", sort); // ✅ send sort
 
-        const baseURL =
-          import.meta.env.VITE_API_URL || "http://localhost:8000";
-
         const { data } = await axios.get(
-          `${baseURL}/api/products?${params.toString()}`
+          `${API_BASE_URL}/api/products?${params.toString()}`
         );
 
         setProducts(data);
@@ -47,7 +47,7 @@ function HomePage() {
       if (!token) return;
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/users/wishlist`,
+          `${API_BASE_URL}/api/users/wishlist`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

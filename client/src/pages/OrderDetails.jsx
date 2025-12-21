@@ -4,8 +4,10 @@ import axios from "axios";
 import { useParams, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 function OrderDetails() {
-  const { id } = useParams();              // /orders/:id
+  const { id } = useParams();               // /orders/:id
   const location = useLocation();
   const { token } = useContext(AuthContext);
 
@@ -17,10 +19,8 @@ function OrderDetails() {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const baseURL =
-          import.meta.env.VITE_API_URL || "http://localhost:8000";
-        const res = await axios.get(`${baseURL}/api/orders/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
+        const res = await axios.get(`${API_BASE_URL}/api/orders/${id}`, {
+         headers: { Authorization: `Bearer ${token}` },
         });
         setOrder(res.data);
       } catch (err) {

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const API_BASE = "http://localhost:8000";
+
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
@@ -19,7 +22,7 @@ export default function Products() {
     const token = localStorage.getItem("adminToken");
 
     axios
-      .get("http://localhost:8000/api/admin/products/all", {
+      .get(`${API_BASE_URL}/api/admin/products/all`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setProducts(res.data))
@@ -57,7 +60,7 @@ export default function Products() {
     const token = localStorage.getItem("adminToken");
 
     axios
-      .post("http://localhost:8000/api/admin/products/add", newProduct, {
+      .post(`${API_BASE_URL}/api/admin/products/add`, newProduct, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -83,7 +86,7 @@ export default function Products() {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     axios
-      .delete(`http://localhost:8000/api/admin/products/${id}`, {
+      .delete(`${API_BASE_URL}/api/admin/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => fetchProducts())
@@ -118,7 +121,7 @@ export default function Products() {
 
     axios
       .put(
-        `http://localhost:8000/api/admin/products/${editingProduct._id}`,
+        `${API_BASE_URL}/api/admin/products/${editingProduct._id}`,
         updatedProduct,
         {
           headers: {
@@ -147,8 +150,7 @@ export default function Products() {
 
   const filteredProducts = products.filter((p) => {
     const matchesSearch =
-      !searchTerm ||
-      p.name.toLowerCase().includes(searchTerm.toLowerCase());
+      !searchTerm || p.name.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesCategory =
       !categoryFilter ||
@@ -262,7 +264,7 @@ export default function Products() {
                     src={
                       product.image?.startsWith("http")
                         ? product.image
-                        : `${API_BASE}${product.image}`
+                        : `${API_BASE_URL}${product.image}`
                     }
                     alt={product.name}
                     className="img-thumbnail"
@@ -304,9 +306,6 @@ export default function Products() {
             </tr>
           )}
         </tbody>
-
-
-
       </table>
 
       <div className="d-flex justify-content-between align-items-center mt-3">

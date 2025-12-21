@@ -6,6 +6,9 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import "./ProductCard.css";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 function ProductCard({ product, inWishlist = false, onWishlistChange }) {
   const { token } = useContext(AuthContext);
 
@@ -13,7 +16,7 @@ function ProductCard({ product, inWishlist = false, onWishlistChange }) {
     e.preventDefault(); // don't navigate to product page when heart clicked
     try {
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/api/users/wishlist/${product._id}`,
+        `${API_BASE_URL}/api/users/wishlist/${product._id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -37,7 +40,7 @@ function ProductCard({ product, inWishlist = false, onWishlistChange }) {
             className="text-decoration-none text-dark"
           >
             <img
-              src={`http://localhost:8000${product.image}`}
+              src={`${API_BASE_URL}${product.image}`}
               alt={product.name}
               className="img-fluid"
               style={{ height: "180px", objectFit: "contain" }}

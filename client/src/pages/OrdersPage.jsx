@@ -3,15 +3,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("userToken");
-    const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
     axios
-      .get(`${baseURL}/api/orders/my-orders`, {
+      .get(`${API_BASE_URL}/api/orders/my-orders`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setOrders(res.data || []))
@@ -44,10 +45,7 @@ function OrdersPage() {
         let thumbUrl = "";
         if (firstItem && firstItem.image) {
           const imgPath = firstItem.image;
-          const baseURL =
-            import.meta.env.VITE_API_URL || "http://localhost:8000";
-          thumbUrl = `${baseURL}${imgPath.startsWith("/") ? imgPath : `/products/${imgPath}`
-            }`;
+          thumbUrl = `${API_BASE_URL}${imgPath.startsWith("/") ? imgPath : `/products/${imgPath}`}`;
         }
 
         return (
@@ -127,7 +125,6 @@ function OrdersPage() {
                       Track package
                     </Link>
                   </div>
-
 
                 </div>
               </div>

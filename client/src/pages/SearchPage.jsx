@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 function SearchPage() {
     const { keyword } = useParams();
     const [products, setProducts] = useState([]);
@@ -11,7 +13,7 @@ function SearchPage() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get("http://localhost:8000/api/products");
+                const res = await axios.get(`${API_BASE_URL}/api/products`);
                 console.log("products response", res.data[0]);
                 setProducts(res.data || []);
             } catch (err) {
@@ -70,8 +72,6 @@ function SearchPage() {
         return matches;
     });
 
-
-
     console.log("SEARCH PAGE ACTIVE", { keyword, count: filtered.length });
 
     if (loading) {
@@ -113,7 +113,7 @@ function SearchPage() {
                                             src={
                                                 product.image?.startsWith("http")
                                                     ? product.image
-                                                    : `http://localhost:8000${product.image}`
+                                                    : `${API_BASE_URL}${product.image}`
                                             }
                                             alt={product.title || product.name}
                                             style={{ height: 160, objectFit: "contain" }}

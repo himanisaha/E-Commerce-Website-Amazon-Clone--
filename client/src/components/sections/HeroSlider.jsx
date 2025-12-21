@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
 function HeroSlider() {
   const [banners, setBanners] = useState([]);
   const [index, setIndex] = useState(0);
@@ -8,7 +11,7 @@ function HeroSlider() {
   // 🔹 Fetch banners from database
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/banners")
+      .get(`${API_BASE_URL}/api/banners`)
       .then((res) => setBanners(res.data))
       .catch((err) => console.error("Banner fetch error:", err));
   }, []);
@@ -36,7 +39,7 @@ function HeroSlider() {
   return (
     <div className="position-relative bg-dark" style={{ overflow: "hidden" }}>
       <img
-        src={`http://localhost:8000/banners/${banners[index].image}`}
+        src={`${API_BASE_URL}/banners/${banners[index].image}`}
         alt="Hero banner"
         className="w-100"
         style={{

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
 function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000/api/admin/login", {
+      const res = await axios.post(`${API_BASE_URL}/api/admin/login`, {
         email,
         password,
       });
@@ -26,12 +27,12 @@ function AdminLogin() {
   return (
     <div className="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
       <div className="card shadow-lg p-4" style={{ width: "360px" }}>
-        
+
         {/* Title */}
         <h3 className="text-center mb-4 fw-bold">Admin Login</h3>
 
         <form onSubmit={handleLogin}>
-          
+
           {/* Email */}
           <div className="mb-3">
             <label className="form-label">Email</label>
