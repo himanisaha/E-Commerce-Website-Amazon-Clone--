@@ -13,10 +13,10 @@ function ForgotPasswordPage() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/users/forgot-password", 
+        `${BASE_URL}/api/users/forgot-password`,
         { email }
       );
-      setMsg(data.message);             
+      setMsg(data.message);
     } catch (err) {
       setMsg(err.response?.data?.message || "Something went wrong");
     } finally {
