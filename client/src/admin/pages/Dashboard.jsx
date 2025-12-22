@@ -11,7 +11,7 @@ function AdminDashboard() {
     const fetchStats = async () => {
       try {
         const { data } = await axios.get(
-          `${baseURL}/api/admin/stats/summary`,
+          `${BASE_URL}/api/admin/stats/summary`,
           { headers: { Authorization: `Bearer ${adminToken}` } }
         );
         setStats(data);

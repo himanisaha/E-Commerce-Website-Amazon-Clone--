@@ -9,7 +9,7 @@ function AdminReports() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`${baseURL}/api/orders`, {
+        const { data } = await axios.get(`${BASE_URL}/api/orders`, {
           headers: { Authorization: `Bearer ${adminToken}` },
         });
         // show latest 10 orders

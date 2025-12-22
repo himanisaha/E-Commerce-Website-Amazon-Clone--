@@ -9,7 +9,7 @@ function AdminUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const { data } = await axios.get(`${baseURL}/api/admin/users`, {
+        const { data } = await axios.get(`${BASE_URL}/api/admin/users`, {
           headers: { Authorization: `Bearer ${adminToken}` },
         });
         setUsers(data);
