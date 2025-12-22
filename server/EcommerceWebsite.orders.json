@@ -1,0 +1,1481 @@
+[{
+  "_id": {
+    "$oid": "6942f519bb9c825b0fbc8d9e"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-17T18:23:21.322Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-17T18:23:21.322Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6942f539bb9c825b0fbc8e3b"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941119712a66ebdbc5e4c09",
+      "name": "Coffee Maker with Glass Carafe - Black",
+      "price": 3999,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3999,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-17T18:23:53.996Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-17T18:23:53.996Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694305d53b0ef00f5f72e762"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "694111ec12a66ebdbc5e4c15",
+      "name": "Ceramic Dinner Plates Set - White",
+      "price": 1899,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 1899,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-17T19:34:45.406Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-17T19:34:45.406Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6943060d3b0ef00f5f72e806"
+  },
+  "userId": {
+    "$oid": "6942eacfbb9c825b0fbc8983"
+  },
+  "items": [
+    {
+      "product": "6941117e12a66ebdbc5e4c05",
+      "name": "Blackout Curtain Set - Beige",
+      "price": 2199,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 2199,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-17T19:35:41.897Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-17T19:35:41.897Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69430d69d96a63b3991f004b"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-17T20:07:05.701Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-17T20:07:05.701Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694311658532e0494981b527"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [],
+  "totalPrice": 0,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-17T20:24:05.122Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-17T20:24:05.122Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6943124a8532e0494981b536"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941119712a66ebdbc5e4c09",
+      "name": "Coffee Maker with Glass Carafe - Black",
+      "price": 3999,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3999,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-17T20:27:54.866Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-17T20:27:54.866Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694365391d01a361fde670b7"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941131212a66ebdbc5e4c63",
+      "name": "Men's Cozy Fleece Zip-Up Hoodie - Red",
+      "price": 2299,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 2299,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T02:21:45.353Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T02:21:45.353Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69436f981d01a361fde67770"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "productId": "6941102612a66ebdbc5e4be5",
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T03:06:00.960Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T03:06:00.960Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694370551d01a361fde67779"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "productId": "6941102612a66ebdbc5e4be5",
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T03:09:09.734Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T03:09:09.734Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6943705c1d01a361fde6777c"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "productId": "6941102612a66ebdbc5e4be5",
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T03:09:16.717Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T03:09:16.717Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694370aa1d01a361fde6777f"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "productId": "6941102612a66ebdbc5e4be5",
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T03:10:34.094Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T03:10:34.094Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694370c61d01a361fde67822"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "productId": "6941102612a66ebdbc5e4be5",
+      "qty": 1
+    },
+    {
+      "productId": "694111ab12a66ebdbc5e4c0d",
+      "qty": 1
+    }
+  ],
+  "totalPrice": 5098,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T03:11:02.597Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T03:11:02.597Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69442cfa8670abccb882f62b"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941114112a66ebdbc5e4bfd",
+      "name": "Soft Absorbent Bathroom Rug - Grey",
+      "price": 1299,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 1299,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T16:34:02.298Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T16:34:02.298Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6944496b8670abccb882fcc3"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T18:35:23.408Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T18:35:23.408Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69444a6d8670abccb882fccc"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T18:39:41.995Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T18:39:41.995Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69444fb953f9c4f1ea80ef0c"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T19:02:17.327Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T19:02:17.327Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69444fc553f9c4f1ea80efb3"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941119712a66ebdbc5e4c09",
+      "name": "Coffee Maker with Glass Carafe - Black",
+      "price": 3999,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3999,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-18T19:02:29.993Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-18T19:02:29.993Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6944e8942a0398a0314e32d1"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941131212a66ebdbc5e4c63",
+      "name": "Men's Cozy Fleece Zip-Up Hoodie - Red",
+      "price": 2299,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 2299,
+  "status": "Delivered",
+  "createdAt": {
+    "$date": "2025-12-19T05:54:28.985Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-19T11:19:39.810Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6944e9c571d3f24056ffcd5e"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941114112a66ebdbc5e4bfd",
+      "name": "Soft Absorbent Bathroom Rug - Grey",
+      "price": 1299,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 1299,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-19T05:59:33.334Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-19T05:59:33.334Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6944eb2271d3f24056ffcd6b"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941114112a66ebdbc5e4bfd",
+      "name": "Soft Absorbent Bathroom Rug - Grey",
+      "price": 1299,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 1299,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-19T06:05:22.031Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-19T06:05:22.031Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6944eb3971d3f24056ffce12"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941117e12a66ebdbc5e4c05",
+      "name": "Blackout Curtain Set - Beige",
+      "price": 2199,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 2199,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-19T06:05:45.183Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-19T06:05:45.183Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6944f1ca5b83857dd6f3decd"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Delivered",
+  "createdAt": {
+    "$date": "2025-12-19T06:33:46.249Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-19T11:17:43.856Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69463a4ff5b8f3f342c6b335"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-20T05:55:27.163Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T05:55:27.163Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69463b06f5b8f3f342c6b4a0"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-20T05:58:30.313Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T05:58:30.313Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694641a111bbd923853f1349"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": "6941102612a66ebdbc5e4be5",
+      "name": "Premium Travel Backpack - Black",
+      "price": 3499,
+      "qty": 1,
+      "image": "/products/backpack.jpg"
+    }
+  ],
+  "totalPrice": 3499,
+  "status": "Pending",
+  "createdAt": {
+    "$date": "2025-12-20T06:26:41.928Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T06:26:41.928Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69466a0228f4deba95c544d4"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "69465657e6d222ba670202d7"
+      },
+      "qty": 1,
+      "price": 2000,
+      "_id": {
+        "$oid": "69466a0228f4deba95c544d5"
+      }
+    }
+  ],
+  "totalPrice": 2000,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T09:18:58.200Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69466a0228f4deba95c544d6"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T09:18:58.220Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T09:18:58.220Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69466b7a28f4deba95c54677"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "69465657e6d222ba670202d7"
+      },
+      "qty": 1,
+      "price": 2000,
+      "_id": {
+        "$oid": "69466b7a28f4deba95c54678"
+      }
+    }
+  ],
+  "totalPrice": 2000,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T09:25:14.013Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69466b7a28f4deba95c54679"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T09:25:14.015Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T09:25:14.015Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69466e2939f839e62a702ebb"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "694263fa34e2109add302170"
+      },
+      "qty": 1,
+      "price": 2498,
+      "_id": {
+        "$oid": "69466e2939f839e62a702ebc"
+      }
+    }
+  ],
+  "totalPrice": 2498,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T09:36:41.366Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69466e2939f839e62a702ebd"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T09:36:41.376Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T09:36:41.376Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946705385cb1600384d3c7f"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "694263fa34e2109add302170"
+      },
+      "qty": 1,
+      "price": 2498,
+      "_id": {
+        "$oid": "6946705385cb1600384d3c80"
+      }
+    }
+  ],
+  "totalPrice": 2498,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T09:45:55.686Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "6946705385cb1600384d3c81"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T09:45:55.703Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T09:45:55.703Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946754dee30bc29f5715025"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941125412a66ebdbc5e4c47"
+      },
+      "name": "Electric Glass and Steel Hot Water Kettle",
+      "price": 2799,
+      "qty": 1,
+      "image": "/products/electric-glass-and-steel-hot-water-kettle.webp",
+      "_id": {
+        "$oid": "6946754dee30bc29f5715026"
+      }
+    }
+  ],
+  "totalPrice": 2799,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T10:07:09.143Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "6946754dee30bc29f5715027"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T10:07:09.158Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T10:07:09.158Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946766bb401fe5de1d41b8f"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941125412a66ebdbc5e4c47"
+      },
+      "name": "Electric Glass and Steel Hot Water Kettle",
+      "price": 2799,
+      "qty": 1,
+      "image": "/products/electric-glass-and-steel-hot-water-kettle.webp",
+      "_id": {
+        "$oid": "6946766bb401fe5de1d41b90"
+      }
+    }
+  ],
+  "totalPrice": 2799,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T10:11:55.169Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "6946766bb401fe5de1d41b91"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T10:11:55.184Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T10:11:55.184Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946775780d883ebd21a90d5"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941147a12a66ebdbc5e4c93"
+      },
+      "name": "Women's Chunky Beanie - Gray",
+      "price": 599,
+      "qty": 1,
+      "image": "/products/women-chunky-beanie-gray.webp",
+      "_id": {
+        "$oid": "6946775780d883ebd21a90d6"
+      }
+    }
+  ],
+  "totalPrice": 599,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T10:15:51.075Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "6946775780d883ebd21a90d7"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T10:15:51.090Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T10:15:51.090Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694677a580d883ebd21a90da"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941147a12a66ebdbc5e4c93"
+      },
+      "name": "Women's Chunky Beanie - Gray",
+      "price": 599,
+      "qty": 1,
+      "image": "/products/women-chunky-beanie-gray.webp",
+      "_id": {
+        "$oid": "694677a580d883ebd21a90db"
+      }
+    }
+  ],
+  "totalPrice": 599,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T10:17:09.864Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "694677a580d883ebd21a90dc"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T10:17:09.867Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T10:17:09.867Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946789b80d883ebd21a9204"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941143112a66ebdbc5e4c8b"
+      },
+      "name": "Men's Classic T-Shirt - White",
+      "price": 799,
+      "qty": 1,
+      "image": "/products/tshirt.jpg",
+      "_id": {
+        "$oid": "6946789b80d883ebd21a9205"
+      }
+    }
+  ],
+  "totalPrice": 799,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T10:21:15.222Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "6946789b80d883ebd21a9206"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T10:21:15.224Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T10:21:15.224Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69467d0a29771953b51dbe4d"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941143112a66ebdbc5e4c8b"
+      },
+      "name": "Men's Classic T-Shirt - White",
+      "price": 799,
+      "qty": 1,
+      "image": "/products/tshirt.jpg",
+      "_id": {
+        "$oid": "69467d0a29771953b51dbe4e"
+      }
+    }
+  ],
+  "totalPrice": 799,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T10:40:10.644Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69467d0a29771953b51dbe4f"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T10:40:10.657Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T10:40:10.657Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69467d7629771953b51dc0ba"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "694263fa34e2109add302170"
+      },
+      "name": "Wireless Bluetooth Headphones – Black",
+      "price": 2498,
+      "qty": 1,
+      "image": "/products/headphone.jpg",
+      "_id": {
+        "$oid": "69467d7629771953b51dc0bb"
+      }
+    }
+  ],
+  "totalPrice": 2498,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T10:41:58.171Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69467d7629771953b51dc0bc"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T10:41:58.174Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T10:41:58.174Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69468250e5e25a4042f94267"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941149412a66ebdbc5e4c97"
+      },
+      "name": "Women's French Terry Fleece Jogger - Camo",
+      "price": 1799,
+      "qty": 1,
+      "image": "/products/women-french-terry-fleece-jogger-camo.jpg",
+      "_id": {
+        "$oid": "69468250e5e25a4042f94268"
+      }
+    }
+  ],
+  "totalPrice": 1799,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T11:02:40.163Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69468250e5e25a4042f94269"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T11:02:40.179Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T11:02:40.179Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69468775f17a0a9654fbe607"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "69465657e6d222ba670202d7"
+      },
+      "name": "Blackout Curtain Set - Beige",
+      "price": 2000,
+      "qty": 1,
+      "_id": {
+        "$oid": "69468775f17a0a9654fbe608"
+      }
+    }
+  ],
+  "totalPrice": 2000,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T11:24:37.301Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69468775f17a0a9654fbe609"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T11:24:37.317Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T11:24:37.317Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69468824f17a0a9654fbe6aa"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941131212a66ebdbc5e4c63"
+      },
+      "name": "Men's Cozy Fleece Zip-Up Hoodie - Red",
+      "price": 2299,
+      "qty": 1,
+      "image": "/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
+      "_id": {
+        "$oid": "69468824f17a0a9654fbe6ab"
+      }
+    }
+  ],
+  "totalPrice": 2299,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T11:27:32.929Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69468824f17a0a9654fbe6ac"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T11:27:32.933Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T11:27:32.933Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694689b5f17a0a9654fbe7ef"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941131212a66ebdbc5e4c63"
+      },
+      "name": "Men's Cozy Fleece Zip-Up Hoodie - Red",
+      "price": 2299,
+      "qty": 1,
+      "image": "/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
+      "_id": {
+        "$oid": "694689b5f17a0a9654fbe7f0"
+      }
+    }
+  ],
+  "totalPrice": 2299,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T11:34:13.169Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "694689b5f17a0a9654fbe7f1"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T11:34:13.171Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T11:34:13.171Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69468cf58644d3eba94961d2"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "694263fa34e2109add302170"
+      },
+      "name": "Wireless Bluetooth Headphones – Black",
+      "price": 2498,
+      "qty": 1,
+      "image": "/products/headphone.jpg",
+      "_id": {
+        "$oid": "69468cf58644d3eba94961d3"
+      }
+    }
+  ],
+  "totalPrice": 2498,
+  "paymentType": "COD",
+  "shippingAddress": {
+    "fullName": "Adrita pal",
+    "phone": "7894561448",
+    "addressLine1": "fakjeeew",
+    "addressLine2": "",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "postalCode": "700144"
+  },
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T11:48:05.173Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "69468cf58644d3eba94961d4"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T11:48:05.192Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T11:48:05.192Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946995205ec7216d8d5781b"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "694263fa34e2109add302170"
+      },
+      "name": "Wireless Bluetooth Headphones – Black",
+      "price": 2498,
+      "qty": 1,
+      "_id": {
+        "$oid": "6946995205ec7216d8d5781c"
+      }
+    }
+  ],
+  "totalPrice": 2498,
+  "paymentType": "COD",
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T12:40:50.325Z"
+      },
+      "isCompleted": true,
+      "_id": {
+        "$oid": "6946995205ec7216d8d5781d"
+      }
+    },
+    {
+      "type": "Out for delivery",
+      "date": {
+        "$date": "2025-12-20T13:18:41.425Z"
+      },
+      "isCompleted": false,
+      "note": ""
+    },
+    {
+      "type": "Shipped",
+      "date": {
+        "$date": "2025-12-20T13:19:16.877Z"
+      },
+      "isCompleted": false,
+      "note": ""
+    },
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T13:20:16.820Z"
+      },
+      "isCompleted": false,
+      "note": ""
+    },
+    {
+      "type": "Delivered",
+      "date": {
+        "$date": "2025-12-20T13:21:05.289Z"
+      },
+      "isCompleted": true,
+      "note": ""
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T12:40:50.351Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T13:21:05.291Z"
+  },
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "6946a490502b936830c2319b"
+  },
+  "userId": {
+    "$oid": "6942a563c998fcd0d956b6bd"
+  },
+  "items": [
+    {
+      "product": {
+        "$oid": "6941132912a66ebdbc5e4c67"
+      },
+      "name": "Men's Golf Polo T-Shirt - Blue",
+      "price": 1499,
+      "qty": 1,
+      "image": "/products/men-golf-polo-t-shirt-blue.jpg",
+      "_id": {
+        "$oid": "6946a490502b936830c2319c"
+      }
+    }
+  ],
+  "totalPrice": 1499,
+  "paymentType": "COD",
+  "shippingAddress": {
+    "fullName": "CNFSNFCKFNC",
+    "phone": "6457894512",
+    "addressLine1": "NHSDKCNSIFC",
+    "addressLine2": "",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "postalCode": "700144"
+  },
+  "orderStatus": [
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T13:28:48.834Z"
+      },
+      "isCompleted": true
+    },
+    {
+      "type": "Packed",
+      "date": {
+        "$date": "2025-12-20T13:30:27.995Z"
+      },
+      "isCompleted": false,
+      "note": ""
+    },
+    {
+      "type": "Placed",
+      "date": {
+        "$date": "2025-12-20T13:30:46.741Z"
+      },
+      "isCompleted": false,
+      "note": ""
+    },
+    {
+      "type": "Shipped",
+      "date": {
+        "$date": "2025-12-20T13:30:54.872Z"
+      },
+      "isCompleted": false,
+      "note": ""
+    },
+    {
+      "type": "Out for delivery",
+      "date": {
+        "$date": "2025-12-20T13:31:02.732Z"
+      },
+      "isCompleted": false,
+      "note": ""
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-20T13:28:48.840Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T13:31:02.734Z"
+  },
+  "__v": 4
+}]

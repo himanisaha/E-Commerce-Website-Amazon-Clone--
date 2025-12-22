@@ -1,0 +1,2511 @@
+[{
+  "_id": {
+    "$oid": "6941102612a66ebdbc5e4be5"
+  },
+  "name": "Premium Travel Backpack - Black",
+  "category": "Backpacks",
+  "price": 3499,
+  "image": "/products/backpack.jpg",
+  "description": "Durable backpack with multiple compartments, suitable for travel and daily use.",
+  "highlights": [
+    "High-Quality Water-Resistant Material",
+    "Spacious Compartments",
+    "Comfortable Padded Straps",
+    "Modern Stylish Design"
+  ],
+  "specifications": {
+    "Material": "Nylon with Leather Accents",
+    "Capacity": "25 Litres",
+    "Color": "Black",
+    "Weight": "680 g"
+  },
+  "reviews": [
+    {
+      "title": "Excellent backpack!",
+      "rating": 5,
+      "comment": "Very sturdy and spacious, perfect for travel.",
+      "date": "5 Dec 2025",
+      "_id": {
+        "$oid": "6941102612a66ebdbc5e4be6"
+      }
+    },
+    {
+      "title": "Good but slightly heavy",
+      "rating": 4,
+      "comment": "Lots of storage, but a bit heavy when full.",
+      "date": "12 Dec 2025",
+      "_id": {
+        "$oid": "6941102612a66ebdbc5e4be7"
+      }
+    },
+    {
+      "name": "Himani",
+      "title": "",
+      "rating": 5,
+      "comment": "Product is good",
+      "date": "2025-12-19T11:58:43.719Z",
+      "_id": {
+        "$oid": "69453df3e0010063099e9806"
+      }
+    },
+    {
+      "name": "Himani",
+      "title": "",
+      "rating": 5,
+      "comment": "Good!!",
+      "date": "2025-12-19T12:04:44.365Z",
+      "_id": {
+        "$oid": "69453f5ce0010063099e982f"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 89,
+    "quality": 92,
+    "worthPrice": 85
+  },
+  "rating": 4.75,
+  "stock": 15,
+  "createdAt": {
+    "$date": "2025-12-16T07:54:14.714Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-19T12:04:44.366Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6941111a12a66ebdbc5e4bef"
+  },
+  "name": "Premium Baking Set - Silver",
+  "category": "Baking Tools",
+  "price": 2499,
+  "image": "/products/baking-set.jpg",
+  "description": "Complete baking set with essential tools, ideal for home bakers and professionals.",
+  "highlights": [
+    "Food-Grade Stainless Steel",
+    "Heat-Resistant & Durable",
+    "Easy to Clean",
+    "Perfect for Cakes & Pastries"
+  ],
+  "specifications": {
+    "Material": "Stainless Steel & Silicone",
+    "Pieces": "12 Pieces",
+    "Color": "Silver",
+    "Weight": "1.2 kg"
+  },
+  "reviews": [
+    {
+      "title": "Perfect baking kit",
+      "rating": 5,
+      "comment": "All tools are very useful and strong. Great quality.",
+      "date": "2 Dec 2025",
+      "_id": {
+        "$oid": "6941111a12a66ebdbc5e4bf0"
+      }
+    },
+    {
+      "title": "Good value for money",
+      "rating": 4,
+      "comment": "Nice set for beginners, just wish it had more molds.",
+      "date": "10 Dec 2025",
+      "_id": {
+        "$oid": "6941111a12a66ebdbc5e4bf1"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 88,
+    "quality": 90,
+    "worthPrice": 87
+  },
+  "rating": 4.4,
+  "stock": 20,
+  "createdAt": {
+    "$date": "2025-12-16T07:58:18.999Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T07:58:18.999Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941114112a66ebdbc5e4bfd"
+  },
+  "name": "Soft Absorbent Bathroom Rug - Grey",
+  "category": "Bathroom Accessories",
+  "price": 1299,
+  "image": "/products/bathroom-rug.jpg",
+  "description": "Ultra-soft bathroom rug with high absorbency, designed to keep your bathroom dry and comfortable.",
+  "highlights": [
+    "Super Absorbent Microfiber",
+    "Anti-Slip Backing",
+    "Quick Dry Material",
+    "Soft & Plush Texture"
+  ],
+  "specifications": {
+    "Material": "Microfiber with Rubber Backing",
+    "Size": "50 x 80 cm",
+    "Color": "Grey",
+    "Weight": "750 g"
+  },
+  "reviews": [
+    {
+      "title": "Very soft and absorbent",
+      "rating": 5,
+      "comment": "Feels great under feet and absorbs water quickly.",
+      "date": "3 Dec 2025",
+      "_id": {
+        "$oid": "6941114112a66ebdbc5e4bfe"
+      }
+    },
+    {
+      "title": "Good quality rug",
+      "rating": 4,
+      "comment": "Nice grip and softness, color matches my bathroom.",
+      "date": "11 Dec 2025",
+      "_id": {
+        "$oid": "6941114112a66ebdbc5e4bff"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 91,
+    "quality": 88,
+    "worthPrice": 86
+  },
+  "rating": 4.3,
+  "stock": 25,
+  "createdAt": {
+    "$date": "2025-12-16T07:58:57.769Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T07:58:57.769Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941115d12a66ebdbc5e4c01"
+  },
+  "name": "Blackout Curtain Set - Black",
+  "category": "Curtains",
+  "price": 2199,
+  "image": "/products/blackout-curtains-black.jpg",
+  "description": "Premium blackout curtain set designed to block sunlight, reduce noise, and enhance room privacy.",
+  "highlights": [
+    "100% Light Blocking Fabric",
+    "Thermal Insulation",
+    "Noise Reduction",
+    "Elegant Solid Beige Color"
+  ],
+  "specifications": {
+    "Material": "Polyester Blackout Fabric",
+    "Pieces": "2 Curtains",
+    "Color": "Beige",
+    "Size": "7 ft x 4 ft (Each)",
+    "Weight": "1.8 kg"
+  },
+  "reviews": [
+    {
+      "title": "Excellent blackout curtains",
+      "rating": 5,
+      "comment": "Blocks sunlight completely and looks very elegant.",
+      "date": "1 Dec 2025",
+      "_id": {
+        "$oid": "6941115d12a66ebdbc5e4c02"
+      }
+    },
+    {
+      "title": "Good quality fabric",
+      "rating": 4,
+      "comment": "Heavy and well-stitched, worth the price.",
+      "date": "9 Dec 2025",
+      "_id": {
+        "$oid": "6941115d12a66ebdbc5e4c03"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 90,
+    "quality": 93,
+    "worthPrice": 88
+  },
+  "rating": 4.6,
+  "stock": 18,
+  "createdAt": {
+    "$date": "2025-12-16T07:59:25.942Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T07:46:50.566Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941119712a66ebdbc5e4c09"
+  },
+  "name": "Coffee Maker with Glass Carafe - Black",
+  "category": "Kitchen Appliances",
+  "price": 3999,
+  "image": "/products/coffeemaker-with-glass-carafe-black.jpg",
+  "description": "Efficient coffee maker with a durable glass carafe, perfect for brewing rich and flavorful coffee at home.",
+  "highlights": [
+    "High-Temperature Brewing",
+    "Durable Glass Carafe",
+    "Easy One-Touch Operation",
+    "Compact & Stylish Design"
+  ],
+  "specifications": {
+    "Material": "Plastic Body with Glass Carafe",
+    "Capacity": "1.2 Litres",
+    "Color": "Black",
+    "Power": "900 W",
+    "Weight": "2.1 kg"
+  },
+  "reviews": [
+    {
+      "title": "Great coffee maker",
+      "rating": 5,
+      "comment": "Brews coffee quickly and tastes great every time.",
+      "date": "4 Dec 2025",
+      "_id": {
+        "$oid": "6941119712a66ebdbc5e4c0a"
+      }
+    },
+    {
+      "title": "Good for daily use",
+      "rating": 4,
+      "comment": "Easy to use and clean, but carafe is a bit delicate.",
+      "date": "13 Dec 2025",
+      "_id": {
+        "$oid": "6941119712a66ebdbc5e4c0b"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 87,
+    "quality": 91,
+    "worthPrice": 89
+  },
+  "rating": 4.5,
+  "stock": 12,
+  "createdAt": {
+    "$date": "2025-12-16T08:00:23.572Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:00:23.572Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694111ab12a66ebdbc5e4c0d"
+  },
+  "name": "Cotton Bath Towels Set - Teal",
+  "category": "Bathroom Essentials",
+  "price": 1599,
+  "image": "/products/cotton-bath-towels-teal.webp",
+  "description": "Soft and highly absorbent cotton bath towels designed for everyday comfort and durability.",
+  "highlights": [
+    "100% Pure Cotton Fabric",
+    "Highly Absorbent & Quick Dry",
+    "Soft on Skin",
+    "Fade-Resistant Teal Color"
+  ],
+  "specifications": {
+    "Material": "100% Cotton",
+    "Pieces": "3 Towels",
+    "Color": "Teal",
+    "Size": "70 x 140 cm (Each)",
+    "Weight": "1.4 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very soft towels",
+      "rating": 5,
+      "comment": "Absorbs water quickly and feels very gentle.",
+      "date": "6 Dec 2025",
+      "_id": {
+        "$oid": "694111ab12a66ebdbc5e4c0e"
+      }
+    },
+    {
+      "title": "Good quality cotton",
+      "rating": 4,
+      "comment": "Nice color and thickness, worth buying.",
+      "date": "14 Dec 2025",
+      "_id": {
+        "$oid": "694111ab12a66ebdbc5e4c0f"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 93,
+    "quality": 90,
+    "worthPrice": 88
+  },
+  "rating": 4.6,
+  "stock": 22,
+  "createdAt": {
+    "$date": "2025-12-16T08:00:43.857Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:00:43.857Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694111cc12a66ebdbc5e4c11"
+  },
+  "name": "Countertop Blender 64 oz - Black",
+  "category": "Kitchen Appliances",
+  "price": 5499,
+  "image": "/products/countertop-blender-64-oz.jpg",
+  "description": "Powerful countertop blender with a large 64 oz jar, ideal for smoothies, shakes, and food preparation.",
+  "highlights": [
+    "High-Power Motor for Smooth Blending",
+    "Large 64 oz Capacity Jar",
+    "Stainless Steel Sharp Blades",
+    "Multiple Speed Control Settings"
+  ],
+  "specifications": {
+    "Material": "Plastic Body with Stainless Steel Blades",
+    "Capacity": "64 oz",
+    "Color": "Black",
+    "Power": "1200 W",
+    "Weight": "3.2 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very powerful blender",
+      "rating": 5,
+      "comment": "Blends smoothies perfectly and handles ice easily.",
+      "date": "7 Dec 2025",
+      "_id": {
+        "$oid": "694111cc12a66ebdbc5e4c12"
+      }
+    },
+    {
+      "title": "Good but a bit noisy",
+      "rating": 4,
+      "comment": "Great performance, just slightly loud at high speed.",
+      "date": "15 Dec 2025",
+      "_id": {
+        "$oid": "694111cc12a66ebdbc5e4c13"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 86,
+    "quality": 92,
+    "worthPrice": 89
+  },
+  "rating": 4.5,
+  "stock": 10,
+  "createdAt": {
+    "$date": "2025-12-16T08:01:16.515Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:01:16.515Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694111ec12a66ebdbc5e4c15"
+  },
+  "name": "Ceramic Dinner Plates Set - White",
+  "category": "Kitchen & Dining",
+  "price": 1899,
+  "image": "/products/dinner-plates.jpg",
+  "description": "Elegant ceramic dinner plates set suitable for everyday meals and special occasions.",
+  "highlights": [
+    "High-Quality Ceramic Material",
+    "Microwave & Dishwasher Safe",
+    "Scratch Resistant Surface",
+    "Minimal Elegant Design"
+  ],
+  "specifications": {
+    "Material": "Ceramic",
+    "Pieces": "6 Plates",
+    "Color": "White",
+    "Diameter": "10.5 inches",
+    "Weight": "2.5 kg"
+  },
+  "reviews": [
+    {
+      "title": "Beautiful plates",
+      "rating": 5,
+      "comment": "Looks premium and perfect for daily use.",
+      "date": "8 Dec 2025",
+      "_id": {
+        "$oid": "694111ec12a66ebdbc5e4c16"
+      }
+    },
+    {
+      "title": "Good quality ceramic",
+      "rating": 4,
+      "comment": "Strong and stylish, but slightly heavy.",
+      "date": "16 Dec 2025",
+      "_id": {
+        "$oid": "694111ec12a66ebdbc5e4c17"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 88,
+    "quality": 91,
+    "worthPrice": 87
+  },
+  "rating": 4.4,
+  "stock": 30,
+  "createdAt": {
+    "$date": "2025-12-16T08:01:48.750Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:01:48.750Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941121812a66ebdbc5e4c3f"
+  },
+  "name": "Double Elongated Twist French Wire Earrings - Gold",
+  "category": "Fashion Jewelry",
+  "price": 999,
+  "image": "/products/double-elongated-twist-french-wire-earrings.webp",
+  "description": "Elegant double elongated twist earrings with a modern design, perfect for both casual and party wear.",
+  "highlights": [
+    "Lightweight & Comfortable",
+    "Elegant Twisted Design",
+    "Nickel-Free & Skin Safe",
+    "Secure French Wire Closure"
+  ],
+  "specifications": {
+    "Material": "Alloy with Gold Plating",
+    "Color": "Gold",
+    "Closure": "French Wire",
+    "Weight": "12 g"
+  },
+  "reviews": [
+    {
+      "title": "Very stylish earrings",
+      "rating": 5,
+      "comment": "Looks classy and very light on ears.",
+      "date": "9 Dec 2025",
+      "_id": {
+        "$oid": "6941121812a66ebdbc5e4c40"
+      }
+    },
+    {
+      "title": "Good for daily wear",
+      "rating": 4,
+      "comment": "Nice design, just wish the plating was thicker.",
+      "date": "17 Dec 2025",
+      "_id": {
+        "$oid": "6941121812a66ebdbc5e4c41"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 94,
+    "quality": 89,
+    "worthPrice": 90
+  },
+  "rating": 4.5,
+  "stock": 40,
+  "createdAt": {
+    "$date": "2025-12-16T08:02:32.721Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:02:32.721Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941123c12a66ebdbc5e4c43"
+  },
+  "name": "Duvet Cover Set - Blue (Twin)",
+  "category": "Bedroom Essentials",
+  "price": 2499,
+  "image": "/products/duvet-cover-set-blue-twin.jpg",
+  "description": "Soft and breathable duvet cover set designed to provide comfort and style for twin-size beds.",
+  "highlights": [
+    "Soft & Breathable Fabric",
+    "Fade-Resistant Color",
+    "Easy to Wash & Maintain",
+    "Elegant Solid Blue Design"
+  ],
+  "specifications": {
+    "Material": "Cotton Blend",
+    "Pieces": "2 Pieces (Duvet Cover + Pillow Cover)",
+    "Bed Size": "Twin",
+    "Color": "Blue",
+    "Weight": "1.3 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very comfortable",
+      "rating": 5,
+      "comment": "Soft fabric and perfect fit for my bed.",
+      "date": "10 Dec 2025",
+      "_id": {
+        "$oid": "6941123c12a66ebdbc5e4c44"
+      }
+    },
+    {
+      "title": "Nice color and quality",
+      "rating": 4,
+      "comment": "Good stitching and color doesn’t fade.",
+      "date": "18 Dec 2025",
+      "_id": {
+        "$oid": "6941123c12a66ebdbc5e4c45"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 92,
+    "quality": 89,
+    "worthPrice": 88
+  },
+  "rating": 4.4,
+  "stock": 16,
+  "createdAt": {
+    "$date": "2025-12-16T08:03:08.417Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:03:08.417Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941125412a66ebdbc5e4c47"
+  },
+  "name": "Electric Glass and Steel Hot Water Kettle",
+  "category": "Kitchen Appliances",
+  "price": 2799,
+  "image": "/products/electric-glass-and-steel-hot-water-kettle.webp",
+  "description": "Modern electric kettle with a glass body and stainless steel finish for fast and safe water boiling.",
+  "highlights": [
+    "Heat-Resistant Glass Body",
+    "Stainless Steel Base & Lid",
+    "Auto Shut-Off Safety Feature",
+    "Fast Boiling Technology"
+  ],
+  "specifications": {
+    "Material": "Borosilicate Glass & Stainless Steel",
+    "Capacity": "1.8 Litres",
+    "Color": "Transparent with Steel",
+    "Power": "1500 W",
+    "Weight": "1.1 kg"
+  },
+  "reviews": [
+    {
+      "title": "Stylish and efficient",
+      "rating": 5,
+      "comment": "Boils water very fast and looks premium.",
+      "date": "11 Dec 2025",
+      "_id": {
+        "$oid": "6941125412a66ebdbc5e4c48"
+      }
+    },
+    {
+      "title": "Good kettle",
+      "rating": 4,
+      "comment": "Easy to use and clean, glass is strong.",
+      "date": "19 Dec 2025",
+      "_id": {
+        "$oid": "6941125412a66ebdbc5e4c49"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 88,
+    "quality": 91,
+    "worthPrice": 89
+  },
+  "rating": 4.5,
+  "stock": 14,
+  "createdAt": {
+    "$date": "2025-12-16T08:03:32.438Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:03:32.438Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941126f12a66ebdbc5e4c4b"
+  },
+  "name": "Facial Tissue 2-Ply – 18 Boxes",
+  "category": "Household Essentials",
+  "price": 999,
+  "image": "/products/facial-tissue-2-ply-18-boxes.jpg",
+  "description": "Soft and strong 2-ply facial tissues designed for everyday comfort and hygiene.",
+  "highlights": [
+    "Soft & Gentle on Skin",
+    "Strong 2-Ply Layers",
+    "Highly Absorbent",
+    "Value Pack of 18 Boxes"
+  ],
+  "specifications": {
+    "Material": "Virgin Paper Pulp",
+    "Ply": "2-Ply",
+    "Boxes": "18",
+    "Color": "White",
+    "Weight": "2.0 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very soft tissues",
+      "rating": 5,
+      "comment": "Perfect for daily use and doesn’t irritate skin.",
+      "date": "12 Dec 2025",
+      "_id": {
+        "$oid": "6941126f12a66ebdbc5e4c4c"
+      }
+    },
+    {
+      "title": "Good value pack",
+      "rating": 4,
+      "comment": "Nice quality tissues, lasts a long time.",
+      "date": "20 Dec 2025",
+      "_id": {
+        "$oid": "6941126f12a66ebdbc5e4c4d"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 94,
+    "quality": 90,
+    "worthPrice": 92
+  },
+  "rating": 4.6,
+  "stock": 35,
+  "createdAt": {
+    "$date": "2025-12-16T08:03:59.876Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:03:59.876Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941128612a66ebdbc5e4c4f"
+  },
+  "name": "Floral Mixing Bowl Set - Multicolor",
+  "category": "Kitchen & Dining",
+  "price": 1999,
+  "image": "/products/floral-mixing-bowl-set.jpg",
+  "description": "Beautiful floral-designed mixing bowl set, perfect for cooking, baking, and serving.",
+  "highlights": [
+    "Attractive Floral Print Design",
+    "Durable & Lightweight",
+    "Easy to Clean Surface",
+    "Ideal for Mixing & Serving"
+  ],
+  "specifications": {
+    "Material": "Melamine",
+    "Pieces": "4 Bowls",
+    "Color": "Multicolor Floral",
+    "Sizes": "Small, Medium, Large, Extra Large",
+    "Weight": "1.6 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very pretty bowls",
+      "rating": 5,
+      "comment": "Design is beautiful and bowls are very useful.",
+      "date": "13 Dec 2025",
+      "_id": {
+        "$oid": "6941128612a66ebdbc5e4c50"
+      }
+    },
+    {
+      "title": "Good quality set",
+      "rating": 4,
+      "comment": "Strong and stylish, but not microwave safe.",
+      "date": "21 Dec 2025",
+      "_id": {
+        "$oid": "6941128612a66ebdbc5e4c51"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 89,
+    "quality": 88,
+    "worthPrice": 87
+  },
+  "rating": 4.4,
+  "stock": 28,
+  "createdAt": {
+    "$date": "2025-12-16T08:04:22.013Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:04:22.013Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941129c12a66ebdbc5e4c53"
+  },
+  "name": "Intermediate Composite Basketball - Orange",
+  "category": "Sports & Outdoors",
+  "price": 1499,
+  "image": "/products/intermediate-composite-basketball.jpg",
+  "description": "Durable intermediate-level basketball made of composite leather, suitable for indoor and outdoor play.",
+  "highlights": [
+    "High-Quality Composite Leather",
+    "Good Grip & Bounce",
+    "Indoor & Outdoor Use",
+    "Standard Size & Weight"
+  ],
+  "specifications": {
+    "Material": "Composite Leather",
+    "Size": "7 (Standard)",
+    "Color": "Orange",
+    "Weight": "600 g"
+  },
+  "reviews": [
+    {
+      "title": "Great basketball",
+      "rating": 5,
+      "comment": "Good grip and bounce, perfect for practice.",
+      "date": "14 Dec 2025",
+      "_id": {
+        "$oid": "6941129c12a66ebdbc5e4c54"
+      }
+    },
+    {
+      "title": "Durable ball",
+      "rating": 4,
+      "comment": "Handles outdoor use well, slight wear after months.",
+      "date": "22 Dec 2025",
+      "_id": {
+        "$oid": "6941129c12a66ebdbc5e4c55"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 87,
+    "quality": 90,
+    "worthPrice": 88
+  },
+  "rating": 4.5,
+  "stock": 20,
+  "createdAt": {
+    "$date": "2025-12-16T08:04:44.399Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:04:44.399Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694112b612a66ebdbc5e4c57"
+  },
+  "name": "Kitchen Paper Towels – 30 Pack",
+  "category": "Household Essentials",
+  "price": 1299,
+  "image": "/products/kitchen-paper-towels-30-pack.jpg",
+  "description": "Strong and absorbent kitchen paper towels, perfect for cleaning spills and everyday use.",
+  "highlights": [
+    "Highly Absorbent & Durable",
+    "Soft Yet Strong Sheets",
+    "Convenient 30-Pack Value",
+    "Ideal for Kitchen & Household Use"
+  ],
+  "specifications": {
+    "Material": "Virgin Paper Pulp",
+    "Ply": "2-Ply",
+    "Sheets per Roll": "120",
+    "Rolls": "30",
+    "Weight": "3.5 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very strong towels",
+      "rating": 5,
+      "comment": "Absorbs liquids quickly and doesn’t tear easily.",
+      "date": "15 Dec 2025",
+      "_id": {
+        "$oid": "694112b612a66ebdbc5e4c58"
+      }
+    },
+    {
+      "title": "Good value pack",
+      "rating": 4,
+      "comment": "Lots of rolls, perfect for heavy use in the kitchen.",
+      "date": "23 Dec 2025",
+      "_id": {
+        "$oid": "694112b612a66ebdbc5e4c59"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 90,
+    "quality": 89,
+    "worthPrice": 91
+  },
+  "rating": 4.5,
+  "stock": 50,
+  "createdAt": {
+    "$date": "2025-12-16T08:05:10.641Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:05:10.641Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694112d412a66ebdbc5e4c5b"
+  },
+  "name": "Luxury Towel Set – 6 Pieces",
+  "category": "Bathroom Essentials",
+  "price": 2799,
+  "image": "/products/luxury-tower-set-6-piece.jpg",
+  "description": "Premium 6-piece towel set made from soft and absorbent cotton, perfect for daily use or gifting.",
+  "highlights": [
+    "100% Pure Cotton",
+    "Soft & Highly Absorbent",
+    "Durable & Long-Lasting",
+    "Elegant Design for Bathroom Decor"
+  ],
+  "specifications": {
+    "Material": "100% Cotton",
+    "Pieces": "6 Towels",
+    "Color": "White",
+    "Sizes": "2 Bath Towels, 2 Hand Towels, 2 Face Towels",
+    "Weight": "3.2 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very soft and luxurious",
+      "rating": 5,
+      "comment": "Feels amazing and absorbs water perfectly.",
+      "date": "16 Dec 2025",
+      "_id": {
+        "$oid": "694112d412a66ebdbc5e4c5c"
+      }
+    },
+    {
+      "title": "Good quality towels",
+      "rating": 4,
+      "comment": "Nice set, just wish colors were more varied.",
+      "date": "24 Dec 2025",
+      "_id": {
+        "$oid": "694112d412a66ebdbc5e4c5d"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 95,
+    "quality": 92,
+    "worthPrice": 90
+  },
+  "rating": 4.6,
+  "stock": 18,
+  "createdAt": {
+    "$date": "2025-12-16T08:05:40.884Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:05:40.884Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694112ef12a66ebdbc5e4c5f"
+  },
+  "name": "Men's Chino Pants - Beige",
+  "category": "Men's Clothing",
+  "price": 1999,
+  "image": "/products/men-chino-pants-beige.jpg",
+  "description": "Classic beige chino pants made from soft and breathable cotton, perfect for casual and semi-formal wear.",
+  "highlights": [
+    "Soft & Comfortable Cotton Fabric",
+    "Slim Fit Design",
+    "Durable Stitching",
+    "Versatile for Casual & Office Wear"
+  ],
+  "specifications": {
+    "Material": "100% Cotton",
+    "Color": "Beige",
+    "Fit": "Slim",
+    "Waist Sizes": "30-40 inches",
+    "Weight": "500 g"
+  },
+  "reviews": [
+    {
+      "title": "Very comfortable pants",
+      "rating": 5,
+      "comment": "Perfect fit and breathable fabric.",
+      "date": "17 Dec 2025",
+      "_id": {
+        "$oid": "694112ef12a66ebdbc5e4c60"
+      }
+    },
+    {
+      "title": "Good quality chinos",
+      "rating": 4,
+      "comment": "Nice color and stitching, fits well.",
+      "date": "25 Dec 2025",
+      "_id": {
+        "$oid": "694112ef12a66ebdbc5e4c61"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 92,
+    "quality": 90,
+    "worthPrice": 88
+  },
+  "rating": 4.5,
+  "stock": 22,
+  "createdAt": {
+    "$date": "2025-12-16T08:06:07.706Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:06:07.706Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941131212a66ebdbc5e4c63"
+  },
+  "name": "Men's Cozy Fleece Zip-Up Hoodie - Red",
+  "category": "Men's Clothing",
+  "price": 2299,
+  "image": "/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
+  "description": "Warm and comfortable fleece hoodie with full zip, ideal for casual wear and outdoor activities.",
+  "highlights": [
+    "Soft & Cozy Fleece Material",
+    "Full Zip Front Closure",
+    "Adjustable Hood with Drawstrings",
+    "Ribbed Cuffs and Hem for Comfort"
+  ],
+  "specifications": {
+    "Material": "Fleece (Polyester Blend)",
+    "Color": "Red",
+    "Fit": "Regular",
+    "Sizes": "S, M, L, XL, XXL",
+    "Weight": "700 g"
+  },
+  "reviews": [
+    {
+      "title": "Very warm and comfy",
+      "rating": 5,
+      "comment": "Perfect for chilly days, soft and cozy material.",
+      "date": "18 Dec 2025",
+      "_id": {
+        "$oid": "6941131212a66ebdbc5e4c64"
+      }
+    },
+    {
+      "title": "Good quality hoodie",
+      "rating": 4,
+      "comment": "Nice color and fit, zipper works smoothly.",
+      "date": "26 Dec 2025",
+      "_id": {
+        "$oid": "6941131212a66ebdbc5e4c65"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 94,
+    "quality": 91,
+    "worthPrice": 89
+  },
+  "rating": 4.5,
+  "stock": 20,
+  "createdAt": {
+    "$date": "2025-12-16T08:06:42.320Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:06:42.320Z"
+  },
+  "__v": 0,
+  "gender": "men"
+},
+{
+  "_id": {
+    "$oid": "6941132912a66ebdbc5e4c67"
+  },
+  "name": "Men's Golf Polo T-Shirt - Blue",
+  "category": "Men's Clothing",
+  "price": 1499,
+  "image": "/products/men-golf-polo-t-shirt-blue.jpg",
+  "description": "Classic blue golf polo made from breathable fabric, perfect for sports or casual wear.",
+  "highlights": [
+    "Soft & Breathable Material",
+    "Classic Polo Collar",
+    "Short Sleeves for Comfort",
+    "Durable Stitching & Colorfast Fabric"
+  ],
+  "specifications": {
+    "Material": "Cotton Blend",
+    "Color": "Blue",
+    "Fit": "Regular",
+    "Sizes": "S, M, L, XL, XXL",
+    "Weight": "300 g"
+  },
+  "reviews": [
+    {
+      "title": "Comfortable and stylish",
+      "rating": 5,
+      "comment": "Perfect for sports and casual outings, feels soft on skin.",
+      "date": "19 Dec 2025",
+      "_id": {
+        "$oid": "6941132912a66ebdbc5e4c68"
+      }
+    },
+    {
+      "title": "Good quality polo",
+      "rating": 4,
+      "comment": "Nice fit and color, fabric is breathable.",
+      "date": "27 Dec 2025",
+      "_id": {
+        "$oid": "6941132912a66ebdbc5e4c69"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 92,
+    "quality": 89,
+    "worthPrice": 90
+  },
+  "rating": 4.5,
+  "stock": 25,
+  "createdAt": {
+    "$date": "2025-12-16T08:07:05.639Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:07:05.639Z"
+  },
+  "__v": 0,
+  "gender": "men"
+},
+{
+  "_id": {
+    "$oid": "6941134212a66ebdbc5e4c6b"
+  },
+  "name": "Men's Navigator Sunglasses - Brown",
+  "category": "Accessories",
+  "price": 1299,
+  "image": "/products/men-navigator-sunglasses-brown.jpg",
+  "description": "Classic navigator-style sunglasses with brown lenses, offering both style and UV protection.",
+  "highlights": [
+    "UV400 Protection Lenses",
+    "Lightweight & Durable Frame",
+    "Comfortable Nose Pads",
+    "Stylish Navigator Design"
+  ],
+  "specifications": {
+    "Material": "Plastic Frame with Polycarbonate Lenses",
+    "Color": "Brown",
+    "Lens Type": "UV400",
+    "Frame Style": "Navigator",
+    "Weight": "25 g"
+  },
+  "reviews": [
+    {
+      "title": "Stylish and protective",
+      "rating": 5,
+      "comment": "Looks great and protects eyes well from sunlight.",
+      "date": "20 Dec 2025",
+      "_id": {
+        "$oid": "6941134212a66ebdbc5e4c6c"
+      }
+    },
+    {
+      "title": "Good sunglasses",
+      "rating": 4,
+      "comment": "Comfortable to wear, fits well on my face.",
+      "date": "28 Dec 2025",
+      "_id": {
+        "$oid": "6941134212a66ebdbc5e4c6d"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 91,
+    "quality": 88,
+    "worthPrice": 89
+  },
+  "rating": 4.5,
+  "stock": 30,
+  "createdAt": {
+    "$date": "2025-12-16T08:07:30.082Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:07:30.082Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941136912a66ebdbc5e4c6f"
+  },
+  "name": "Men's Slim Fit Summer Shorts - Gray",
+  "category": "Men's Clothing",
+  "price": 1299,
+  "image": "/products/men-slim-fit-summer-shorts-gray.jpg",
+  "description": "Lightweight and comfortable slim-fit summer shorts in gray, perfect for casual outings and warm weather.",
+  "highlights": [
+    "Soft & Breathable Fabric",
+    "Slim Fit Design",
+    "Elastic Waistband with Drawstring",
+    "Durable Stitching & Comfortable Wear"
+  ],
+  "specifications": {
+    "Material": "Cotton Blend",
+    "Color": "Gray",
+    "Fit": "Slim",
+    "Sizes": "S, M, L, XL, XXL",
+    "Weight": "350 g"
+  },
+  "reviews": [
+    {
+      "title": "Perfect summer shorts",
+      "rating": 5,
+      "comment": "Very comfortable and lightweight, perfect for hot weather.",
+      "date": "21 Dec 2025",
+      "_id": {
+        "$oid": "6941136912a66ebdbc5e4c70"
+      }
+    },
+    {
+      "title": "Good fit and quality",
+      "rating": 4,
+      "comment": "Nice color and stitching, fits as expected.",
+      "date": "29 Dec 2025",
+      "_id": {
+        "$oid": "6941136912a66ebdbc5e4c71"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 93,
+    "quality": 90,
+    "worthPrice": 88
+  },
+  "rating": 4.5,
+  "stock": 28,
+  "createdAt": {
+    "$date": "2025-12-16T08:08:09.644Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:08:09.644Z"
+  },
+  "__v": 0,
+  "gender": "men"
+},
+{
+  "_id": {
+    "$oid": "6941138a12a66ebdbc5e4c73"
+  },
+  "name": "Non-Stick Cooking Set – 15 Pieces",
+  "category": "Kitchen Appliances",
+  "price": 4999,
+  "image": "/products/non-stick-cooking-set-15-pieces.webp",
+  "description": "Complete 15-piece non-stick cookware set for everyday cooking, offering durability and easy cleaning.",
+  "highlights": [
+    "High-Quality Non-Stick Coating",
+    "Durable Aluminum Body",
+    "Ergonomic Heat-Resistant Handles",
+    "Easy to Clean and Maintain"
+  ],
+  "specifications": {
+    "Material": "Aluminum with Non-Stick Coating",
+    "Pieces": "15",
+    "Color": "Black",
+    "Compatible With": "Gas, Electric, Ceramic Stoves",
+    "Weight": "8.5 kg"
+  },
+  "reviews": [
+    {
+      "title": "Excellent cookware set",
+      "rating": 5,
+      "comment": "Non-stick works perfectly and cleans easily.",
+      "date": "22 Dec 2025",
+      "_id": {
+        "$oid": "6941138a12a66ebdbc5e4c74"
+      }
+    },
+    {
+      "title": "Good value for money",
+      "rating": 4,
+      "comment": "Durable and versatile, but slightly heavy.",
+      "date": "30 Dec 2025",
+      "_id": {
+        "$oid": "6941138a12a66ebdbc5e4c75"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 88,
+    "quality": 92,
+    "worthPrice": 89
+  },
+  "rating": 4.5,
+  "stock": 12,
+  "createdAt": {
+    "$date": "2025-12-16T08:08:42.026Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:08:42.026Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694113a212a66ebdbc5e4c77"
+  },
+  "name": "Round Airtight Food Storage Containers - 6 Pack",
+  "category": "Kitchen & Dining",
+  "price": 1599,
+  "image": "/products/round-airtight-food-storage-containers.jpg",
+  "description": "Set of round airtight food storage containers, perfect for keeping food fresh and organized.",
+  "highlights": [
+    "Airtight & Leak-Proof Lids",
+    "Durable & BPA-Free Material",
+    "Stackable Design for Easy Storage",
+    "Microwave & Dishwasher Safe"
+  ],
+  "specifications": {
+    "Material": "Plastic (BPA-Free)",
+    "Pieces": "6 Containers",
+    "Color": "Transparent with Colored Lids",
+    "Capacity": "500 ml Each",
+    "Weight": "1.2 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very convenient containers",
+      "rating": 5,
+      "comment": "Keeps food fresh and easy to stack in the fridge.",
+      "date": "23 Dec 2025",
+      "_id": {
+        "$oid": "694113a212a66ebdbc5e4c78"
+      }
+    },
+    {
+      "title": "Good quality set",
+      "rating": 4,
+      "comment": "Nice lids and durable plastic, a bit small for some uses.",
+      "date": "31 Dec 2025",
+      "_id": {
+        "$oid": "694113a212a66ebdbc5e4c79"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 90,
+    "quality": 88,
+    "worthPrice": 87
+  },
+  "rating": 4.5,
+  "stock": 20,
+  "createdAt": {
+    "$date": "2025-12-16T08:09:06.596Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:09:06.596Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694113c912a66ebdbc5e4c7b"
+  },
+  "name": "Sky Flower Stud Earrings - Blue",
+  "category": "Fashion Jewelry",
+  "price": 799,
+  "image": "/products/sky-flower-stud-earrings.webp",
+  "description": "Delicate flower-shaped stud earrings in sky blue, perfect for everyday wear or gifting.",
+  "highlights": [
+    "Lightweight & Comfortable",
+    "Elegant Flower Design",
+    "Nickel-Free & Skin Safe",
+    "Secure Backing for Daily Use"
+  ],
+  "specifications": {
+    "Material": "Alloy with Enamel",
+    "Color": "Sky Blue",
+    "Closure": "Push Back",
+    "Weight": "8 g"
+  },
+  "reviews": [
+    {
+      "title": "Beautiful earrings",
+      "rating": 5,
+      "comment": "Looks very pretty and lightweight, perfect for daily wear.",
+      "date": "24 Dec 2025",
+      "_id": {
+        "$oid": "694113c912a66ebdbc5e4c7c"
+      }
+    },
+    {
+      "title": "Good quality",
+      "rating": 4,
+      "comment": "Nice color and design, backing is secure.",
+      "date": "1 Jan 2026",
+      "_id": {
+        "$oid": "694113c912a66ebdbc5e4c7d"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 95,
+    "quality": 90,
+    "worthPrice": 92
+  },
+  "rating": 3.1,
+  "stock": 40,
+  "createdAt": {
+    "$date": "2025-12-16T08:09:45.699Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:09:45.699Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "694113e812a66ebdbc5e4c7f"
+  },
+  "name": "Straw Sunhat - Natural",
+  "category": "Accessories",
+  "price": 699,
+  "image": "/products/straw-sunhat.webp",
+  "description": "Lightweight and stylish straw sunhat, perfect for sunny days and outdoor activities.",
+  "highlights": [
+    "Breathable Straw Material",
+    "Wide Brim for Sun Protection",
+    "Lightweight & Comfortable",
+    "Classic Natural Color"
+  ],
+  "specifications": {
+    "Material": "Natural Straw",
+    "Color": "Beige",
+    "Size": "Adjustable Fit",
+    "Weight": "120 g"
+  },
+  "reviews": [
+    {
+      "title": "Very comfortable hat",
+      "rating": 5,
+      "comment": "Lightweight and keeps the sun off my face perfectly.",
+      "date": "25 Dec 2025",
+      "_id": {
+        "$oid": "694113e812a66ebdbc5e4c80"
+      }
+    },
+    {
+      "title": "Good quality straw",
+      "rating": 4,
+      "comment": "Nice design and breathable, fits well.",
+      "date": "2 Jan 2026",
+      "_id": {
+        "$oid": "694113e812a66ebdbc5e4c81"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 94,
+    "quality": 88,
+    "worthPrice": 90
+  },
+  "rating": 4.5,
+  "stock": 35,
+  "createdAt": {
+    "$date": "2025-12-16T08:10:16.567Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:10:16.567Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941140012a66ebdbc5e4c83"
+  },
+  "name": "2-Slice Electric Toaster - Silver",
+  "category": "Kitchen Appliances",
+  "price": 1799,
+  "image": "/products/toaster.jpg",
+  "description": "Compact 2-slice toaster with adjustable browning settings, perfect for quick and even toasting.",
+  "highlights": [
+    "Adjustable Browning Control",
+    "Even Toasting Technology",
+    "Easy-to-Clean Crumb Tray",
+    "Compact & Stylish Design"
+  ],
+  "specifications": {
+    "Material": "Stainless Steel Body",
+    "Slices": "2",
+    "Color": "Silver",
+    "Power": "800 W",
+    "Weight": "1.2 kg"
+  },
+  "reviews": [
+    {
+      "title": "Perfect for quick toast",
+      "rating": 5,
+      "comment": "Heats up quickly and browns evenly, very convenient.",
+      "date": "26 Dec 2025",
+      "_id": {
+        "$oid": "6941140012a66ebdbc5e4c84"
+      }
+    },
+    {
+      "title": "Good toaster",
+      "rating": 4,
+      "comment": "Compact and easy to use, crumb tray is helpful.",
+      "date": "3 Jan 2026",
+      "_id": {
+        "$oid": "6941140012a66ebdbc5e4c85"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 88,
+    "quality": 90,
+    "worthPrice": 89
+  },
+  "rating": 4.5,
+  "stock": 20,
+  "createdAt": {
+    "$date": "2025-12-16T08:10:40.868Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:10:40.868Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941141712a66ebdbc5e4c87"
+  },
+  "name": "Trash Can with Foot Pedal – 50 Liter",
+  "category": "Home Essentials",
+  "price": 2199,
+  "image": "/products/trash-can-with-foot-pedal-50-liter.jpg",
+  "description": "Durable 50-liter trash can with foot pedal for hands-free operation, ideal for home or office use.",
+  "highlights": [
+    "Hands-Free Foot Pedal Operation",
+    "Durable Stainless Steel Body",
+    "Removable Inner Bin for Easy Cleaning",
+    "Large 50-Litre Capacity"
+  ],
+  "specifications": {
+    "Material": "Stainless Steel",
+    "Capacity": "50 Litres",
+    "Color": "Silver",
+    "Pedal Type": "Foot Pedal",
+    "Weight": "4.5 kg"
+  },
+  "reviews": [
+    {
+      "title": "Very convenient trash can",
+      "rating": 5,
+      "comment": "Easy to use and clean, sturdy construction.",
+      "date": "27 Dec 2025",
+      "_id": {
+        "$oid": "6941141712a66ebdbc5e4c88"
+      }
+    },
+    {
+      "title": "Good quality and large size",
+      "rating": 4,
+      "comment": "Foot pedal works well, very practical for kitchen use.",
+      "date": "4 Jan 2026",
+      "_id": {
+        "$oid": "6941141712a66ebdbc5e4c89"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 89,
+    "quality": 91,
+    "worthPrice": 88
+  },
+  "rating": 4.5,
+  "stock": 15,
+  "createdAt": {
+    "$date": "2025-12-16T08:11:03.837Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:11:03.837Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941143112a66ebdbc5e4c8b"
+  },
+  "name": "Men's Classic T-Shirt - White",
+  "category": "Men's Clothing",
+  "price": 799,
+  "image": "/products/tshirt.jpg",
+  "description": "Soft and breathable classic t-shirt, perfect for casual wear and layering.",
+  "highlights": [
+    "100% Cotton Fabric",
+    "Comfortable Regular Fit",
+    "Durable Stitching",
+    "Versatile Casual Wear"
+  ],
+  "specifications": {
+    "Material": "100% Cotton",
+    "Color": "White",
+    "Fit": "Regular",
+    "Sizes": "S, M, L, XL, XXL",
+    "Weight": "250 g"
+  },
+  "reviews": [
+    {
+      "title": "Very comfortable t-shirt",
+      "rating": 5,
+      "comment": "Soft material, fits perfectly, great for daily wear.",
+      "date": "28 Dec 2025",
+      "_id": {
+        "$oid": "6941143112a66ebdbc5e4c8c"
+      }
+    },
+    {
+      "title": "Good quality basic tee",
+      "rating": 4,
+      "comment": "Durable and breathable, washes well.",
+      "date": "5 Jan 2026",
+      "_id": {
+        "$oid": "6941143112a66ebdbc5e4c8d"
+      }
+    },
+    {
+      "name": "Himani",
+      "title": "good product",
+      "rating": 5,
+      "comment": "Very good",
+      "date": "2025-12-20T15:46:34.847Z",
+      "_id": {
+        "$oid": "6946c4da8454dbdf137c1592"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 93,
+    "quality": 89,
+    "worthPrice": 90
+  },
+  "rating": 4.666666666666667,
+  "stock": 50,
+  "createdAt": {
+    "$date": "2025-12-16T08:11:29.120Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:46:34.852Z"
+  },
+  "__v": 1,
+  "gender": "men"
+},
+{
+  "_id": {
+    "$oid": "6941144812a66ebdbc5e4c8f"
+  },
+  "name": "Vanity Mirror - Silver",
+  "category": "Home & Decor",
+  "price": 2199,
+  "image": "/products/vanity-mirror-silver.jpg",
+  "description": "Elegant silver vanity mirror with adjustable angle, perfect for makeup and grooming.",
+  "highlights": [
+    "Adjustable Angle for Easy Viewing",
+    "Durable Silver Frame",
+    "Compact & Stylish Design",
+    "Ideal for Makeup and Grooming"
+  ],
+  "specifications": {
+    "Material": "Metal Frame with Glass",
+    "Color": "Silver",
+    "Height": "25 cm",
+    "Width": "20 cm",
+    "Weight": "1.5 kg"
+  },
+  "reviews": [
+    {
+      "title": "Stylish and practical",
+      "rating": 5,
+      "comment": "Perfect size and angle for daily makeup routine.",
+      "date": "29 Dec 2025",
+      "_id": {
+        "$oid": "6941144812a66ebdbc5e4c90"
+      }
+    },
+    {
+      "title": "Good quality mirror",
+      "rating": 4,
+      "comment": "Sturdy and looks elegant on the vanity table.",
+      "date": "6 Jan 2026",
+      "_id": {
+        "$oid": "6941144812a66ebdbc5e4c91"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 90,
+    "quality": 92,
+    "worthPrice": 88
+  },
+  "rating": 4.5,
+  "stock": 18,
+  "createdAt": {
+    "$date": "2025-12-16T08:11:52.920Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:11:52.920Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941147a12a66ebdbc5e4c93"
+  },
+  "name": "Women's Chunky Beanie - Gray",
+  "category": "Accessories",
+  "price": 599,
+  "image": "/products/women-chunky-beanie-gray.webp",
+  "description": "Warm and stylish chunky knit beanie in gray, perfect for cold weather and casual wear.",
+  "highlights": [
+    "Soft & Cozy Knit Material",
+    "Stretchable for Comfortable Fit",
+    "Trendy Chunky Design",
+    "Lightweight & Warm"
+  ],
+  "specifications": {
+    "Material": "Acrylic Knit",
+    "Color": "Gray",
+    "Size": "One Size Fits Most",
+    "Weight": "150 g"
+  },
+  "reviews": [
+    {
+      "title": "Very warm and comfy",
+      "rating": 5,
+      "comment": "Keeps me warm and fits perfectly.",
+      "date": "30 Dec 2025",
+      "_id": {
+        "$oid": "6941147a12a66ebdbc5e4c94"
+      }
+    },
+    {
+      "title": "Good quality beanie",
+      "rating": 4,
+      "comment": "Soft and trendy, a bit thick for mild weather.",
+      "date": "7 Jan 2026",
+      "_id": {
+        "$oid": "6941147a12a66ebdbc5e4c95"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 95,
+    "quality": 90,
+    "worthPrice": 92
+  },
+  "rating": 4.5,
+  "stock": 25,
+  "createdAt": {
+    "$date": "2025-12-16T08:12:42.367Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:12:42.367Z"
+  },
+  "__v": 0,
+  "gender": "women"
+},
+{
+  "_id": {
+    "$oid": "6941149412a66ebdbc5e4c97"
+  },
+  "name": "Women's French Terry Fleece Jogger - Camo",
+  "category": "Women's Clothing",
+  "price": 1799,
+  "image": "/products/women-french-terry-fleece-jogger-camo.jpg",
+  "description": "Comfortable camo-print joggers made from soft French terry fleece, perfect for lounging or casual outings.",
+  "highlights": [
+    "Soft & Cozy French Terry Fabric",
+    "Camo Print Design",
+    "Elastic Waistband with Drawstring",
+    "Ribbed Cuffs for Comfortable Fit"
+  ],
+  "specifications": {
+    "Material": "French Terry Fleece (Cotton Blend)",
+    "Color": "Camo",
+    "Fit": "Regular",
+    "Sizes": "S, M, L, XL",
+    "Weight": "450 g"
+  },
+  "reviews": [
+    {
+      "title": "Very comfy joggers",
+      "rating": 5,
+      "comment": "Soft material, fits well, perfect for casual wear.",
+      "date": "31 Dec 2025",
+      "_id": {
+        "$oid": "6941149412a66ebdbc5e4c98"
+      }
+    },
+    {
+      "title": "Good quality jogger",
+      "rating": 4,
+      "comment": "Nice camo print, comfortable for daily wear.",
+      "date": "8 Jan 2026",
+      "_id": {
+        "$oid": "6941149412a66ebdbc5e4c99"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 94,
+    "quality": 90,
+    "worthPrice": 88
+  },
+  "rating": 4.5,
+  "stock": 22,
+  "createdAt": {
+    "$date": "2025-12-16T08:13:08.610Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:13:08.610Z"
+  },
+  "__v": 0,
+  "gender": "women"
+},
+{
+  "_id": {
+    "$oid": "694114ac12a66ebdbc5e4c9b"
+  },
+  "name": "Women's Stretch Popover Hoodie - Black",
+  "category": "Women's Clothing",
+  "price": 1599,
+  "image": "/products/women-stretch-popover-hoodie-black.jpg",
+  "description": "Soft and stretchy black popover hoodie, perfect for casual wear and layering in cooler weather.",
+  "highlights": [
+    "Stretchy & Comfortable Fabric",
+    "Adjustable Hood with Drawstrings",
+    "Ribbed Cuffs and Hem for Fit",
+    "Casual & Versatile Style"
+  ],
+  "specifications": {
+    "Material": "Cotton-Polyester Blend",
+    "Color": "Black",
+    "Fit": "Regular",
+    "Sizes": "S, M, L, XL",
+    "Weight": "400 g"
+  },
+  "reviews": [
+    {
+      "title": "Very comfy hoodie",
+      "rating": 5,
+      "comment": "Soft and stretchy, perfect for daily wear.",
+      "date": "1 Jan 2026",
+      "_id": {
+        "$oid": "694114ac12a66ebdbc5e4c9c"
+      }
+    },
+    {
+      "title": "Good quality hoodie",
+      "rating": 4,
+      "comment": "Fits well and warm, nice black color.",
+      "date": "9 Jan 2026",
+      "_id": {
+        "$oid": "694114ac12a66ebdbc5e4c9d"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 93,
+    "quality": 89,
+    "worthPrice": 90
+  },
+  "rating": 4.5,
+  "stock": 20,
+  "createdAt": {
+    "$date": "2025-12-16T08:13:32.421Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:13:32.421Z"
+  },
+  "__v": 0,
+  "gender": "women"
+},
+{
+  "_id": {
+    "$oid": "694114c612a66ebdbc5e4c9f"
+  },
+  "name": "Women's Ankle Socks - 5 Pair Pack",
+  "category": "Women's Clothing",
+  "price": 499,
+  "image": "/products/socks.jpg",
+  "description": "Soft and comfortable ankle socks in a 5-pair pack, perfect for everyday wear and casual activities.",
+  "highlights": [
+    "Soft & Breathable Fabric",
+    "Elastic Arch Support",
+    "Reinforced Heel and Toe",
+    "Durable & Comfortable Fit"
+  ],
+  "specifications": {
+    "Material": "Cotton Blend",
+    "Color": "Assorted Colors",
+    "Size": "One Size Fits Most",
+    "Pack": "5 Pairs",
+    "Weight": "180 g"
+  },
+  "reviews": [
+    {
+      "title": "Very comfortable socks",
+      "rating": 5,
+      "comment": "Soft, breathable, and fits perfectly.",
+      "date": "3 Jan 2026",
+      "_id": {
+        "$oid": "694114c612a66ebdbc5e4ca0"
+      }
+    },
+    {
+      "title": "Good value pack",
+      "rating": 4,
+      "comment": "Durable, nice colors, perfect for casual wear.",
+      "date": "11 Jan 2026",
+      "_id": {
+        "$oid": "694114c612a66ebdbc5e4ca1"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 93,
+    "quality": 89,
+    "worthPrice": 90
+  },
+  "rating": 4.5,
+  "stock": 55,
+  "createdAt": {
+    "$date": "2025-12-16T08:13:58.290Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:13:58.290Z"
+  },
+  "__v": 0,
+  "gender": "women"
+},
+{
+  "_id": {
+    "$oid": "694114e812a66ebdbc5e4ca3"
+  },
+  "name": "L'Oréal Paris Revitalift 1.5% Hyaluronic Acid Serum",
+  "category": "Skincare",
+  "price": 1499,
+  "image": "/products/Loreal Paris Revitalift Hyaluronic Acid Serum.jpg",
+  "description": "Hydrating serum with 1.5% hyaluronic acid that plumps skin, reduces fine lines, and provides a fresh glow.",
+  "highlights": [
+    "Deep Hydration & Plumping Effect",
+    "Reduces Fine Lines & Wrinkles",
+    "Lightweight & Fast Absorbing",
+    "Dermatologically Tested"
+  ],
+  "specifications": {
+    "Ingredients": "1.5% Hyaluronic Acid, Glycerin, Water, Other Hydrating Agents",
+    "Volume": "30 ml",
+    "Skin Type": "All Skin Types",
+    "Application": "Morning & Evening",
+    "Weight": "40 g"
+  },
+  "reviews": [
+    {
+      "title": "Very hydrating serum",
+      "rating": 5,
+      "comment": "Makes my skin soft and plump, visible difference in a few days.",
+      "date": "4 Jan 2026",
+      "_id": {
+        "$oid": "694114e812a66ebdbc5e4ca4"
+      }
+    },
+    {
+      "title": "Good but small bottle",
+      "rating": 4,
+      "comment": "Effective serum, lightweight and non-sticky, just wish it came in bigger size.",
+      "date": "12 Jan 2026",
+      "_id": {
+        "$oid": "694114e812a66ebdbc5e4ca5"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 95,
+    "quality": 92,
+    "worthPrice": 88
+  },
+  "rating": 4.5,
+  "stock": 30,
+  "createdAt": {
+    "$date": "2025-12-16T08:14:32.484Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:14:32.484Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6941150112a66ebdbc5e4ca7"
+  },
+  "name": "Vendoz Women Premium Ankle Length Casual Boots",
+  "category": "Women's Footwear",
+  "price": 2799,
+  "image": "/products/Vendoz Women Premium Ankle Length Casual Boots.jpeg",
+  "description": "Stylish and comfortable ankle-length casual boots for women, perfect for daily wear and casual outings.",
+  "highlights": [
+    "Premium Synthetic Leather",
+    "Comfortable Cushioned Insole",
+    "Durable Rubber Sole",
+    "Trendy Ankle-Length Design"
+  ],
+  "specifications": {
+    "Material": "Synthetic Leather",
+    "Color": "Black",
+    "Sole Material": "Rubber",
+    "Heel Height": "2.5 cm",
+    "Weight": "450 g per boot"
+  },
+  "reviews": [
+    {
+      "title": "Very comfortable boots",
+      "rating": 5,
+      "comment": "Soft, easy to wear, and stylish. Perfect for casual outings.",
+      "date": "5 Jan 2026",
+      "_id": {
+        "$oid": "6941150112a66ebdbc5e4ca8"
+      }
+    },
+    {
+      "title": "Good quality boots",
+      "rating": 4,
+      "comment": "Looks premium and fits well, sole is sturdy.",
+      "date": "13 Jan 2026",
+      "_id": {
+        "$oid": "6941150112a66ebdbc5e4ca9"
+      }
+    }
+  ],
+  "stats": {
+    "comfortable": 92,
+    "quality": 90,
+    "worthPrice": 89
+  },
+  "rating": 4.5,
+  "stock": 18,
+  "createdAt": {
+    "$date": "2025-12-16T08:14:57.940Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-16T08:14:57.940Z"
+  },
+  "__v": 0,
+  "gender": "women"
+},
+{
+  "_id": {
+    "$oid": "694263fa34e2109add302170"
+  },
+  "name": "Wireless Bluetooth Headphones – Black",
+  "price": 2498,
+  "image": "/products/headphone.jpg",
+  "description": "Comfortable over‑ear wireless headphones with 20 hours battery life and noise isolation, compatible with phones and laptops",
+  "highlights": [
+    "Comfort: 92% customers found this headphone comfortable for long listening sessions.  Quality: 90% customers rated the audio and build quality highly.  Value for Money: 89% customers felt it offers excellent features at its price.  Customer Feedback: “Soft",
+    "easy to wear",
+    "and stylish. Perfect for casual outings.”"
+  ],
+  "rating": 4.8,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-17T08:04:10.125Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T07:17:46.724Z"
+  },
+  "__v": 0,
+  "category": "Headphones",
+  "specifications": {
+    "Material": "Soft cushioned earcups with adjustable plastic headband.",
+    "Color": "Black.",
+    "Driver size": "40 mm dynamic drivers for deep bass sound.",
+    "Weight": "Around 150–200 g for comfortable long listening sessions.",
+    "Connectivity": "Bluetooth wireless with optional 3.5 mm AUX wired mode.",
+    "Battery": "Up to 40–50 hours of playback on a full charge, with fast‑charge support."
+  }
+},
+{
+  "_id": {
+    "$oid": "69465657e6d222ba670202d7"
+  },
+  "name": "Blackout Curtain Set - Beige",
+  "category": "Curtains",
+  "price": 2000,
+  "image": "/products/blackout-curtain-set-beige.webp",
+  "description": "Premium blackout curtain set designed to block sunlight, reduce noise, and enhance room privacy.",
+  "highlights": [
+    "\"100% Light Blocking Fabric\"",
+    "\"Thermal Insulation\"",
+    "\"Noise Reduction\"",
+    "\"Elegant Solid Beige Color\""
+  ],
+  "specifications": {
+    "\"Material\"": "\"Polyester White Fabric\",",
+    "\"Pieces\"": "\"2 Curtains\",",
+    "\"Color\"": "\"Beige\",",
+    "\"Size\"": "\"7 ft x 4 ft (Each)\",",
+    "\"Weight\"": "\"1.8 kg\""
+  },
+  "rating": 4.4,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T07:55:03.472Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T07:55:26.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946b65e8454dbdf137bfd3b"
+  },
+  "name": "Safari Quill Large Laptop Backpack",
+  "category": "Backpacks",
+  "price": 2599,
+  "image": "/products/safari quill large laptop backpack.jpg",
+  "description": "Spacious and durable large laptop backpack designed for daily use, travel, and office needs.",
+  "highlights": [
+    "\"Large Laptop Compartment\"",
+    "\"Durable Water-Resistant Fabric\"",
+    "\"Multiple Storage Pockets\"",
+    "\"Comfortable Padded Shoulder Straps\""
+  ],
+  "specifications": {
+    "\"Material\"": "\"Polyester\",",
+    "\"Laptop Size\"": "\"Up to 15.6 inch\",",
+    "\"Color\"": "\"Black\",",
+    "\"Weight\"": "\"820 g\""
+  },
+  "rating": 4.7,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T14:44:46.672Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T14:47:50.035Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946ba2b8454dbdf137c0232"
+  },
+  "name": "Duvet Cover Set - Blue (Twin)",
+  "category": "Bedroom Essentials",
+  "price": 2499,
+  "image": "/products/hoard-led-plug-in-smart-night-lamp.jpg",
+  "description": "Soft and breathable duvet cover set designed to provide comfort and style for twin-size beds.",
+  "highlights": [
+    "Soft & Breathable Fabric",
+    "Fade-Resistant Color",
+    "Easy to Wash & Maintain",
+    "Elegant Solid Blue Design"
+  ],
+  "specifications": {
+    "Material": "Cotton Blend",
+    "Pieces": "2 Pieces (Duvet Cover + Pillow Cover)",
+    "Bed Size": "Twin",
+    "Color": "Blue",
+    "Weight": "1.3 kg"
+  },
+  "rating": 4.4,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:00:59.418Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:05:17.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946bba88454dbdf137c0567"
+  },
+  "name": "Bella Vita Luxury Oud White Body Deo",
+  "category": "Beauty & Personal Care",
+  "price": 399,
+  "image": "/products/bella-vita-luxury-oud-white-body-deo.jpg",
+  "description": "Premium body deodorant with a rich Oud White fragrance for long-lasting freshness.",
+  "highlights": [
+    "\"Long-Lasting Fragrance\"",
+    "\"Luxury Oud White Scent\"",
+    "\"Gentle on Skin\"",
+    "\"Suitable for Daily Use\""
+  ],
+  "specifications": {
+    "\"Type\"": "\"Body Deodorant\",",
+    "\"Volume\"": "\"150 ml\",",
+    "\"Fragrance\"": "\"Oud White\",",
+    "\"Weight\"": "\"200 g\""
+  },
+  "rating": 4.3,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:07:20.641Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:07:20.641Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946bc008454dbdf137c05b4"
+  },
+  "name": "ThriveCo Niacinamide Serum",
+  "category": "Beauty & Personal Care",
+  "price": 699,
+  "image": "/products/thriveco-niacinamide-serum.jpg",
+  "description": "Lightweight niacinamide serum formulated to reduce acne marks, control oil, and improve skin texture.",
+  "highlights": [
+    "\"Controls Excess Oil\"",
+    "\"Helps Reduce Acne Marks\"",
+    "\"Improves Skin Texture\"",
+    "\"Lightweight and Fast Absorbing\""
+  ],
+  "specifications": {
+    "\"Type\"": "\"Face Serum\",",
+    "\"Key Ingredient\"": "\"Niacinamide\",",
+    "\"Volume\"": "\"30 ml\",",
+    "\"Weight\"": "\"50 g\""
+  },
+  "rating": 4.4,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:08:48.615Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:08:48.615Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946bc538454dbdf137c0695"
+  },
+  "name": "MurtiHome Mahayogi Shiva Murti",
+  "category": "Home Decor & Spiritual",
+  "price": 2499,
+  "image": "/products/murtihome-mahayogi-shiva-murti.jpg",
+  "description": "Beautifully crafted Mahayogi Shiva murti symbolizing peace, meditation, and divine energy, ideal for home temples and decor.",
+  "highlights": [
+    "\"Premium Quality Craftsmanship\"",
+    "\"Symbol of Peace and Meditation\"",
+    "\"Ideal for Home Temple or Decor\"",
+    "\"Traditional and Spiritual Design\""
+  ],
+  "specifications": {
+    "\"Material\"": "\"Resin\",",
+    "\"Finish\"": "\"Matte\",",
+    "\"Height\"": "\"12 inches\",",
+    "\"Weight\"": "\"1.2 kg\""
+  },
+  "rating": 4.8,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:10:11.487Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:13:09.226Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946bd4e8454dbdf137c0a18"
+  },
+  "name": "Alan Jones Clothing Women's Hooded Sweatshirt",
+  "category": "Clothing",
+  "price": 1899,
+  "image": "/products/alan-jones-womens-hooded-sweatshirt.jpg",
+  "description": "Stylish and comfortable hooded sweatshirt for women, designed for everyday casual wear and light winter layering.",
+  "highlights": [
+    "\"Soft and Comfortable Fabric\"",
+    "\"Adjustable Hood with Drawstrings\"",
+    "\"Ribbed Cuffs and Hem\"",
+    "\"Perfect for Casual and Daily Wear\""
+  ],
+  "specifications": {
+    "\"Material\"": "\"Cotton Blend\",",
+    "\"Fit\"": "\"Regular Fit\",",
+    "\"Sizes\"": "\"S, M, L, XL\",",
+    "\"Color\"": "\"Assorted\",",
+    "\"Weight\"": "\"500 g\""
+  },
+  "rating": 4.6,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:14:22.806Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:14:22.806Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946bda68454dbdf137c0a65"
+  },
+  "name": "Reebok Men's Running Shoes\",  ",
+  "category": "Footwear",
+  "price": 3299,
+  "image": "/products/reebok-mens-running-shoes.jpg",
+  "description": "Lightweight and comfortable running shoes designed for men, offering excellent support and cushioning for all-day wear.",
+  "highlights": [
+    "\"Breathable Mesh Upper\"",
+    "\"Cushioned Midsole for Comfort\"",
+    "\"Durable Rubber Outsole\"",
+    "\"Ideal for Running and Daily Wear\""
+  ],
+  "specifications": {
+    "\"Material\"": "\"Mesh and Synthetic\",",
+    "\"Sizes\"": "\"7, 8, 9, 10, 11\",",
+    "\"Color\"": "\"Black / White\",",
+    "\"Weight\"": "\"850 g\""
+  },
+  "rating": 4.2,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:15:50.612Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:15:50.612Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946be178454dbdf137c0d18"
+  },
+  "name": "TARAMPRO Night Lamp Night",
+  "category": "Home & Living",
+  "price": 899,
+  "image": "/products/tarampro-night-lamp-night.jpg",
+  "description": "Compact and energy-efficient night lamp providing a soft and soothing glow, perfect for bedrooms and kids’ rooms.",
+  "highlights": [
+    "\"Soft Ambient Lighting\"",
+    "\"Energy Efficient LED\"",
+    "\"Portable and Lightweight\"",
+    "\"Easy Plug-In Design\""
+  ],
+  "specifications": {
+    "\"Material\"": "\"Plastic\",",
+    "\"Power\"": "\"Low Power Consumption\",",
+    "\"Color\"": "\"White\",",
+    "\"Weight\"": "\"150 g\""
+  },
+  "rating": 4.2,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:17:43.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:17:43.532Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946be598454dbdf137c0d65"
+  },
+  "name": "Solimo Wirebound Notebook",
+  "category": "\"Stationery",
+  "price": 249,
+  "image": "/products/solimo-wirebound-notebook.jpg",
+  "description": "Durable wirebound notebook with high-quality pages, perfect for school, office, or personal notes.",
+  "highlights": [
+    "\"High-Quality Paper\"",
+    "\"Durable Wire Binding\"",
+    "\"Smooth Writing Experience\"",
+    "\"Portable and Lightweight\""
+  ],
+  "specifications": {
+    "\"Pages\"": "\"200\",",
+    "\"Size\"": "\"A5\",",
+    "\"Material\"": "\"Paper with Wire Binding\",",
+    "\"Color\"": "\"Assorted\",",
+    "\"Weight\"": "\"300 g\""
+  },
+  "rating": 4.2,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:18:49.277Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:18:49.277Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946be9c8454dbdf137c0db2"
+  },
+  "name": "Portronics Toad One Bluetooth Mouse",
+  "category": "Electronics",
+  "price": 1299,
+  "image": "/products/portronics-toad-one-bluetooth-mouse.jpg",
+  "description": "Compact Bluetooth mouse with reliable connectivity and ergonomic design, perfect for laptops and everyday use.",
+  "highlights": [
+    "\"Bluetooth Wireless Connection\"",
+    "\"Ergonomic and Comfortable Grip\"",
+    "\"Long Battery Life\"",
+    "\"Plug‑and‑Play Compatibility\""
+  ],
+  "specifications": {
+    "\"Connectivity\"": "\"Bluetooth\",",
+    "\"Battery\"": "\"AAA\",",
+    "\"Color\"": "\"Black\",",
+    "\"Weight\"": "\"80 g\""
+  },
+  "rating": 4.3,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:19:56.428Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:19:56.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946beda8454dbdf137c0dff"
+  },
+  "name": "Gaming Keyboard and Mouse Combo",
+  "category": "Electronics",
+  "price": 2499,
+  "image": "/products/gaming-keyboard-and-mouse-combo.jpg",
+  "description": "High‑performance gaming keyboard and mouse combo with responsive keys and ergonomic design.",
+  "highlights": [
+    "\"RGB Backlit Keyboard\"",
+    "\"Precision Gaming Mouse\"",
+    "\"Ergonomic Build\"",
+    "\"Plug‑and‑Play USB Connection\""
+  ],
+  "specifications": {
+    "\"Keyboard Type\"": "\"Membrane\",",
+    "\"Connectivity\"": "\"Wired USB\",",
+    "\"Color\"": "\"Black\",",
+    "\"Weight\"": "\"900 g\""
+  },
+  "rating": 4.5,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:20:58.723Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:20:58.723Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946bf428454dbdf137c0ee0"
+  },
+  "name": "Noise Airwave Wireless Over‑Ear Headphones",
+  "category": "Electronics",
+  "price": 3999,
+  "image": "/products/noise‑airwave‑wireless‑over‑ear‑headphones.jpg",
+  "description": "Premium wireless over‑ear headphones offering immersive sound quality and long battery life.",
+  "highlights": [
+    "\"Wireless Bluetooth Connectivity\"",
+    "\"Comfortable Over‑Ear Cushions\"",
+    "\"Long Battery Life\"",
+    "\"Rich Bass and Clear Audio\""
+  ],
+  "specifications": {
+    "\"Connectivity\"": "\"Bluetooth\",",
+    "\"Battery Life\"": "\"20+ Hours\",",
+    "\"Color\"": "\"Black\",",
+    "\"Weight\"": "\"280 g\""
+  },
+  "rating": 4.9,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:22:42.924Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:22:42.924Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6946bf838454dbdf137c0f2d"
+  },
+  "name": "Baby Boys Girls Winter Knit Cap",
+  "category": "Kids Accessories",
+  "price": 499,
+  "image": "/products/baby‑boys‑girls‑winter‑knit‑cap.jpg",
+  "description": "Warm and soft winter knit cap suitable for baby boys and girls, perfect for cold weather.",
+  "highlights": [
+    "\"Soft and Cozy Knit\"",
+    "\"Warm and Comfortable\"",
+    "\"Stretchable Fit\"",
+    "\"Ideal for Winter\""
+  ],
+  "specifications": {
+    "\"Material\"": "\"Acrylic Knit\",",
+    "\"Size\"": "\"One Size\",",
+    "\"Color\"": "\"Assorted\",",
+    "\"Weight\"": "\"100 g\""
+  },
+  "rating": 4.5,
+  "stock": 1,
+  "reviews": [],
+  "createdAt": {
+    "$date": "2025-12-20T15:23:47.972Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-20T15:23:47.972Z"
+  },
+  "__v": 0
+}]
