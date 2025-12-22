@@ -12,13 +12,12 @@ const orderRoutes = require("./routes/orderRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const adminProductsRoutes = require("./routes/adminProducts");
 const adminOrdersRoutes = require("./routes/adminOrders");
-const adminStatsRoutes = require("./routes/adminStats"); // ✅ new
+const adminStatsRoutes = require("./routes/adminStats"); 
 const bannerRoutes = require("./routes/bannerRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
 
-// Middlewares
 // Middlewares
 const allowedOrigins = [
   "https://ecommerce-website-amazon-clone.netlify.app",

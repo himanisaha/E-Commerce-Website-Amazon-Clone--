@@ -1,11 +1,10 @@
-// server/routes/paymentRoutes.js
 const express = require("express");
 const Razorpay = require("razorpay");
 const { auth } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// Razorpay instance (must use test keys from dashboard)
+
 const instance = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
   key_secret: process.env.RAZORPAY_KEY_SECRET,

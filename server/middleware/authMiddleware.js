@@ -2,7 +2,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
-// 🔹 Auth: verify token and attach user (non‑admin & admin)
+// Auth: verify token and attach user (non‑admin & admin)
 const auth = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
@@ -26,7 +26,7 @@ const auth = async (req, res, next) => {
   }
 };
 
-// 🔹 Admin check: only allow isAdmin users (for routes that call both auth + admin)
+// Admin check: only allow isAdmin users (for routes that call both auth + admin)
 const admin = (req, res, next) => {
   console.log(
     "admin check user =",
@@ -41,7 +41,7 @@ const admin = (req, res, next) => {
   next();
 };
 
-// 🔹 Standalone adminAuth (used directly in adminOrders.js)
+// Standalone adminAuth (used directly in adminOrders.js)
 const adminAuth = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization || "";

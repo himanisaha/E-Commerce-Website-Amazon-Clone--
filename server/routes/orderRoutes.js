@@ -1,4 +1,3 @@
-// server/routes/orderRoutes.js
 const express = require("express");
 const Order = require("../models/Order");
 const { auth, admin } = require("../middleware/authMiddleware");

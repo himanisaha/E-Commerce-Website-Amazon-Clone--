@@ -1,6 +1,6 @@
 const express = require("express");
 const Cart = require("../models/Cart");
-const { auth } = require("../middleware/authMiddleware"); // ✅
+const { auth } = require("../middleware/authMiddleware"); 
 
 const router = express.Router();
 

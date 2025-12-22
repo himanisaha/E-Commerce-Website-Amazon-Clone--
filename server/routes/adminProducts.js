@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product");
-const { auth, admin } = require("../middleware/authMiddleware"); // ✅
+const { auth, admin } = require("../middleware/authMiddleware");
 
-/**
- * Admin products routes
- */
+
 
 // Get all products (admin)
 router.get("/all", auth, admin, async (req, res) => {
