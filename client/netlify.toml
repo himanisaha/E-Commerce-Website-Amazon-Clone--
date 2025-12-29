@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://e-commerce-website-amazon-clone-production-8d74.up.railway.app/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/products/*"
+  to = "https://e-commerce-website-amazon-clone-production-8d74.up.railway.app/products/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/banners/*"
+  to = "https://e-commerce-website-amazon-clone-production-8d74.up.railway.app/banners/:splat"
+  status = 200
+  force = true
