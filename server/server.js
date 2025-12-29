@@ -199,9 +199,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-// handle preflight requests
-app.options("*", cors(corsOptions));
-
 app.use(express.json());
 
 // Static folders
@@ -217,10 +214,11 @@ app.use("/api/users", userRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 
-app.use("/api/admin", adminRoutes);          // general admin routes
-app.use("/api/admin", adminOrdersRoutes);    // admin order status routes
-app.use("/api/admin", adminStatsRoutes);     // admin stats routes
-app.use("/api/admin/products", adminProductsRoutes);
+app.use("/api/admin", adminRoutes);                    // General admin
+app.use("/api/admin/orders", adminOrdersRoutes);       // Order-specific
+app.use("/api/admin/stats", adminStatsRoutes);         // Stats-specific
+app.use("/api/admin/products", adminProductsRoutes);   // Products-specific
+
 
 app.use("/api/banners", bannerRoutes);
 app.use("/api/payments", paymentRoutes);
