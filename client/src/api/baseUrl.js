@@ -1,5 +1,9 @@
-export const BASE_URL =
-    import.meta.env.VITE_API_BASE_URL ||
-    "https://e-commerce-website-amazon-clone-production.up.railway.app";
+// export const BASE_URL = "http://localhost:8000";
+// src/api/baseUrl.js
+const isDev = import.meta.env.DEV;
+export const BASE_URL = isDev 
+  ? "http://localhost:8000" 
+  : "https://e-commerce-website-amazon-clone-production.up.railway.app";
+
 
  
