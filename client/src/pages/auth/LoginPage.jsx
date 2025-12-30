@@ -13,6 +13,11 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // 🚀 ADD THESE 3 LINES HERE ⬇️
+    console.log("🚀 BASE_URL:", BASE_URL);
+    console.log("🚀 isDev:", import.meta.env.DEV);
+    console.log("🚀 Login URL:", `${BASE_URL}/api/users/login`);
+    // 🚀 END ⬆️
     try {
       await login(email, password);
       navigate("/");
