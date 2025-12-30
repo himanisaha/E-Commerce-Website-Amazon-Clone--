@@ -128,11 +128,11 @@ app.use(cors());
 app.use(express.json());
 
 // Static folders
-app.use("/products", express.static(path.join(__dirname, "public/products")));
-app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
-app.use("/banners", express.static(path.join(__dirname, "public/banners")));
-app.use("/logos", express.static(path.join(__dirname, "public/logos")));
-app.use("/icons", express.static(path.join(__dirname, "public/icons")));
+// app.use("/products", express.static(path.join(__dirname, "public/products")));
+// app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
+// app.use("/banners", express.static(path.join(__dirname, "public/banners")));
+// app.use("/logos", express.static(path.join(__dirname, "public/logos")));
+// app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 
 // API routes
 app.use("/api/products", productRoutes);
