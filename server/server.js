@@ -79,11 +79,12 @@
 // app.listen(PORT, () => {
 //   console.log(`Server running on port ${PORT}`);
 // });
+
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-const path = require("path");
 
 // Route imports
 const productRoutes = require("./routes/productRoutes");
@@ -99,74 +100,44 @@ const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
 
-// CORS setup - Production-ready
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "http://localhost:5175",
-  "https://ecommerce-website-amazon-clone.netlify.app",
-];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-
-app.use(cors(corsOptions));
+// ✅ CORS - Allow Netlify
+app.use(cors({
+  origin: ["http://localhost:5173", "https://ecommerce-website-amazon-clone.netlify.app"],
+  credentials: true
+}));
 app.use(express.json());
 
-// Static folders (serve images/assets from backend)
-app.use("/products", express.static(path.join(__dirname, "public/products")));
-app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
-app.use("/banners", express.static(path.join(__dirname, "public/banners")));
-app.use("/logos", express.static(path.join(__dirname, "public/logos")));
-app.use("/icons", express.static(path.join(__dirname, "public/icons")));
+// ✅ TEST ROUTE FIRST (before all others)
+app.get("/test", (req, res) => {
+  res.json({ message: "Backend is working ✅" });
+});
 
-// API routes
+// ✅ ROUTES - CORRECT ORDER (specific first)
 app.use("/api/products", productRoutes);
-app.use("/api/users", userRoutes);
+app.use("/api/users", userRoutes);           // ← LOGIN HERE
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
-app.use("/api/admin", adminRoutes);
-app.use("/api/admin", adminOrdersRoutes);
-app.use("/api/admin", adminStatsRoutes);
-app.use("/api/admin/products", adminProductsRoutes);
 app.use("/api/banners", bannerRoutes);
 app.use("/api/payments", paymentRoutes);
 
-// Test route
-app.get("/test", (req, res) => {
-  res.json({ message: "Backend is working" });
-});
+// ✅ ADMIN - Specific routes FIRST
+app.use("/api/admin/products", adminProductsRoutes);
+app.use("/api/admin/orders", adminOrdersRoutes);
+app.use("/api/admin/stats", adminStatsRoutes);
+app.use("/api/admin", adminRoutes);          // General LAST
 
-// 404 handler (log missing routes)
+// ✅ 404 Handler (LAST)
 app.use((req, res) => {
-  console.log(`404 Not Found: ${req.method} ${req.path}`);
-  res.status(404).json({ error: "Route not found", path: req.path });
-});
-
-// Error handler
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ error: err.message });
+  console.log(`🚫 404: ${req.method} ${req.originalUrl}`);
+  res.status(404).json({ error: "Route not found", url: req.originalUrl });
 });
 
 // DB connection
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.error("MongoDB Error:", err));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error("❌ MongoDB Error:", err));
 
-// Server start
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
