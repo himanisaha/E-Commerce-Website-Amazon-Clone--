@@ -38,7 +38,7 @@ function ProductCard({ product, inWishlist = false, onWishlistChange }) {
             className="text-decoration-none text-dark"
           >
             <img
-              src={`${BASE_URL}${product.image}`}
+              src={product.image}
               alt={product.name}
               className="img-fluid"
               style={{ height: "180px", objectFit: "contain" }}
