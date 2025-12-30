@@ -101,29 +101,30 @@ const paymentRoutes = require("./routes/paymentRoutes");
 const app = express();
 
 // CORS setup (local + production)
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "http://localhost:5175",
-  "https://ecommerce-website-amazon-clone.netlify.app",  // ← add your Netlify URL
-   "https://*.netlify.app"
-];
+// const allowedOrigins = [
+//   "http://localhost:5173",
+//   "http://localhost:5174",
+//   "http://localhost:5175",
+//   "https://ecommerce-website-amazon-clone.netlify.app",  // ← add your Netlify URL
+//    "https://*.netlify.app"
+// ];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    // allow tools like Postman (no origin) and allowed origins
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     // allow tools like Postman (no origin) and allowed origins
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 // Static folders
