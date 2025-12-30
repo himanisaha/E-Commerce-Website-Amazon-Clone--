@@ -251,13 +251,26 @@ const app = express();
 
 app.use(express.json());
 
-// ONLY root + test routes
+// Debug middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
 app.get("/", (req, res) => {
+  console.log("Root route hit!");
   res.json({ message: "E-commerce API is LIVE!" });
 });
 
 app.get("/test", (req, res) => {
+  console.log("Test route hit!");
   res.json({ message: "Backend is working" });
+});
+
+// 404 handler
+app.use((req, res) => {
+  console.log(`404 for ${req.path}`);
+  res.status(404).json({ error: "Route not found" });
 });
 
 const PORT = process.env.PORT || 8000;
