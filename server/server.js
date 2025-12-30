@@ -223,6 +223,12 @@ app.use("/api/admin/products", adminProductsRoutes);   // Products-specific
 app.use("/api/banners", bannerRoutes);
 app.use("/api/payments", paymentRoutes);
 
+
+// Root route (Railway health check)
+app.get("/", (req, res) => {
+  res.json({ message: "E-commerce API is LIVE!" });
+});
+
 // Test route
 app.get("/test", (req, res) => {
   res.json({ message: "Backend is working" });
