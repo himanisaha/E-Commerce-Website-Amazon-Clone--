@@ -84,17 +84,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");  // ✅ Added
 require("dotenv").config();
 
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json());  // ✅ Only ONE
 
-// ✅ TEST - Works immediately
+// ✅ STATIC FILES
+app.use("/products", express.static(path.join(__dirname, "public/products")));
+app.use("/banners", express.static(path.join(__dirname, "public/banners")));
+app.use("/logos", express.static(path.join(__dirname, "public/logos")));
+app.use("/icons", express.static(path.join(__dirname, "public/icons")));
+app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
+
+// ✅ TEST
 app.get("/test", (req, res) => res.json({ message: "Backend OK ✅" }));
 
-// ✅ LOGIN - Direct route (no imports needed)
+// ✅ LOGIN
 app.post("/api/users/login", async (req, res) => {
   const { email, password } = req.body;
   res.json({ 
@@ -105,14 +113,10 @@ app.post("/api/users/login", async (req, res) => {
   });
 });
 
-// ✅ REGISTER - Direct route
+// ✅ REGISTER
 app.post("/api/users/register", async (req, res) => {
   const { name, email, password } = req.body;
-  res.status(201).json({ 
-    id: "test123", 
-    name, 
-    email 
-  });
+  res.status(201).json({ id: "test123", name, email });
 });
 
 mongoose.connect(process.env.MONGO_URI)
