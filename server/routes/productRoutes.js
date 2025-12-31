@@ -31,10 +31,8 @@ router.get("/", async (req, res) => {
     if (sort === "price-desc") sortOption = { price: -1 };
     if (sort === "rating-desc") sortOption = { rating: -1 };
 
-    const products = await Product.find(filter).sort(sortOption)
-      .maxTimeMS(5000)  // ← ADD THIS
-      .lean();          // ← ADD THIS
-    console.log(`✅ Found ${products.length} products`);  // ← ADD THIS
+    const products = await Product.find(filter).sort(sortOption).limit(50);
+    console.log(`✅ Found ${products.length} products (limited to 50)`);
     res.json(products);
   } catch (error) {
 
