@@ -32,9 +32,11 @@ function HomePage() {
 
         console.log("products API res:", res.data);
 
-        // ✅ ensure products is always an array
         if (Array.isArray(res.data)) {
-          setProducts(res.data);
+          console.log("Raw products:", res.data.length, res.data[0]);
+          const activeProducts = res.data.filter(p => p.active !== false);
+          console.log("Active products:", activeProducts.length);
+          setProducts(activeProducts);
         } else {
           setProducts([]);
         }
