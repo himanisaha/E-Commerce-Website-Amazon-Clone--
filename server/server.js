@@ -328,30 +328,30 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// const corsOptions = {
-//   origin: [
-//     "https://ecommerce-website-amazon-clone.netlify.app",
-//     "http://localhost:5173",
-//     "http://localhost:4173",           // Preview server ✅ ADD THIS
-//     "http://localhost:3000"
+const corsOptions = {
+  origin: [
+    "https://ecommerce-website-amazon-clone.netlify.app",    // ✅ CORRECT
+    "https://ecommerce-webiste-amazon-clone.netlify.app",    // ✅ ADD TYPO VERSION TOO
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "http://localhost:3000"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+// // TEMP: allow all origins (only for debugging)
+// app.use(
+//   cors({
+//     origin: true,          // Reflect request origin
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
-//   ],
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization"]
-// };
-// TEMP: allow all origins (only for debugging)
-app.use(
-  cors({
-    origin: true,          // Reflect request origin
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
 
-
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // ✅ STATIC FILES
 app.use("/products", express.static(path.join(__dirname, "public/products")));
