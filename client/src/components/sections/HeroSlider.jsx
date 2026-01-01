@@ -37,7 +37,8 @@ function HeroSlider() {
   return (
     <div className="position-relative bg-dark" style={{ overflow: "hidden" }}>
       <img
-        src={`${BASE_URL}/banners/${banners[index].image}`}
+        src={banners[index].image}
+
         alt="Hero banner"
         className="w-100"
         style={{
