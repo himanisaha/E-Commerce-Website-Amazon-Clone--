@@ -331,7 +331,10 @@ app.use(express.urlencoded({ extended: true }));
 const corsOptions = {
   origin: [
     "https://ecommerce-website-amazon-clone.netlify.app",
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "http://localhost:4173",           // Preview server ✅ ADD THIS
+    "http://localhost:3000"
+
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
