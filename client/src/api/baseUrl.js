@@ -5,7 +5,6 @@ const baseUrl = import.meta.env.MODE === 'production'
   ? "https://e-commerce-website-amazon-clone-production.up.railway.app"
   : "http://localhost:8000";
 
-export default baseUrl;
-
+export const BASE_URL = baseUrl; 
 
 
