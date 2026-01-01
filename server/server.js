@@ -209,16 +209,17 @@ const paymentRoutes = require("./routes/paymentRoutes");
 const app = express();
 
 // ✅ CORS - ALLOW NETLIFY + LOCALHOST
+// ✅ FIXED CORS
 app.use(cors({
   origin: [
-    "https://ecommerce-website-amazon-clone.netlify.app",
-    "https://e-commerce-website-amazon-clone-production.up.railway.app",
-    "http://localhost:5173"
+    "https://ecommerce-website-amazon-clone.netlify.app",  // ✅ Your frontend
+    "http://localhost:5173"  // ✅ Local dev
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
