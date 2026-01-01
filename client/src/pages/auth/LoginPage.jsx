@@ -32,7 +32,7 @@ function LoginPage() {
       <header className="amazon-auth-header py-1">
         <div className="container d-flex justify-content-center">
           <img
-            src={`${BASE_URL}/logos/amazon-logo.png`}
+            src={`https://res.cloudinary.com/dcxgfue03/image/upload/v1767102362/amazon-logo_ohu5oj.png`}
             alt="Amazon"
             className="amazon-auth-logo"
           />

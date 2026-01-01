@@ -50,7 +50,7 @@ function Navbar() {
           className="navbar-brand d-flex align-items-center me-3 nav-hover-box"
         >
           <img
-            src={`${BASE_URL}/logos/amazon-logo-white.png`}
+            src={`https://res.cloudinary.com/dcxgfue03/image/upload/v1767102361/amazon-logo-white_byzewy.png`}
             alt="Amazon logo"
             style={{
               width: "95px",
@@ -508,7 +508,7 @@ function Navbar() {
                 {totalItems}
               </span>
               <img
-                src={`${BASE_URL}/icons/cart-icon.png`}
+                src={`https://res.cloudinary.com/dcxgfue03/image/upload/v1767102109/cart-icon_i5ekrb.png`}
                 alt="Cart"
                 style={{ width: "40px", height: "28px", objectFit: "contain", marginRight: "4px" }}
               />
