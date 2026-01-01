@@ -22,7 +22,7 @@ function CategoryNav() {
           onClick={openMenu}
         >
           <img
-            src={`https://res.cloudinary.com/dcxgfue03/image/upload/v1767102109/cart-icon_i5ekrb.png`}
+            src={`https://res.cloudinary.com/dcxgfue03/image/upload/v1767102116/hamburger-menu_fjpgax.png`}
             alt="menu"
             style={{ width: "18px", marginRight: "6px", marginLeft: "7px" }}
           />
