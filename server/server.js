@@ -207,22 +207,24 @@ const bannerRoutes = require("./routes/bannerRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // ✅ CORS - ALLOW NETLIFY + LOCALHOST
 // ✅ FIXED CORS
-app.use(cors({
+// ✅ BULLETPROOF CORS (handles preflight correctly)
+const corsOptions = {
   origin: [
-    "https://ecommerce-website-amazon-clone.netlify.app",  // ✅ Your frontend
-    "http://localhost:5173"  // ✅ Local dev
+    "https://ecommerce-website-amazon-clone.netlify.app",
+    "http://localhost:5173"
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
-}));
+};
 
+// Apply CORS to all routes
+app.use(cors(corsOptions));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // ✅ STATIC FILES
 app.use("/products", express.static(path.join(__dirname, "public/products")));
