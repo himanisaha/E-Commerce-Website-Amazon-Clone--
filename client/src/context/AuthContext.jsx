@@ -60,10 +60,14 @@
 //     );
 // }
 
+
+
 // client/src/context/AuthContext.jsx
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../api/baseUrl";
+// ✅ Add this after imports
+axios.defaults.withCredentials = true;
 
 export const AuthContext = createContext();
 
@@ -83,28 +87,55 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }, []);
 
-  const login = async (email, password) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await axios.post(`${BASE_URL}/api/users/login`, {
-        email,
-        password,
-      });
-      const { token, user } = res.data;
+  // const login = async (email, password) => {
+  //   setLoading(true);
+  //   setError(null);
+  //   try {
+  //     const res = await axios.post(`${BASE_URL}/api/users/login`, {
+  //       email,
+  //       password,
+  //     });
+  //     const { token, user } = res.data;
 
-      setToken(token);
-      setUser(user);
-      localStorage.setItem("userToken", token);
-      localStorage.setItem("userData", JSON.stringify(user));
-      setLoading(false);
-    } catch (err) {
-      const errorMessage = err.response?.data?.message || "Login failed";
-      setError(errorMessage);
-      setLoading(false);
-      throw err;
-    }
-  };
+  //     setToken(token);
+  //     setUser(user);
+  //     localStorage.setItem("userToken", token);
+  //     localStorage.setItem("userData", JSON.stringify(user));
+  //     setLoading(false);
+  //   } catch (err) {
+  //     const errorMessage = err.response?.data?.message || "Login failed";
+  //     setError(errorMessage);
+  //     setLoading(false);
+  //     throw err;
+  //   }
+  // };
+
+  const login = async (email, password) => {
+  setLoading(true);
+  setError(null);
+  try {
+    const res = await axios.post(`${BASE_URL}/api/users/login`, {
+      email,
+      password,
+    }, {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true  // ✅ FIXES CORS + COOKIES
+    });
+    const { token, user } = res.data;
+
+    setToken(token);
+    setUser(user);
+    localStorage.setItem("userToken", token);
+    localStorage.setItem("userData", JSON.stringify(user));
+    setLoading(false);
+  } catch (err) {
+    const errorMessage = err.response?.data?.message || "Login failed";
+    setError(errorMessage);
+    setLoading(false);
+    throw err;
+  }
+};
+
 
   const logout = () => {
     setToken(null);
