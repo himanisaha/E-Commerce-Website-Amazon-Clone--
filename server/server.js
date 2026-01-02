@@ -635,7 +635,7 @@ app.listen(PORT, '0.0.0.0', () => {
 });
 
 // ✅ MONGODB ASYNC (NON-BLOCKING)
-mongoose.connect(process.env.MONGODB_URI,"mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongodb.net/EcommerceWebsite?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect("mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongodb.net/EcommerceWebsite?retryWrites=true&w=majority&appName=Cluster0", {
   serverSelectionTimeoutMS: 5000,
   connectTimeoutMS: 10000,
   socketTimeoutMS: 45000,
