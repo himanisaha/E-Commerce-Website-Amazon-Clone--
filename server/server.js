@@ -459,7 +459,7 @@
 //   res.header('Access-Control-Allow-Credentials', 'true');
 //   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
 //   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  
+
 //   if (req.method === 'OPTIONS') {
 //     res.sendStatus(200);
 //   } else {
@@ -643,7 +643,18 @@ mongoose.connect(process.env.MONGODB_URI, {
 }).then(async () => {
   console.log("✅ MongoDB Connected");
   console.log("🔍 DB:", mongoose.connection.db.databaseName);
-  
+
+  // ✅ IMMEDIATE TEST
+  try {
+    const collections = await mongoose.connection.db.listCollections().toArray();
+    console.log("📦 Collections:", collections.map(c => c.name));
+
+    const products = await mongoose.connection.db.collection('products').find({}).limit(1).toArray();
+    console.log("📦 First product:", products[0]?.name || "EMPTY");
+  } catch (e) {
+    console.error("❌ DB test failed:", e.message);
+  }
+
   // ✅ RETRY PRODUCTS COUNT
   const checkProducts = async (retries = 5) => {
     for (let i = 0; i < retries; i++) {
@@ -661,7 +672,7 @@ mongoose.connect(process.env.MONGODB_URI, {
     }
     console.error("❌ Products count failed");
   };
-  
+
   await checkProducts();
 
 }).catch(err => {
