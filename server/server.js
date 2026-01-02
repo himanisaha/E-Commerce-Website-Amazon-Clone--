@@ -430,151 +430,6 @@
 //   console.log("⚠️ MongoDB Disconnected");
 // });
 
-// const express = require("express");
-// const mongoose = require("mongoose");
-// const path = require("path");
-// require("dotenv").config();
-
-// // ✅ FIX MONGOOSE STRICTQUERY
-// mongoose.set('strictQuery', false);
-
-// const productRoutes = require("./routes/productRoutes");
-// const userRoutes = require("./routes/userRoutes");
-// const cartRoutes = require("./routes/cartRoutes");
-// const orderRoutes = require("./routes/orderRoutes");
-// const adminRoutes = require("./routes/adminRoutes");
-// const adminProductsRoutes = require("./routes/adminProducts");
-// const adminOrdersRoutes = require("./routes/adminOrders");
-// const adminStatsRoutes = require("./routes/adminStats");
-// const bannerRoutes = require("./routes/bannerRoutes");
-// const paymentRoutes = require("./routes/paymentRoutes");
-
-// const app = express();
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-
-// const cors = require('cors');
-
-// // ✅ Add this BEFORE your routes:
-// app.use(cors({
-//   origin: [
-//     'https://ecommerce-website-amazon-clone.netlify.app',  // Production Netlify
-//     'http://localhost:3000',  // Local dev
-//     'http://localhost:5173'   // Vite dev
-//   ],
-//   credentials: true
-// }));
-
-// // 🚨 RAILWAY CORS FIX - BEFORE ALL ROUTES
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
-//   res.header('Access-Control-Allow-Credentials', 'true');
-//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-
-//   if (req.method === 'OPTIONS') {
-//     res.sendStatus(200);
-//   } else {
-//     next();
-//   }
-// });
-
-// // ✅ STATIC FILES
-// app.use("/products", express.static(path.join(__dirname, "public/products")));
-// app.use("/banners", express.static(path.join(__dirname, "public/banners")));
-// app.use("/logos", express.static(path.join(__dirname, "public/logos")));
-// app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
-// app.use("/icons", express.static(path.join(__dirname, "public/icons")));
-
-// // ✅ TEST ROUTES
-// app.get("/test", (req, res) => {
-//   res.json({
-//     message: "Backend OK ✅",
-//     mongoConnected: mongoose.connection.readyState === 1
-//   });
-// });
-
-// app.get("/health", (req, res) => {
-//   res.json({
-//     status: "healthy",
-//     db: mongoose.connection.readyState === 1 ? "connected" : "disconnected"
-//   });
-// });
-
-// // ✅ MOUNT ALL API ROUTES
-// app.use("/api/products", productRoutes);
-// app.use("/api/users", userRoutes);
-// app.use("/api/cart", cartRoutes);
-// app.use("/api/orders", orderRoutes);
-// app.use("/api/admin", adminRoutes);
-// app.use("/api/admin/products", adminProductsRoutes);
-// app.use("/api/admin/orders", adminOrdersRoutes);
-// app.use("/api/admin", adminStatsRoutes);
-// app.use("/api/banners", bannerRoutes);
-// app.use("/api/payments", paymentRoutes);
-
-// // ✅ 404 HANDLER
-// app.use((req, res) => {
-//   res.status(404).json({
-//     message: `Route not found: ${req.method} ${req.originalUrl}`
-//   });
-// });
-
-// // ✅ ERROR HANDLER
-// app.use((err, req, res, next) => {
-//   console.error("❌ Server Error:", err.message);
-//   res.status(500).json({
-//     message: "Server error",
-//     error: err.message
-//   });
-// });
-
-// // ✅ SERVER START FIRST (NO BLOCKING)
-// const PORT = process.env.PORT || 8000;
-// app.listen(PORT, '0.0.0.0', () => {
-//   console.log(`🚀 Server running on port ${PORT}`);
-// });
-
-// // ✅ MONGODB BACKGROUND (AFTER listen)
-// // mongoose.connect(process.env.MONGODB_URI, {
-// //   serverSelectionTimeoutMS: 5000,
-// //   connectTimeoutMS: 5000,
-// //   socketTimeoutMS: 20000
-// // }).then(async () => {
-// //   console.log("✅ MongoDB Connected");
-// //   console.log("🔍 DB:", mongoose.connection.db.databaseName);
-// //   const count = await mongoose.connection.db.collection('products').countDocuments();
-// //   console.log("🔍 products count:", count);
-// // })
-
-// // mongoose.connection.on("error", (err) => {
-// //   console.error("❌ MongoDB Error:", err);
-// // });
-
-// // mongoose.connection.on("disconnected", () => {
-// //   console.log("⚠️ MongoDB Disconnected");
-// // });
-
-// // Replace this block in server.js:
-// mongoose.connect(process.env.MONGODB_URI, {
-//   serverSelectionTimeoutMS: 5000,
-//   connectTimeoutMS: 5000,
-//   socketTimeoutMS: 20000
-// }).then(async () => {
-//   console.log("✅ MongoDB Connected");
-//   console.log("🔍 DB:", mongoose.connection.db.databaseName);
-
-//   // ✅ WAIT for connection to stabilize
-//   await new Promise(resolve => setTimeout(resolve, 2000));
-
-//   const count = await mongoose.connection.db.collection('products').countDocuments();
-//   console.log("🔍 products count:", count);
-// }).catch(err => {
-//   console.error("❌ MongoDB Connect Failed:", err);
-// });
-
-
-
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -600,17 +455,29 @@ app.use(express.urlencoded({ extended: true }));
 
 const cors = require('cors');
 
-// ✅ CLEAN CORS - SINGLE CONFIG (REPLACE ALL OLD CORS CODE)
+// ✅ Add this BEFORE your routes:
 app.use(cors({
   origin: [
     'https://ecommerce-website-amazon-clone.netlify.app',  // Production Netlify
     'http://localhost:3000',  // Local dev
     'http://localhost:5173'   // Vite dev
   ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  credentials: true
 }));
+
+// 🚨 RAILWAY CORS FIX - BEFORE ALL ROUTES
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
 
 // ✅ STATIC FILES
 app.use("/products", express.static(path.join(__dirname, "public/products")));
@@ -619,20 +486,18 @@ app.use("/logos", express.static(path.join(__dirname, "public/logos")));
 app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
 app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 
-// ✅ TEST ROUTES (BEFORE API ROUTES)
-app.get("/api/test", (req, res) => {
+// ✅ TEST ROUTES
+app.get("/test", (req, res) => {
   res.json({
     message: "Backend OK ✅",
-    timestamp: new Date().toISOString(),
     mongoConnected: mongoose.connection.readyState === 1
   });
 });
 
-app.get("/api/health", (req, res) => {
+app.get("/health", (req, res) => {
   res.json({
     status: "healthy",
-    db: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
-    products: mongoose.connection.readyState === 1
+    db: mongoose.connection.readyState === 1 ? "connected" : "disconnected"
   });
 });
 
@@ -664,41 +529,28 @@ app.use((err, req, res, next) => {
   });
 });
 
-// ✅ SERVER START FIRST
+// ✅ SERVER START FIRST (NO BLOCKING)
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
 
-// ✅ MONGODB WITH RETRY LOGIC (REPLACES OLD BLOCK)
+// ✅ MONGODB BACKGROUND (AFTER listen)
 mongoose.connect(process.env.MONGODB_URI, {
   serverSelectionTimeoutMS: 5000,
-  connectTimeoutMS: 10000,
-  socketTimeoutMS: 45000,
-  maxPoolSize: 10
+  connectTimeoutMS: 5000,
+  socketTimeoutMS: 20000
 }).then(async () => {
   console.log("✅ MongoDB Connected");
+  console.log("🔍 DB:", mongoose.connection.db.databaseName);
+  const count = await mongoose.connection.db.collection('products').countDocuments();
+  console.log("🔍 products count:", count);
+})
 
-  // ✅ RETRY UNTIL PRODUCTS COUNT > 0
-  const checkProducts = async (retries = 5) => {
-    for (let i = 0; i < retries; i++) {
-      try {
-        await new Promise(r => setTimeout(r, 1000 * (i + 1))); // Progressive delay
-        const count = await mongoose.connection.db.collection('products').countDocuments();
-        console.log(`🔍 products count (attempt ${i + 1}): ${count}`);
-        if (count > 0) {
-          console.log("🎉 Products ready!");
-          return;
-        }
-      } catch (e) {
-        console.log(`⚠️ Count attempt ${i + 1} failed:`, e.message);
-      }
-    }
-    console.error("❌ Products count failed after retries");
-  };
+mongoose.connection.on("error", (err) => {
+  console.error("❌ MongoDB Error:", err);
+});
 
-  await checkProducts();
-
-}).catch(err => {
-  console.error("❌ MongoDB Connect Failed:", err);
+mongoose.connection.on("disconnected", () => {
+  console.log("⚠️ MongoDB Disconnected");
 });
