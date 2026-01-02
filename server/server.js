@@ -619,18 +619,20 @@ app.use("/logos", express.static(path.join(__dirname, "public/logos")));
 app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
 app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 
-// ✅ TEST ROUTES
-app.get("/test", (req, res) => {
+// ✅ TEST ROUTES (BEFORE API ROUTES)
+app.get("/api/test", (req, res) => {
   res.json({
     message: "Backend OK ✅",
+    timestamp: new Date().toISOString(),
     mongoConnected: mongoose.connection.readyState === 1
   });
 });
 
-app.get("/health", (req, res) => {
+app.get("/api/health", (req, res) => {
   res.json({
     status: "healthy",
-    db: mongoose.connection.readyState === 1 ? "connected" : "disconnected"
+    db: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
+    products: mongoose.connection.readyState === 1
   });
 });
 
