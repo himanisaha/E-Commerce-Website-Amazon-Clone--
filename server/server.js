@@ -536,6 +536,26 @@ app.listen(PORT, '0.0.0.0', () => {
 });
 
 // ✅ MONGODB BACKGROUND (AFTER listen)
+// mongoose.connect(process.env.MONGODB_URI, {
+//   serverSelectionTimeoutMS: 5000,
+//   connectTimeoutMS: 5000,
+//   socketTimeoutMS: 20000
+// }).then(async () => {
+//   console.log("✅ MongoDB Connected");
+//   console.log("🔍 DB:", mongoose.connection.db.databaseName);
+//   const count = await mongoose.connection.db.collection('products').countDocuments();
+//   console.log("🔍 products count:", count);
+// })
+
+// mongoose.connection.on("error", (err) => {
+//   console.error("❌ MongoDB Error:", err);
+// });
+
+// mongoose.connection.on("disconnected", () => {
+//   console.log("⚠️ MongoDB Disconnected");
+// });
+
+// Replace this block in server.js:
 mongoose.connect(process.env.MONGODB_URI, {
   serverSelectionTimeoutMS: 5000,
   connectTimeoutMS: 5000,
@@ -543,14 +563,12 @@ mongoose.connect(process.env.MONGODB_URI, {
 }).then(async () => {
   console.log("✅ MongoDB Connected");
   console.log("🔍 DB:", mongoose.connection.db.databaseName);
+  
+  // ✅ WAIT for connection to stabilize
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  
   const count = await mongoose.connection.db.collection('products').countDocuments();
   console.log("🔍 products count:", count);
-})
-
-mongoose.connection.on("error", (err) => {
-  console.error("❌ MongoDB Error:", err);
-});
-
-mongoose.connection.on("disconnected", () => {
-  console.log("⚠️ MongoDB Disconnected");
+}).catch(err => {
+  console.error("❌ MongoDB Connect Failed:", err);
 });
