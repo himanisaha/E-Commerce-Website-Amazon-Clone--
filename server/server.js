@@ -453,18 +453,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const cors = require('cors');
-
-// ✅ Add this BEFORE your routes:
-app.use(cors({
-  origin: [
-    'https://ecommerce-website-amazon-clone.netlify.app',  // Production Netlify
-    'http://localhost:3000',  // Local dev
-    'http://localhost:5173'   // Vite dev
-  ],
-  credentials: true
-}));
-
 // 🚨 RAILWAY CORS FIX - BEFORE ALL ROUTES
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
