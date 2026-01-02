@@ -126,7 +126,7 @@ function ProductPage() {
           <div className="col-md-4">
             <div className="bg-light p-3 rounded text-center">
               <img
-                src={`${BASE_URL}${product.image}`}
+                src={product.image}
                 alt={product.name}
                 className="img-fluid"
               />
@@ -537,7 +537,7 @@ function ProductPage() {
                 <div>
                   {/* If your backend returns reviews on product, map them here */}
                   {Array.isArray(product.reviews) &&
-                  product.reviews.length > 0 ? (
+                    product.reviews.length > 0 ? (
                     product.reviews.map((rev) => (
                       <div className="mb-3 border-bottom pb-2" key={rev._id}>
                         <h5 className="mb-1">{rev.title}</h5>
