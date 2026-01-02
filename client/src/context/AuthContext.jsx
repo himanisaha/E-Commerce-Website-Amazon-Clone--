@@ -65,6 +65,7 @@
 // client/src/context/AuthContext.jsx
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 import { BASE_URL } from "../api/baseUrl";
 
 export const AuthContext = createContext();
