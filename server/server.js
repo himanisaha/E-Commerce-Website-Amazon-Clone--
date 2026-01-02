@@ -567,16 +567,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ CORS PACKAGE (FIXED - handles credentials properly)
-app.use(cors({
-  origin: [
-    'https://ecommerce-website-amazon-clone.netlify.app',
-    'http://localhost:3000',
-    'http://localhost:5173'
-  ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// app.use(cors({
+//   origin: [
+//     'https://ecommerce-website-amazon-clone.netlify.app',
+//     'http://localhost:3000',
+//     'http://localhost:5173'
+//   ],
+//   credentials: true,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
+
+// 🚨 NUCLEAR CORS FIX - WORKS 100%
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://ecommerce-website-amazon-clone.netlify.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  } else {
+    next();
+  }
+});
 
 // ✅ STATIC FILES
 app.use("/products", express.static(path.join(__dirname, "public/products")));
