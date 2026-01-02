@@ -471,7 +471,7 @@
 //   res.header('Access-Control-Allow-Credentials', 'true');
 //   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
 //   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  
+
 //   if (req.method === 'OPTIONS') {
 //     res.sendStatus(200);
 //   } else {
@@ -563,10 +563,10 @@
 // }).then(async () => {
 //   console.log("✅ MongoDB Connected");
 //   console.log("🔍 DB:", mongoose.connection.db.databaseName);
-  
+
 //   // ✅ WAIT for connection to stabilize
 //   await new Promise(resolve => setTimeout(resolve, 2000));
-  
+
 //   const count = await mongoose.connection.db.collection('products').countDocuments();
 //   console.log("🔍 products count:", count);
 // }).catch(err => {
@@ -668,20 +668,35 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
 
-// ✅ MONGODB AFTER LISTEN (NON-BLOCKING)
+// ✅ MONGODB WITH RETRY LOGIC (REPLACES OLD BLOCK)
 mongoose.connect(process.env.MONGODB_URI, {
   serverSelectionTimeoutMS: 5000,
-  connectTimeoutMS: 5000,
-  socketTimeoutMS: 20000
+  connectTimeoutMS: 10000,
+  socketTimeoutMS: 45000,
+  maxPoolSize: 10
 }).then(async () => {
   console.log("✅ MongoDB Connected");
-  console.log("🔍 DB:", mongoose.connection.db.databaseName);
-  
-  // ✅ WAIT for connection to stabilize
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  
-  const count = await mongoose.connection.db.collection('products').countDocuments();
-  console.log("🔍 products count:", count);
+
+  // ✅ RETRY UNTIL PRODUCTS COUNT > 0
+  const checkProducts = async (retries = 5) => {
+    for (let i = 0; i < retries; i++) {
+      try {
+        await new Promise(r => setTimeout(r, 1000 * (i + 1))); // Progressive delay
+        const count = await mongoose.connection.db.collection('products').countDocuments();
+        console.log(`🔍 products count (attempt ${i + 1}): ${count}`);
+        if (count > 0) {
+          console.log("🎉 Products ready!");
+          return;
+        }
+      } catch (e) {
+        console.log(`⚠️ Count attempt ${i + 1} failed:`, e.message);
+      }
+    }
+    console.error("❌ Products count failed after retries");
+  };
+
+  await checkProducts();
+
 }).catch(err => {
   console.error("❌ MongoDB Connect Failed:", err);
 });
