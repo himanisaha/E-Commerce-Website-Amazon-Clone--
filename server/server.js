@@ -856,6 +856,162 @@
 //   console.log("⚠️ MongoDB Disconnected");
 // });
 
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const path = require("path");
+// require("dotenv").config();
+
+// mongoose.set('strictQuery', false);
+
+// // ✅ BULLETPROOF ROUTE LOADER - Server survives ANY missing files
+// const safeRouter = (name) => {
+//   try {
+//     const router = require(`./routes/${name}`);
+//     return (typeof router === 'function') ? router : express.Router();
+//   } catch (err) {
+//     console.warn(`⚠️ Route unavailable (${name}):`, err.message);
+//     return express.Router();
+//   }
+// };
+
+// const productRoutes = safeRouter('productRoutes');
+// const userRoutes = safeRouter('userRoutes');
+// const cartRoutes = safeRouter('cartRoutes');
+// const orderRoutes = safeRouter('orderRoutes');
+// const adminRoutes = safeRouter('adminRoutes');
+// const adminProductsRoutes = safeRouter('adminProducts');
+// const adminOrdersRoutes = safeRouter('adminOrders');
+// const adminStatsRoutes = safeRouter('adminStats');
+// const bannerRoutes = safeRouter('bannerRoutes');
+// const paymentRoutes = safeRouter('paymentRoutes');
+
+// const app = express();
+
+// // ✅ RAILWAY HEALTH CHECK - Runs FIRST
+// app.get('/', (req, res) => {
+//   res.json({ 
+//     status: 'Backend Healthy ✅', 
+//     timestamp: new Date().toISOString(),
+//     mongo: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
+//   });
+// });
+
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// // ✅ DYNAMIC CORS - localhost + Netlify
+// app.use((req, res, next) => {
+//   const origin = req.headers.origin;
+//   if (origin) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//   }
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization,X-Requested-With');
+  
+//   if (req.method === 'OPTIONS') {
+//     return res.sendStatus(200);
+//   }
+//   next();
+// });
+
+// // ✅ STATIC FILES
+// app.use("/products", express.static(path.join(__dirname, "public/products")));
+// app.use("/banners", express.static(path.join(__dirname, "public/banners")));
+// app.use("/logos", express.static(path.join(__dirname, "public/logos")));
+// app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
+// app.use("/icons", express.static(path.join(__dirname, "public/icons")));
+
+// // ✅ TEST ROUTES
+// app.get("/api/test", (req, res) => {
+//   res.json({
+//     message: "Backend OK ✅",
+//     mongoConnected: mongoose.connection.readyState === 1,
+//     origin: req.headers.origin,
+//     uptime: process.uptime()
+//   });
+// });
+
+// app.get("/api/health", (req, res) => {
+//   res.json({
+//     status: "healthy",
+//     db: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
+//     routes: { users: !!userRoutes, products: !!productRoutes }
+//   });
+// });
+
+// // ✅ MOUNT ROUTES (Safe - won't crash)
+// app.use("/api/products", productRoutes);
+// app.use("/api/users", userRoutes);
+// app.use("/api/cart", cartRoutes);
+// app.use("/api/orders", orderRoutes);
+// app.use("/api/admin", adminRoutes);
+// app.use("/api/admin/products", adminProductsRoutes);
+// app.use("/api/admin/orders", adminOrdersRoutes);
+// app.use("/api/admin", adminStatsRoutes);
+// app.use("/api/banners", bannerRoutes);
+// app.use("/api/payments", paymentRoutes);
+
+// // ✅ 404 HANDLER
+// app.use((req, res) => {
+//   res.status(404).json({
+//     message: `Route not found: ${req.method} ${req.originalUrl}`
+//   });
+// });
+
+// // ✅ ERROR HANDLER
+// app.use((err, req, res, next) => {
+//   console.error("❌ Server Error:", err.message, err.stack);
+//   res.status(500).json({
+//     message: "Server error occurred"
+//   });
+// });
+
+// // ✅ SERVER START
+// const PORT = process.env.PORT || 8000;
+// app.listen(PORT, '0.0.0.0', () => {
+//   console.log(`🚀 Server running on port ${PORT}`);
+//   console.log(`📍 Test: http://localhost:${PORT}/`);
+//   console.log(`📍 Health: http://localhost:${PORT}/api/health`);
+// });
+
+// // ✅ MONGODB - FAILSAFE
+// mongoose.connect("mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongodb.net/EcommerceWebsite?retryWrites=true&w=majority&appName=Cluster0", {
+//   serverSelectionTimeoutMS: 5000,
+//   connectTimeoutMS: 10000,
+//   socketTimeoutMS: 45000,
+//   maxPoolSize: 10
+// }).then(async () => {
+//   console.log("✅ MongoDB Connected");
+  
+//   try {
+//     const db = mongoose.connection.db;
+//     console.log("🔍 DB:", db.databaseName);
+    
+//     const collections = await db.listCollections().toArray();
+//     console.log("📦 Collections:", collections.map(c => c.name));
+    
+//     const products = await db.collection('products').find({}).limit(1).toArray();
+//     console.log("📦 First product:", products[0]?.name || "EMPTY");
+    
+//     const count = await db.collection('products').countDocuments();
+//     console.log(`🎉 Products ready: ${count}`);
+//   } catch (e) {
+//     console.warn("⚠️ DB test skipped:", e.message);
+//   }
+// }).catch(err => {
+//   console.error("❌ MongoDB FAILED:", err.message);
+//   process.exit(1);  // Railway restarts
+// });
+
+// mongoose.connection.on("error", (err) => {
+//   console.error("❌ MongoDB Error:", err.message);
+// });
+
+// mongoose.connection.on("disconnected", () => {
+//   console.log("⚠️ MongoDB Disconnected - reconnecting...");
+// });
+
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -887,7 +1043,7 @@ const paymentRoutes = safeRouter('paymentRoutes');
 
 const app = express();
 
-// ✅ RAILWAY HEALTH CHECK - Runs FIRST
+// ✅ RAILWAY HEALTH CHECK - Runs FIRST (before middleware)
 app.get('/', (req, res) => {
   res.json({ 
     status: 'Backend Healthy ✅', 
@@ -896,6 +1052,7 @@ app.get('/', (req, res) => {
   });
 });
 
+// ✅ MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -975,8 +1132,10 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`📍 Health: http://localhost:${PORT}/api/health`);
 });
 
-// ✅ MONGODB - FAILSAFE
-mongoose.connect("mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongodb.net/EcommerceWebsite?retryWrites=true&w=majority&appName=Cluster0", {
+// ✅ MONGODB - USE ENV VARIABLE + FAILSAFE
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongodb.net/EcommerceWebsite?retryWrites=true&w=majority&appName=Cluster0";
+
+mongoose.connect(MONGO_URI, {
   serverSelectionTimeoutMS: 5000,
   connectTimeoutMS: 10000,
   socketTimeoutMS: 45000,
@@ -1001,7 +1160,7 @@ mongoose.connect("mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongod
   }
 }).catch(err => {
   console.error("❌ MongoDB FAILED:", err.message);
-  process.exit(1);  // Railway restarts
+  process.exit(1);  // ✅ CRITICAL: Railway auto-restarts
 });
 
 mongoose.connection.on("error", (err) => {
