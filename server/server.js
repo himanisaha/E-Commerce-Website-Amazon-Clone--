@@ -721,6 +721,9 @@ const bannerRoutes = require("./routes/bannerRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
+app.get('/', (req, res) => {
+  res.json({ status: 'Backend Healthy ✅', timestamp: new Date().toISOString() });
+});
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -841,6 +844,7 @@ mongoose.connect("mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongod
 
 }).catch(err => {
   console.error("❌ MongoDB Connect Failed:", err);
+  process.exit(1);  // 🚀 Railway auto-restarts
 });
 
 mongoose.connection.on("error", (err) => {
