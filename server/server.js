@@ -543,9 +543,167 @@
 //   console.log("⚠️ MongoDB Disconnected");
 // });
 
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// const path = require("path");
+// require("dotenv").config();
+
+// mongoose.set('strictQuery', false);
+
+// const productRoutes = require("./routes/productRoutes");
+// const userRoutes = require("./routes/userRoutes");
+// const cartRoutes = require("./routes/cartRoutes");
+// const orderRoutes = require("./routes/orderRoutes");
+// const adminRoutes = require("./routes/adminRoutes");
+// const adminProductsRoutes = require("./routes/adminProducts");
+// const adminOrdersRoutes = require("./routes/adminOrders");
+// const adminStatsRoutes = require("./routes/adminStats");
+// const bannerRoutes = require("./routes/bannerRoutes");
+// const paymentRoutes = require("./routes/paymentRoutes");
+
+// const app = express();
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// // ✅ CORS PACKAGE (FIXED - handles credentials properly)
+// // app.use(cors({
+// //   origin: [
+// //     'https://ecommerce-website-amazon-clone.netlify.app',
+// //     'http://localhost:3000',
+// //     'http://localhost:5173'
+// //   ],
+// //   credentials: true,
+// //   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+// //   allowedHeaders: ['Content-Type', 'Authorization']
+// // }));
+
+// // 🚨 NUCLEAR CORS FIX - WORKS 100%
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://ecommerce-website-amazon-clone.netlify.app');
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  
+//   if (req.method === 'OPTIONS') {
+//     return res.sendStatus(200);
+//   } else {
+//     next();
+//   }
+// });
+
+// // ✅ STATIC FILES
+// app.use("/products", express.static(path.join(__dirname, "public/products")));
+// app.use("/banners", express.static(path.join(__dirname, "public/banners")));
+// app.use("/logos", express.static(path.join(__dirname, "public/logos")));
+// app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
+// app.use("/icons", express.static(path.join(__dirname, "public/icons")));
+
+// // ✅ TEST ROUTES (with /api prefix)
+// app.get("/api/test", (req, res) => {
+//   res.json({
+//     message: "Backend OK ✅",
+//     mongoConnected: mongoose.connection.readyState === 1
+//   });
+// });
+
+// app.get("/api/health", (req, res) => {
+//   res.json({
+//     status: "healthy",
+//     db: mongoose.connection.readyState === 1 ? "connected" : "disconnected"
+//   });
+// });
+
+// // ✅ MOUNT ALL API ROUTES
+// app.use("/api/products", productRoutes);
+// app.use("/api/users", userRoutes);
+// app.use("/api/cart", cartRoutes);
+// app.use("/api/orders", orderRoutes);
+// app.use("/api/admin", adminRoutes);
+// app.use("/api/admin/products", adminProductsRoutes);
+// app.use("/api/admin/orders", adminOrdersRoutes);
+// app.use("/api/admin", adminStatsRoutes);
+// app.use("/api/banners", bannerRoutes);
+// app.use("/api/payments", paymentRoutes);
+
+// // ✅ 404 HANDLER
+// app.use((req, res) => {
+//   res.status(404).json({
+//     message: `Route not found: ${req.method} ${req.originalUrl}`
+//   });
+// });
+
+// // ✅ ERROR HANDLER
+// app.use((err, req, res, next) => {
+//   console.error("❌ Server Error:", err.message);
+//   res.status(500).json({
+//     message: "Server error",
+//     error: err.message
+//   });
+// });
+
+// // ✅ SERVER START FIRST
+// const PORT = process.env.PORT || 8000;
+// app.listen(PORT, '0.0.0.0', () => {
+//   console.log(`🚀 Server running on port ${PORT}`);
+// });
+
+// // ✅ MONGODB ASYNC (NON-BLOCKING)
+// mongoose.connect("mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongodb.net/EcommerceWebsite?retryWrites=true&w=majority&appName=Cluster0", {
+//   serverSelectionTimeoutMS: 5000,
+//   connectTimeoutMS: 10000,
+//   socketTimeoutMS: 45000,
+//   maxPoolSize: 10
+// }).then(async () => {
+//   console.log("✅ MongoDB Connected");
+//   console.log("🔍 DB:", mongoose.connection.db.databaseName);
+
+//   // ✅ IMMEDIATE TEST
+//   try {
+//     const collections = await mongoose.connection.db.listCollections().toArray();
+//     console.log("📦 Collections:", collections.map(c => c.name));
+
+//     const products = await mongoose.connection.db.collection('products').find({}).limit(1).toArray();
+//     console.log("📦 First product:", products[0]?.name || "EMPTY");
+//   } catch (e) {
+//     console.error("❌ DB test failed:", e.message);
+//   }
+
+//   // ✅ RETRY PRODUCTS COUNT
+//   const checkProducts = async (retries = 5) => {
+//     for (let i = 0; i < retries; i++) {
+//       try {
+//         await new Promise(r => setTimeout(r, 1000 * (i + 1)));
+//         const count = await mongoose.connection.db.collection('products').countDocuments();
+//         console.log(`🔍 products count (attempt ${i + 1}): ${count}`);
+//         if (count > 0) {
+//           console.log("🎉 Products ready!");
+//           return;
+//         }
+//       } catch (e) {
+//         console.log(`⚠️ Attempt ${i + 1} failed:`, e.message);
+//       }
+//     }
+//     console.error("❌ Products count failed");
+//   };
+
+//   await checkProducts();
+
+// }).catch(err => {
+//   console.error("❌ MongoDB Connect Failed:", err);
+// });
+
+// mongoose.connection.on("error", (err) => {
+//   console.error("❌ MongoDB Error:", err);
+// });
+
+// mongoose.connection.on("disconnected", () => {
+//   console.log("⚠️ MongoDB Disconnected");
+// });
+
+
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
 
@@ -566,30 +724,31 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ CORS PACKAGE (FIXED - handles credentials properly)
-// app.use(cors({
-//   origin: [
-//     'https://ecommerce-website-amazon-clone.netlify.app',
-//     'http://localhost:3000',
-//     'http://localhost:5173'
-//   ],
-//   credentials: true,
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Authorization']
-// }));
-
-// 🚨 NUCLEAR CORS FIX - WORKS 100%
+// ✅ DYNAMIC CORS - Accepts any origin (for testing)
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://ecommerce-website-amazon-clone.netlify.app');
+  const origin = req.headers.origin;
+  
+  // Allowed origins
+  const allowedOrigins = [
+    'https://ecommerce-website-amazon-clone.netlify.app',
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:5173'
+  ];
+
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,PATCH,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
   
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
-  } else {
-    next();
   }
+  next();
 });
 
 // ✅ STATIC FILES
@@ -599,11 +758,12 @@ app.use("/logos", express.static(path.join(__dirname, "public/logos")));
 app.use("/ratings", express.static(path.join(__dirname, "public/ratings")));
 app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 
-// ✅ TEST ROUTES (with /api prefix)
+// ✅ TEST ROUTES
 app.get("/api/test", (req, res) => {
   res.json({
     message: "Backend OK ✅",
-    mongoConnected: mongoose.connection.readyState === 1
+    mongoConnected: mongoose.connection.readyState === 1,
+    origin: req.headers.origin
   });
 });
 
@@ -658,7 +818,6 @@ mongoose.connect("mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongod
   console.log("✅ MongoDB Connected");
   console.log("🔍 DB:", mongoose.connection.db.databaseName);
 
-  // ✅ IMMEDIATE TEST
   try {
     const collections = await mongoose.connection.db.listCollections().toArray();
     console.log("📦 Collections:", collections.map(c => c.name));
@@ -669,7 +828,6 @@ mongoose.connect("mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongod
     console.error("❌ DB test failed:", e.message);
   }
 
-  // ✅ RETRY PRODUCTS COUNT
   const checkProducts = async (retries = 5) => {
     for (let i = 0; i < retries; i++) {
       try {
