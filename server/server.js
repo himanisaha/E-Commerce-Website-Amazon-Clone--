@@ -433,12 +433,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const fs = require("fs");  // ✅ Added for debug
+const fs = require("fs");
 require("dotenv").config();
 
 mongoose.set('strictQuery', false);
 
-// ✅ BULLETPROOF ROUTE LOADER - Server survives missing files
+// ✅ MONGODB FIRST - NO CRASH/EXIT (Server survives fail)
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongodb.net/EcommerceWebsite?retryWrites=true&w=majority";
+mongoose.connect(MONGO_URI, {
+  serverSelectionTimeoutMS: 5000,
+  connectTimeoutMS: 10000
+}).then(() => console.log("✅ MongoDB Connected"))
+  .catch(err => console.log("⚠️ MongoDB FAILED (server continues):", err.message));  // CRITICAL: NO process.exit(1)
+
+mongoose.connection.on("error", (err) => console.error("❌ MongoDB Error:", err.message));
+mongoose.connection.on("disconnected", () => console.log("⚠️ MongoDB Disconnected"));
+
+// ✅ BULLETPROOF ROUTE LOADER
 const safeRouter = (name) => {
   try {
     const router = require(`./routes/${name}`);
@@ -453,7 +464,7 @@ const productRoutes = safeRouter('productRoutes');
 const userRoutes = safeRouter('userRoutes');
 const cartRoutes = safeRouter('cartRoutes');
 const orderRoutes = safeRouter('orderRoutes');
-const adminRoutes = safeRouter('adminRoutes')
+const adminRoutes = safeRouter('adminRoutes');
 const adminProductsRoutes = safeRouter('adminProducts');
 const adminOrdersRoutes = safeRouter('adminOrders');
 const adminStatsRoutes = safeRouter('adminStats');
@@ -462,7 +473,7 @@ const paymentRoutes = safeRouter('paymentRoutes');
 
 const app = express();
 
-// ✅ RAILWAY HEALTH CHECK - FIRST ROUTE
+// ✅ RAILWAY HEALTH CHECK - FIRST
 app.get('/', (req, res) => {
   res.json({ 
     status: 'Backend Healthy ✅', 
@@ -474,7 +485,7 @@ app.get('/', (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ DYNAMIC CORS FIX - Echoes exact Netlify origin
+// ✅ DYNAMIC CORS - Auto Netlify
 app.use((req, res, next) => {
   const origin = req.headers.origin;
   if (origin) res.header('Access-Control-Allow-Origin', origin);
@@ -485,19 +496,16 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ STATIC FILES DEBUG - Check folders exist
+// ✅ STATIC DEBUG (uncomment after mkdir public/products etc.)
 console.log("📁 Static check:", {
   products: fs.existsSync(path.join(__dirname, "public/products")),
   banners: fs.existsSync(path.join(__dirname, "public/banners"))
 });
-// Uncomment AFTER creating folders:
-// app.use("/products", express.static(path.join(__dirname, "public/products")));
-// ... other static
+// app.use("/products", express.static(path.join(__dirname, "public/products")));  // etc.
 
-// ✅ TEST ROUTES
 app.get("/api/test", (req, res) => {
   res.json({
-    message: "Backend OK ✅",
+    message: "Backend LIVE ✅",
     mongoConnected: mongoose.connection.readyState === 1,
     origin: req.headers.origin
   });
@@ -507,7 +515,10 @@ app.get("/api/health", (req, res) => {
   res.json({
     status: "healthy",
     db: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
-    routes: { users: !!userRoutes, products: !!productRoutes }
+    routes: { 
+      users: !!userRoutes && userRoutes.stack?.length > 0,
+      products: !!productRoutes && productRoutes.stack?.length > 0 
+    }
   });
 });
 
@@ -519,7 +530,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin/products", adminProductsRoutes);
 app.use("/api/admin/orders", adminOrdersRoutes);
-app.use("/api/admin", adminStatsRoutes);
+app.use("/api/admin/stats", adminStatsRoutes);  // Fixed path
 app.use("/api/banners", bannerRoutes);
 app.use("/api/payments", paymentRoutes);
 
@@ -530,23 +541,15 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Server error" });
 });
 
-// ✅ SERVER START
+// ✅ START SERVER
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
 
-// ✅ CRASH PROTECTION
+// ✅ CRASH PROTECTION (non-fatal)
 process.on('unhandledRejection', (reason) => console.error('❌ Unhandled:', reason));
-process.on('uncaughtException', (err) => { console.error('❌ Fatal:', err); process.exit(1); });
-
-// ✅ MONGODB - CORRECT ENV VAR + SAFE
-const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://railwayUser:Railway12345@cluster0.8kw1q9w.mongodb.net/EcommerceWebsite?retryWrites=true&w=majority";
-mongoose.connect(MONGO_URI, {
-  serverSelectionTimeoutMS: 5000,
-  connectTimeoutMS: 10000
-}).then(() => console.log("✅ MongoDB Connected"))
-  .catch(err => { console.error("❌ MongoDB FAILED:", err.message); process.exit(1); });
-
-mongoose.connection.on("error", (err) => console.error("❌ MongoDB Error:", err.message));
-mongoose.connection.on("disconnected", () => console.log("⚠️ MongoDB Disconnected"));
+process.on('uncaughtException', (err) => { 
+  console.error('❌ Fatal:', err); 
+  process.exit(1); 
+});
