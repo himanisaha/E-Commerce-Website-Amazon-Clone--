@@ -3,15 +3,8 @@ const Order = require("../models/Order");
 const { auth, admin } = require("../middleware/authMiddleware");
 
 const router = express.Router();
-
-// Allowed admin status values
 const ALLOWED_STATUS_TYPES = [
-  "Placed",
-  "Packed",
-  "Shipped",
-  "Out for delivery",
-  "Delivered",
-  "Cancelled",
+  "Placed", "Packed", "Shipped", "Out for delivery", "Delivered", "Cancelled",
 ];
 
 // ================= CUSTOMER ROUTES =================
@@ -27,11 +20,11 @@ router.post("/", auth, async (req, res) => {
     } = req.body;
 
     const items = (rawItems || []).map((item) => ({
-      product: item.product || item.productId || item._id, // ensure product id
+      product: item.product || item.productId || item._id,
       name: item.name,
       price: item.price,
       qty: item.qty || item.quantity,
-      image: item.image,
+      image: item.image,  // ✅ Store image if available
     }));
 
     const order = await Order.create({
@@ -40,13 +33,7 @@ router.post("/", auth, async (req, res) => {
       totalPrice,
       paymentType: paymentType || "COD",
       shippingAddress,
-      orderStatus: [
-        {
-          type: "Placed",
-          isCompleted: true,
-          date: new Date(),
-        },
-      ],
+      orderStatus: [{ type: "Placed", isCompleted: true, date: new Date() }],
     });
 
     res.json(order);
@@ -56,12 +43,16 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
-// My orders (customer)
+// My orders (customer) - FIXED ✅
 router.get("/my-orders", auth, async (req, res) => {
   try {
-    const orders = await Order.find({ userId: req.user.id }).sort({
-      createdAt: -1,
-    });
+    const orders = await Order.find({ userId: req.user.id })
+      .populate({
+        path: "items.product",  // ✅ Populate product IDs
+        select: "name image"    // ✅ Get Cloudinary images
+      })
+      .sort({ createdAt: -1 });
+    
     res.json(orders);
   } catch (err) {
     console.error("My orders error:", err);
@@ -69,12 +60,16 @@ router.get("/my-orders", auth, async (req, res) => {
   }
 });
 
-// Get single order by ID (customer)
+// Get single order by ID (customer) - ALSO FIXED
 router.get("/:id", auth, async (req, res) => {
   try {
     const order = await Order.findOne({
       _id: req.params.id,
-      userId: req.user.id, // ensure user owns the order
+      userId: req.user.id,
+    })
+    .populate({
+      path: "items.product",
+      select: "name image"
     });
 
     if (!order) {
@@ -88,13 +83,12 @@ router.get("/:id", auth, async (req, res) => {
   }
 });
 
-// ================= ADMIN ROUTES =================
-
-// Admin: all orders
+// ================= ADMIN ROUTES ================= (unchanged)
 router.get("/", auth, admin, async (req, res) => {
   try {
     const orders = await Order.find()
       .populate("userId", "name email")
+      .populate("items.product", "name image")
       .sort({ createdAt: -1 });
     res.json(orders);
   } catch (err) {
@@ -103,10 +97,10 @@ router.get("/", auth, admin, async (req, res) => {
   }
 });
 
-// Admin: update order status
+// Admin: update order status (unchanged)
 router.put("/:id/status", auth, admin, async (req, res) => {
   try {
-    const { type, note } = req.body; // "Packed", "Shipped", etc.
+    const { type, note } = req.body;
 
     if (!ALLOWED_STATUS_TYPES.includes(type)) {
       return res.status(400).json({ message: "Invalid status type" });
@@ -117,13 +111,11 @@ router.put("/:id/status", auth, admin, async (req, res) => {
       return res.status(404).json({ message: "Order not found" });
     }
 
-    // Mark previous step as completed (if not already)
     if (order.orderStatus.length > 0) {
       const last = order.orderStatus[order.orderStatus.length - 1];
       if (!last.isCompleted) last.isCompleted = true;
     }
 
-    // Add new status step
     order.orderStatus.push({
       type,
       isCompleted: type === "Delivered" || type === "Cancelled",
