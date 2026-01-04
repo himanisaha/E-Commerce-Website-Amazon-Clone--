@@ -62,11 +62,12 @@ function ProductCard({ product, inWishlist = false, onWishlistChange }) {
         {/* BODY */}
         <div className="card-body pt-2 d-flex flex-column">
           <div className="d-flex align-items-center mb-2">
-            <RatingStars rating={product.rating || 0} />
+            <RatingStars rating={product.rating || 0} size={90} />  {/* Added size */}
             <small className="text-muted ms-1">
               ({product.rating || 0})
             </small>
           </div>
+
 
           <div className="mb-2">
             <span className="fw-bold text-danger me-2">
