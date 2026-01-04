@@ -97,7 +97,6 @@ router.get("/users", adminAuth, async (req, res) => {
   }
 });
 
-// ✅ ADD THIS: ADMIN DASHBOARD STATS
 // ✅ ADMIN DASHBOARD STATS (FIXED for totalPrice + status array)
 router.get("/stats/summary", adminAuth, async (req, res) => {
   try {
