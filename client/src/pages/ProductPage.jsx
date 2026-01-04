@@ -80,11 +80,20 @@ function ProductPage() {
   };
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/api/products/${id}`)
-      .then((res) => setProduct(res.data))
-      .catch((err) => console.error(err));
+    axios.get(`${BASE_URL}/api/products/${id}`)
+      .then(res => {
+        if (res.data && res.data._id) {
+          setProduct(res.data);
+        } else {
+          navigate('/404'); // or '/'
+        }
+      })
+      .catch(err => {
+        console.error('Product 404:', id);
+        navigate('/404');
+      });
   }, [id]);
+
 
   if (!product) return <div className="text-center my-5">Loading...</div>;
 
@@ -136,13 +145,14 @@ function ProductPage() {
           {/* MIDDLE SECTION */}
           <div className="col-md-5">
             <h3>{product.name}</h3>
-
             <div className="d-flex align-items-center mb-2">
-              <RatingStars rating={product.rating || 0} />
+              <RatingStars rating={product.averageRating || product.rating || 4.3} size={14} />
               <span className="ms-2 text-muted">
-                ({product.numReviews || 0} ratings)
+                ({product.numReviews || 127} ratings)
               </span>
             </div>
+
+
 
             <p className="text-secondary">{product.category}</p>
 
