@@ -98,16 +98,16 @@ router.get("/users", adminAuth, async (req, res) => {
 });
 
 // ✅ ADD THIS: ADMIN DASHBOARD STATS
+// ✅ ADMIN DASHBOARD STATS (FIXED for totalPrice + status array)
 router.get("/stats/summary", adminAuth, async (req, res) => {
   try {
     const usersCount = await User.countDocuments();
     const ordersCount = await Order.countDocuments();
     const productsCount = await Product.countDocuments();
 
-    // Calculate total revenue from completed/delivered orders
+    // ✅ Use totalPrice field + all orders revenue
     const revenueData = await Order.aggregate([
-      { $match: { status: { $in: ["Delivered", "Completed"] } } },
-      { $group: { _id: null, total: { $sum: "$totalAmount" } } },
+      { $group: { _id: null, total: { $sum: "$totalPrice" } } },
     ]);
 
     const totalRevenue = revenueData[0]?.total || 0;
